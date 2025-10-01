@@ -4,14 +4,18 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Her Name – Composer & Arranger</title>
-  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cpath fill='%236C63FF' d='M16 2c-1 0-2 1-2 2v2c0 1 1 2 2 2s2-1 2-2V4c0-1-1-2-2-2zm-4 6c-1 0-2 1-2 2v12c0 1 1 2 2 2s2-1 2-2V10c0-1-1-2-2-2zm8 0c-1 0-2 1-2 2v12c0 1 1 2 2 2s2-1 2-2V10c0-1-1-2-2-2zm-6 2h4v12h-4V10zm-2 4c-1 0-2 1-2 2v4c0 1 1 2 2 2s2-1 2-2v-4c0-1-1-2-2-2zm12 0c-1 0-2 1-2 2v4c0 1 1 2 2 2s2-1 2-2v-4c0-1-1-2-2-2zm-8 2h4v4h-4v-4zm-2 6c-1 0-2 1-2 2v2c0 1 1 2 2 2s2-1 2-2v-2c0-1-1-2-2-2zm12 0c-1 0-2 1-2 2v2c0 1 1 2 2 2s2-1 2-2v-2c0-1-1-2-2-2zm-8 2h4v2h-4v-2z'/%3E%3C/svg%3E">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cpath fill='%23FFD700' d='M16 2c-1 0-2 1-2 2v2c0 1 1 2 2 2s2-1 2-2V4c0-1-1-2-2-2zm-4 6c-1 0-2 1-2 2v12c0 1 1 2 2 2s2-1 2-2V10c0-1-1-2-2-2zm8 0c-1 0-2 1-2 2v12c0 1 1 2 2 2s2-1 2-2V10c0-1-1-2-2-2zm-6 2h4v12h-4V10zm-2 4c-1 0-2 1-2 2v4c0 1 1 2 2 2s2-1 2-2v-4c0-1-1-2-2-2zm12 0c-1 0-2 1-2 2v4c0 1 1 2 2 2s2-1 2-2v-4c0-1-1-2-2-2zm-8 2h4v4h-4v-4zm-2 6c-1 0-2 1-2 2v2c0 1 1 2 2 2s2-1 2-2v-2c0-1-1-2-2-2zm12 0c-1 0-2 1-2 2v2c0 1 1 2 2 2s2-1 2-2v-2c0-1-1-2-2-2zm-8 2h4v2h-4v-2z'/%3E%3C/svg%3E">
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
   <style>
     :root {
-      --primary: #6C63FF;
-      --dark: #111;
-      --light: #f9f9f9;
-      --text: #333;
+      --celestial-yellow: #FFD700;
+      --sage-green: #87A96B;
+      --dark-sage: #6B8E4E;
+      --light-sage: #A8C090;
+      --dark: #2C3E2D;
+      --light: #F8F9F5;
+      --text: #2C3E2D;
+      --accent-gold: #FFA500;
     }
 
     * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -20,17 +24,51 @@
       font-family: 'Poppins', sans-serif;
       line-height: 1.6;
       color: var(--text);
-      background: var(--light);
+      background: linear-gradient(135deg, var(--light) 0%, #F0F4E8 100%);
       scroll-behavior: smooth;
+      position: relative;
+    }
+
+    /* Decorative vine elements */
+    .vine-left {
+      position: fixed;
+      left: -50px;
+      top: 0;
+      width: 200px;
+      height: 100vh;
+      background: linear-gradient(45deg, var(--sage-green), var(--light-sage));
+      opacity: 0.1;
+      z-index: -1;
+      clip-path: polygon(0 0, 30% 0, 20% 20%, 40% 40%, 15% 60%, 35% 80%, 10% 100%, 0 100%);
+      animation: vine-sway 8s ease-in-out infinite;
+    }
+
+    .vine-right {
+      position: fixed;
+      right: -50px;
+      top: 0;
+      width: 200px;
+      height: 100vh;
+      background: linear-gradient(-45deg, var(--sage-green), var(--light-sage));
+      opacity: 0.1;
+      z-index: -1;
+      clip-path: polygon(100% 0, 70% 0, 80% 20%, 60% 40%, 85% 60%, 65% 80%, 90% 100%, 100% 100%);
+      animation: vine-sway 8s ease-in-out infinite reverse;
+    }
+
+    @keyframes vine-sway {
+      0%, 100% { transform: translateX(0) rotate(0deg); }
+      50% { transform: translateX(10px) rotate(1deg); }
     }
 
     header {
-      background: linear-gradient(45deg, rgba(108, 99, 255, 0.8), rgba(108, 99, 255, 0.6));
-      color: white;
+      background: linear-gradient(135deg, var(--celestial-yellow) 0%, var(--accent-gold) 50%, var(--sage-green) 100%);
+      color: var(--dark);
       padding: 4rem 2rem;
       text-align: center;
       position: relative;
       overflow: hidden;
+      box-shadow: 0 8px 32px rgba(135, 169, 107, 0.3);
     }
 
     .scrolling-bg {
@@ -73,12 +111,13 @@
     }
 
     nav {
-      background: var(--dark);
+      background: linear-gradient(90deg, var(--dark-sage) 0%, var(--sage-green) 50%, var(--dark-sage) 100%);
       padding: 1rem;
       text-align: center;
       position: sticky;
       top: 0;
       z-index: 1000;
+      box-shadow: 0 4px 16px rgba(43, 62, 45, 0.2);
     }
 
     nav a {
@@ -89,7 +128,7 @@
       transition: color 0.3s;
     }
 
-    nav a:hover { color: var(--primary); }
+    nav a:hover { color: var(--celestial-yellow); }
 
     section {
       padding: 4rem 2rem;
@@ -101,7 +140,8 @@
       font-size: 2rem;
       margin-bottom: 1.5rem;
       text-align: center;
-      color: var(--primary);
+      color: var(--sage-green);
+      text-shadow: 2px 2px 4px rgba(135, 169, 107, 0.3);
     }
 
     .projects {
@@ -111,31 +151,43 @@
     }
 
     .card {
-      background: white;
+      background: linear-gradient(145deg, #ffffff 0%, #f8f9f5 100%);
       padding: 1.5rem;
       border-radius: 12px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-      transition: transform 0.3s;
+      box-shadow: 0 8px 24px rgba(135, 169, 107, 0.2);
+      transition: transform 0.3s, box-shadow 0.3s;
+      border: 1px solid rgba(135, 169, 107, 0.1);
     }
 
-    .card:hover { transform: translateY(-6px); }
+    .card:hover { 
+      transform: translateY(-6px); 
+      box-shadow: 0 12px 32px rgba(135, 169, 107, 0.3);
+    }
 
     footer {
-      background: var(--dark);
-      color: white;
+      background: linear-gradient(135deg, var(--dark-sage) 0%, var(--sage-green) 100%);
+      color: var(--light);
       text-align: center;
       padding: 2rem;
       margin-top: 3rem;
+      box-shadow: 0 -4px 16px rgba(43, 62, 45, 0.2);
     }
 
     footer a {
-      color: var(--primary);
+      color: var(--celestial-yellow);
       text-decoration: none;
       font-weight: 600;
+      transition: color 0.3s;
+    }
+
+    footer a:hover {
+      color: var(--accent-gold);
     }
   </style>
 </head>
 <body>
+  <div class="vine-left"></div>
+  <div class="vine-right"></div>
   <header>
     <div class="scrolling-bg"></div>
     <div class="header-content">
@@ -189,7 +241,7 @@
     <p style="text-align:center;">
       Let’s work together!  
       <br><br>
-      📧 <a href="mailto:contact@herdomain.com">contact@herdomain.com</a>
+      📧 <a href="mailto:contact@herdomain.com" style="color: var(--sage-green); text-decoration: none; font-weight: 600;">contact@herdomain.com</a>
     </p>
   </section>
 
@@ -198,7 +250,7 @@
     <p style="text-align:center;">
       I'll make something that your students will remember forever!  
       <br><br>
-      📧 <a href="mailto:contact@herdomain.com">CallieIsASuperAttractiveWoman@gmail.com</a>
+      📧 <a href="mailto:contact@herdomain.com" style="color: var(--sage-green); text-decoration: none; font-weight: 600;">CallieIsASuperAttractiveWoman@gmail.com</a>
     </p>
   </section>
 
