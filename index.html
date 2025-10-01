@@ -24,10 +24,40 @@
     }
 
     header {
-      background: var(--primary);
+      background: linear-gradient(45deg, rgba(108, 99, 255, 0.8), rgba(108, 99, 255, 0.6));
       color: white;
       padding: 4rem 2rem;
       text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .scrolling-bg {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 200%;
+      height: 100%;
+      background-image: url('CallieMadson.png');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      animation: scroll 20s linear infinite;
+      z-index: -1;
+    }
+
+    @keyframes scroll {
+      0% {
+        transform: translateX(0);
+      }
+      100% {
+        transform: translateX(-50%);
+      }
+    }
+
+    .header-content {
+      position: relative;
+      z-index: 1;
     }
 
     header h1 {
@@ -106,8 +136,11 @@
 </head>
 <body>
   <header>
-    <h1>Compositions By Callie Madson</h1>
-    <p>Composer · Arranger · Musician</p>
+    <div class="scrolling-bg"></div>
+    <div class="header-content">
+      <h1>Compositions By Callie Madson</h1>
+      <p>Composer · Arranger · Musician</p>
+    </div>
   </header>
 
   <nav>
