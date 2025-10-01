@@ -1,35 +1,159 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
+  <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Her Name – Composer & Arranger</title>
-  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #6C63FF;
+      --dark: #111;
+      --light: #f9f9f9;
+      --text: #333;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      line-height: 1.6;
+      color: var(--text);
+      background: var(--light);
+      scroll-behavior: smooth;
+    }
+
+    header {
+      background: var(--primary);
+      color: white;
+      padding: 4rem 2rem;
+      text-align: center;
+    }
+
+    header h1 {
+      font-size: 3rem;
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+    }
+
+    header p {
+      font-size: 1.2rem;
+      opacity: 0.9;
+    }
+
+    nav {
+      background: var(--dark);
+      padding: 1rem;
+      text-align: center;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin: 0 1rem;
+      font-weight: 500;
+      transition: color 0.3s;
+    }
+
+    nav a:hover { color: var(--primary); }
+
+    section {
+      padding: 4rem 2rem;
+      max-width: 1000px;
+      margin: auto;
+    }
+
+    section h2 {
+      font-size: 2rem;
+      margin-bottom: 1.5rem;
+      text-align: center;
+      color: var(--primary);
+    }
+
+    .projects {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .card {
+      background: white;
+      padding: 1.5rem;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      transition: transform 0.3s;
+    }
+
+    .card:hover { transform: translateY(-6px); }
+
+    footer {
+      background: var(--dark);
+      color: white;
+      text-align: center;
+      padding: 2rem;
+      margin-top: 3rem;
+    }
+
+    footer a {
+      color: var(--primary);
+      text-decoration: none;
+      font-weight: 600;
+    }
+  </style>
 </head>
 <body>
   <header>
-    <h1>🎶 Compositions By Callie</h1>
-    <p>Composer | Arranger | Musician</p>
+    <h1>Her Name</h1>
+    <p>Composer · Arranger · Musician</p>
   </header>
 
-  <main>
-    <section>
-      <h2>About</h2>
-      <p>Welcome to my portfolio! I arrange and compose vibrant music for kids and adults of all ages to become the very best musician they can be!</p>
-    </section>
+  <nav>
+    <a href="#about">About</a>
+    <a href="#projects">Projects</a>
+    <a href="#contact">Contact</a>
+  </nav>
 
-    <section>
-      <h2>Projects</h2>
-      <ul>
-        <li>Symphony for Strings</li>
-        <li>Film Score Arrangement</li>
-      </ul>
-    </section>
+  <section id="about">
+    <h2>About Me</h2>
+    <p>
+      Welcome! I’m a passionate music composer and arranger dedicated to creating vibrant, 
+      memorable works. From film scores to live performances, I bring music to life through 
+      creativity and collaboration.
+    </p>
+  </section>
 
-    <section>
-      <h2>Contact</h2>
-      <p>Email: <a href="CallieIsSoBeautiful@gmail.com">CallieIsSoBeautiful.com</a></p>
-    </section>
-  </main>
+  <section id="projects">
+    <h2>Projects</h2>
+    <div class="projects">
+      <div class="card">
+        <h3>🎻 Symphony for Strings</h3>
+        <p>An original symphony performed live by a 40-piece orchestra.</p>
+      </div>
+      <div class="card">
+        <h3>🎬 Film Score</h3>
+        <p>Composed and arranged a full score for an independent short film.</p>
+      </div>
+      <div class="card">
+        <h3>🎤 Vocal Arrangements</h3>
+        <p>Unique harmonies and vocal layering for choirs and ensembles.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <h2>Contact</h2>
+    <p style="text-align:center;">
+      Let’s work together!  
+      <br><br>
+      📧 <a href="mailto:contact@herdomain.com">contact@herdomain.com</a>
+    </p>
+  </section>
+
+  <footer>
+    <p>© 2025 Her Name · All Rights Reserved</p>
+  </footer>
 </body>
 </html>
