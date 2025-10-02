@@ -24,310 +24,31 @@
               700: "#4e6e3a",
               800: "#364f2a",
               900: "#293e21"
-            }
+            },
+            celestial: "#FFD700",
+            sage: "#87A96B",
+            sageDark: "#6B8E4E"
           }
         }
       }
     }
   </script>
-  <style>
-    :root {
-      --celestial-yellow: #FFD700;
-      --sage-green: #87A96B;
-      --dark-sage: #6B8E4E;
-      --light-sage: #A8C090;
-      --dark: #2C3E2D;
-      --light: #F8F9F5;
-      --text: #2C3E2D;
-      --accent-gold: #FFA500;
-    }
-
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-
-    body {
-      font-family: 'Poppins', sans-serif;
-      line-height: 1.6;
-      color: var(--text);
-      background: linear-gradient(135deg, var(--light) 0%, #F0F4E8 100%);
-      scroll-behavior: smooth;
-      position: relative;
-    }
-
-    /* Decorative vine elements */
-    .vine-left {
-      position: fixed;
-      left: -50px;
-      top: 0;
-      width: 200px;
-      height: 100vh;
-      background: linear-gradient(45deg, var(--sage-green), var(--light-sage));
-      opacity: 0.1;
-      z-index: -1;
-      clip-path: polygon(0 0, 30% 0, 20% 20%, 40% 40%, 15% 60%, 35% 80%, 10% 100%, 0 100%);
-      animation: vine-sway 8s ease-in-out infinite;
-    }
-
-    .vine-right {
-      position: fixed;
-      right: -50px;
-      top: 0;
-      width: 200px;
-      height: 100vh;
-      background: linear-gradient(-45deg, var(--sage-green), var(--light-sage));
-      opacity: 0.1;
-      z-index: -1;
-      clip-path: polygon(100% 0, 70% 0, 80% 20%, 60% 40%, 85% 60%, 65% 80%, 90% 100%, 100% 100%);
-      animation: vine-sway 8s ease-in-out infinite reverse;
-    }
-
-    @keyframes vine-sway {
-      0%, 100% { transform: translateX(0) rotate(0deg); }
-      50% { transform: translateX(10px) rotate(1deg); }
-    }
-
-    header {
-      background: linear-gradient(135deg, var(--celestial-yellow) 0%, var(--accent-gold) 50%, var(--sage-green) 100%);
-      color: var(--dark);
-      padding: 4rem 2rem;
-      text-align: center;
-      position: relative;
-      overflow: hidden;
-      box-shadow: 0 8px 32px rgba(135, 169, 107, 0.3);
-    }
-
-    .scrolling-bg {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 200%;
-      height: 100%;
-      background-image: url('CallieMadson.png');
-      background-size: cover;
-      background-position: center;
-      background-repeat: no-repeat;
-      animation: scroll 20s linear infinite;
-      z-index: -1;
-    }
-
-    @keyframes scroll {
-      0% {
-        transform: translateX(0);
-      }
-      100% {
-        transform: translateX(-50%);
-      }
-    }
-
-    .header-content {
-      position: relative;
-      z-index: 1;
-    }
-
-    header h1 {
-      font-size: 3rem;
-      font-weight: 600;
-      margin-bottom: 0.5rem;
-    }
-
-    header p {
-      font-size: 1.2rem;
-      opacity: 0.9;
-    }
-
-    nav {
-      background: linear-gradient(90deg, var(--dark-sage) 0%, var(--sage-green) 50%, var(--dark-sage) 100%);
-      padding: 1rem;
-      text-align: center;
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-      box-shadow: 0 4px 16px rgba(43, 62, 45, 0.2);
-    }
-
-    nav a {
-      color: white;
-      text-decoration: none;
-      margin: 0 1rem;
-      font-weight: 500;
-      transition: color 0.3s;
-    }
-
-    nav a:hover { color: var(--celestial-yellow); }
-
-    section {
-      padding: 4rem 2rem;
-      max-width: 1000px;
-      margin: auto;
-    }
-
-    section h2 {
-      font-size: 2rem;
-      margin-bottom: 1.5rem;
-      text-align: center;
-      color: var(--sage-green);
-      text-shadow: 2px 2px 4px rgba(135, 169, 107, 0.3);
-    }
-
-    .projects {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 1.5rem;
-    }
-
-    .card {
-      background: linear-gradient(145deg, #ffffff 0%, #f8f9f5 100%);
-      padding: 1.5rem;
-      border-radius: 12px;
-      box-shadow: 0 8px 24px rgba(135, 169, 107, 0.2);
-      transition: transform 0.3s, box-shadow 0.3s;
-      border: 1px solid rgba(135, 169, 107, 0.1);
-    }
-
-    .card:hover { 
-      transform: translateY(-6px); 
-      box-shadow: 0 12px 32px rgba(135, 169, 107, 0.3);
-    }
-
-    footer {
-      background: linear-gradient(135deg, var(--dark-sage) 0%, var(--sage-green) 100%);
-      color: var(--light);
-      text-align: center;
-      padding: 2rem;
-      margin-top: 3rem;
-      box-shadow: 0 -4px 16px rgba(43, 62, 45, 0.2);
-    }
-
-    footer a {
-      color: var(--celestial-yellow);
-      text-decoration: none;
-      font-weight: 600;
-      transition: color 0.3s;
-    }
-
-    footer a:hover {
-      color: var(--accent-gold);
-    }
-
-    /* Sheet Music and Audio Player Styles */
-    .example-work {
-      background: linear-gradient(145deg, #ffffff 0%, #f8f9f5 100%);
-      border-radius: 16px;
-      padding: 2rem;
-      margin: 2rem 0;
-      box-shadow: 0 8px 24px rgba(135, 169, 107, 0.2);
-      border: 1px solid rgba(135, 169, 107, 0.1);
-    }
-
-    .pdf-viewer {
-      width: 100%;
-      height: 600px;
-      border: none;
-      border-radius: 12px;
-      box-shadow: 0 4px 16px rgba(135, 169, 107, 0.3);
-      margin-bottom: 1.5rem;
-    }
-
-    .audio-player {
-      width: 100%;
-      background: linear-gradient(135deg, var(--sage-green) 0%, var(--light-sage) 100%);
-      border-radius: 12px;
-      padding: 1.5rem;
-      box-shadow: 0 4px 16px rgba(135, 169, 107, 0.3);
-    }
-
-    .audio-player audio {
-      width: 100%;
-      height: 50px;
-      border-radius: 8px;
-    }
-
-    .audio-player h3 {
-      color: var(--dark);
-      margin-bottom: 1rem;
-      text-align: center;
-      font-size: 1.2rem;
-    }
-
-    /* Commission Form Styles */
-    .commission-form {
-      background: linear-gradient(145deg, #ffffff 0%, #f8f9f5 100%);
-      border-radius: 16px;
-      padding: 2.5rem;
-      margin: 2rem 0;
-      box-shadow: 0 8px 24px rgba(135, 169, 107, 0.2);
-      border: 1px solid rgba(135, 169, 107, 0.1);
-    }
-
-    .form-group {
-      margin-bottom: 1.5rem;
-    }
-
-    .form-group label {
-      display: block;
-      margin-bottom: 0.5rem;
-      font-weight: 600;
-      color: var(--sage-green);
-    }
-
-    .form-group input,
-    .form-group textarea,
-    .form-group select {
-      width: 100%;
-      padding: 0.75rem;
-      border: 2px solid rgba(135, 169, 107, 0.2);
-      border-radius: 8px;
-      font-family: 'Poppins', sans-serif;
-      font-size: 1rem;
-      transition: border-color 0.3s, box-shadow 0.3s;
-    }
-
-    .form-group input:focus,
-    .form-group textarea:focus,
-    .form-group select:focus {
-      outline: none;
-      border-color: var(--sage-green);
-      box-shadow: 0 0 0 3px rgba(135, 169, 107, 0.1);
-    }
-
-    .form-group textarea {
-      resize: vertical;
-      min-height: 120px;
-    }
-
-    .submit-btn {
-      background: linear-gradient(135deg, var(--celestial-yellow) 0%, var(--accent-gold) 100%);
-      color: var(--dark);
-      border: none;
-      padding: 1rem 2rem;
-      border-radius: 8px;
-      font-family: 'Poppins', sans-serif;
-      font-size: 1.1rem;
-      font-weight: 600;
-      cursor: pointer;
-      transition: transform 0.3s, box-shadow 0.3s;
-      width: 100%;
-    }
-
-    .submit-btn:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 8px 24px rgba(255, 215, 0, 0.3);
-    }
-  </style>
+  <script async src="https://js.stripe.com/v3/buy-button.js"></script>
 </head>
 <body class="font-sans bg-slate-950 text-slate-100 antialiased">
-  <nav class="fixed inset-x-0 top-0 z-50 border-b border-white/10 bg-slate-900/60 backdrop-blur">
+  <nav class="fixed inset-x-0 top-0 z-50 border-b border-sageDark/20 bg-sageDark/70 backdrop-blur">
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
       <div class="flex h-16 items-center justify-between">
-        <a href="#" class="flex items-center gap-2 font-semibold text-slate-100">
-          <span class="h-2.5 w-2.5 rounded-full bg-amber-400"></span>
+        <a href="#" class="flex items-center gap-2 font-semibold text-white">
+          <span class="h-2.5 w-2.5 rounded-full bg-celestial"></span>
           <span>Callie Madson</span>
         </a>
         <div class="flex items-center gap-4 sm:gap-6 text-sm">
-          <a href="#about" class="text-slate-300 hover:text-white transition">About</a>
-          <a href="#projects" class="text-slate-300 hover:text-white transition">Projects</a>
-          <a href="#example-work" class="text-slate-300 hover:text-white transition">Example Work</a>
-          <a href="#contact" class="text-slate-300 hover:text-white transition">Contact</a>
-          <a href="#commissions" class="text-slate-300 hover:text-white transition">Commissions</a>
+          <a href="#about" class="text-brand-100 hover:text-white transition">About</a>
+          <a href="#projects" class="text-brand-100 hover:text-white transition">Projects</a>
+          <a href="#example-work" class="text-brand-100 hover:text-white transition">Example Work</a>
+          <a href="#contact" class="text-brand-100 hover:text-white transition">Contact</a>
+          <a href="#commissions" class="text-brand-100 hover:text-white transition">Commissions</a>
         </div>
       </div>
     </div>
@@ -336,14 +57,14 @@
   <section class="relative isolate overflow-hidden pt-28 pb-24 md:pt-36 md:pb-32">
     <div class="absolute inset-0 -z-10">
       <img src="CallieMadson.png" alt="Background" class="h-full w-full object-cover opacity-30">
-      <div class="absolute inset-0 bg-gradient-to-b from-slate-950/70 via-slate-950/60 to-slate-950"></div>
+      <div class="absolute inset-0 bg-gradient-to-b from-sageDark/80 via-sageDark/70 to-slate-950"></div>
     </div>
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
       <div class="mx-auto max-w-3xl text-center">
         <h1 class="text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight">Compositions By Callie Madson</h1>
-        <p class="mt-4 text-base sm:text-lg text-slate-300">Composer · Arranger · Musician</p>
+        <p class="mt-4 text-base sm:text-lg text-brand-100">Composer · Arranger · Musician</p>
         <div class="mt-8 flex flex-col sm:flex-row items-center justify-center gap-3">
-          <a href="#commissions" class="inline-flex items-center justify-center rounded-lg bg-amber-400 px-5 py-3 font-semibold text-slate-900 shadow-sm ring-1 ring-inset ring-amber-200 hover:bg-amber-300 transition">Request a Commission</a>
+          <a href="#commissions" class="inline-flex items-center justify-center rounded-lg bg-celestial px-5 py-3 font-semibold text-slate-900 shadow-sm ring-1 ring-inset ring-yellow-200/60 hover:bg-yellow-300 transition">Request a Commission</a>
           <a href="#example-work" class="inline-flex items-center justify-center rounded-lg bg-white/10 px-5 py-3 font-semibold text-white shadow-sm ring-1 ring-inset ring-white/15 hover:bg-white/20 transition">Listen + View Score</a>
         </div>
       </div>
@@ -352,33 +73,33 @@
 
   <section id="about" class="py-20">
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-      <h2 class="text-center text-2xl font-semibold text-brand-300">About Me</h2>
+      <h2 class="text-center text-2xl font-semibold text-sage">About Me</h2>
       <div class="mt-10 grid items-center gap-10 md:grid-cols-2">
         <div class="order-2 md:order-1">
-          <p class="text-slate-300 leading-relaxed">
+          <p class="text-brand-100 leading-relaxed">
             Welcome! I’m a passionate music composer and arranger dedicated to creating vibrant, memorable works. From film scores to live performances, I bring music to life through creativity and collaboration.
           </p>
         </div>
         <div class="order-1 md:order-2 flex justify-center">
-          <img src="CallieMadson.png" alt="Callie Madson" class="w-[260px] rounded-2xl shadow-xl ring-1 ring-white/10" />
+          <img src="CallieMadson.png" alt="Callie Madson" class="w-[260px] rounded-2xl shadow-xl ring-1 ring-celestial/30" />
         </div>
       </div>
     </div>
   </section>
 
-  <section id="projects" class="py-20 bg-slate-900/50">
+  <section id="projects" class="py-20 bg-sageDark/20">
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-      <h2 class="text-center text-2xl font-semibold text-brand-300">Projects</h2>
+      <h2 class="text-center text-2xl font-semibold text-sage">Projects</h2>
       <div class="mt-10 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
-        <div class="rounded-xl border border-white/10 bg-white/5 p-6 shadow-sm transition hover:bg-white/10 hover:shadow-lg">
+        <div class="rounded-xl border border-sageDark/30 bg-sageDark/10 p-6 shadow-sm transition hover:bg-sageDark/20 hover:shadow-lg">
           <h3 class="text-lg font-semibold">🎻 Symphony for Strings</h3>
           <p class="mt-2 text-slate-300">An original symphony performed live by a 40-piece orchestra.</p>
         </div>
-        <div class="rounded-xl border border-white/10 bg-white/5 p-6 shadow-sm transition hover:bg-white/10 hover:shadow-lg">
+        <div class="rounded-xl border border-sageDark/30 bg-sageDark/10 p-6 shadow-sm transition hover:bg-sageDark/20 hover:shadow-lg">
           <h3 class="text-lg font-semibold">🎬 Film Score</h3>
           <p class="mt-2 text-slate-300">Composed and arranged a full score for an independent short film.</p>
         </div>
-        <div class="rounded-xl border border-white/10 bg-white/5 p-6 shadow-sm transition hover:bg-white/10 hover:shadow-lg">
+        <div class="rounded-xl border border-sageDark/30 bg-sageDark/10 p-6 shadow-sm transition hover:bg-sageDark/20 hover:shadow-lg">
           <h3 class="text-lg font-semibold">🎤 Vocal Arrangements</h3>
           <p class="mt-2 text-slate-300">Unique harmonies and vocal layering for choirs and ensembles.</p>
         </div>
@@ -388,11 +109,11 @@
 
   <section id="example-work" class="py-20">
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-      <h2 class="text-center text-2xl font-semibold text-brand-300">Example Work</h2>
-      <div class="mt-10 rounded-2xl border border-white/10 bg-white/5 p-6 shadow-sm">
-        <h3 class="text-center text-lg font-semibold text-brand-200">🎼 Sample Composition</h3>
+      <h2 class="text-center text-2xl font-semibold text-sage">Example Work</h2>
+      <div class="mt-10 rounded-2xl border border-sageDark/30 bg-sageDark/10 p-6 shadow-sm">
+        <h3 class="text-center text-lg font-semibold text-brand-100">🎼 Sample Composition</h3>
         <p class="mt-2 text-center text-slate-300">Listen to this piece while following along with the sheet music below.</p>
-        <div class="mt-6 rounded-xl border border-white/10 bg-gradient-to-r from-brand-700 to-brand-500 p-5">
+        <div class="mt-6 rounded-xl border border-sageDark/30 bg-gradient-to-r from-sageDark to-sage p-5">
           <h3 class="text-center font-semibold text-slate-900">🎵 Audio Preview</h3>
           <audio controls class="mt-3 h-12 w-full">
             <source src="Song.wav" type="audio/wav">
@@ -401,10 +122,9 @@
           </audio>
         </div>
         <div class="mt-6">
-          <iframe src="PDF_Example.pdf" title="Sheet Music Example" class="h-[600px] w-full rounded-xl border border-white/10"></iframe>
+          <iframe src="PDF_Example.pdf" title="Sheet Music Example" class="h-[600px] w-full rounded-xl border border-sageDark/30"></iframe>
         </div>
         <div class="mt-6 flex justify-center">
-          <script async src="https://js.stripe.com/v3/buy-button.js"></script>
           <stripe-buy-button
             buy-button-id="buy_btn_1SDa2TRQbY9LvsmLqm9rHi4u"
             publishable-key="pk_test_51SDZfTRQbY9LvsmLVtvEOE8pYGoTPjwKSFh0aLCIVZ6eRz9ClIEy3FBz7DL1NMy0rU2hm8pXmJtb7NDSWsKQgiiz00QY7pQelT"
@@ -415,36 +135,36 @@
     </div>
   </section>
 
-  <section id="contact" class="py-20 bg-slate-900/50">
+  <section id="contact" class="py-20 bg-sageDark/20">
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-      <h2 class="text-center text-2xl font-semibold text-brand-300">Contact</h2>
+      <h2 class="text-center text-2xl font-semibold text-sage">Contact</h2>
       <div class="mt-6 text-center">
         <p class="text-slate-300">Let’s work together!</p>
-        <a href="mailto:jonasjistheman@gmail.com" class="mt-6 inline-flex items-center justify-center rounded-lg bg-brand-500 px-5 py-3 font-semibold text-slate-900 shadow-sm ring-1 ring-inset ring-white/10 hover:bg-brand-400 transition">Email me: jonasjistheman@gmail.com</a>
+        <a href="mailto:jonasjistheman@gmail.com" class="mt-6 inline-flex items-center justify-center rounded-lg bg-celestial px-5 py-3 font-semibold text-slate-900 shadow-sm ring-1 ring-inset ring-yellow-200/60 hover:bg-yellow-300 transition">Email me: jonasjistheman@gmail.com</a>
       </div>
     </div>
   </section>
 
   <section id="commissions" class="py-20">
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-      <h2 class="text-center text-2xl font-semibold text-brand-300">Request a Commission</h2>
-      <p class="mt-4 text-center text-slate-300">I'll create something that your students will remember forever! Fill out the form below to get started.</p>
-      <form action="mailto:jonasjistheman@gmail.com" method="post" enctype="text/plain" class="mx-auto mt-10 max-w-2xl space-y-6 rounded-2xl border border-white/10 bg-white/5 p-6 shadow-sm">
+      <h2 class="text-center text-2xl font-semibold text-sage">Request a Commission</h2>
+      <p class="mt-4 text-center text-brand-100">I'll create something that your students will remember forever! Fill out the form below to get started.</p>
+      <form action="mailto:jonasjistheman@gmail.com" method="post" enctype="text/plain" class="mx-auto mt-10 max-w-2xl space-y-6 rounded-2xl border border-sageDark/30 bg-sageDark/10 p-6 shadow-sm">
         <div>
-          <label for="name" class="mb-2 block text-sm font-medium text-slate-200">Full Name *</label>
-          <input type="text" id="name" name="name" required class="block w-full rounded-lg border border-white/10 bg-white/5 px-4 py-2.5 text-slate-100 placeholder-white/40 shadow-sm outline-none ring-0 transition focus:border-amber-300 focus:ring-2 focus:ring-amber-400" placeholder="Your full name" />
+          <label for="name" class="mb-2 block text-sm font-medium text-brand-100">Full Name *</label>
+          <input type="text" id="name" name="name" required class="block w-full rounded-lg border border-sageDark/30 bg-sageDark/10 px-4 py-2.5 text-slate-100 placeholder-white/40 shadow-sm outline-none ring-0 transition focus:border-celestial focus:ring-2 focus:ring-yellow-300/60" placeholder="Your full name" />
         </div>
         <div>
-          <label for="email" class="mb-2 block text-sm font-medium text-slate-200">Email Address *</label>
-          <input type="email" id="email" name="email" required class="block w-full rounded-lg border border-white/10 bg-white/5 px-4 py-2.5 text-slate-100 placeholder-white/40 shadow-sm outline-none ring-0 transition focus:border-amber-300 focus:ring-2 focus:ring-amber-400" placeholder="you@example.com" />
+          <label for="email" class="mb-2 block text-sm font-medium text-brand-100">Email Address *</label>
+          <input type="email" id="email" name="email" required class="block w-full rounded-lg border border-sageDark/30 bg-sageDark/10 px-4 py-2.5 text-slate-100 placeholder-white/40 shadow-sm outline-none ring-0 transition focus:border-celestial focus:ring-2 focus:ring-yellow-300/60" placeholder="you@example.com" />
         </div>
         <div>
-          <label for="organization" class="mb-2 block text-sm font-medium text-slate-200">School/Organization</label>
-          <input type="text" id="organization" name="organization" class="block w-full rounded-lg border border-white/10 bg-white/5 px-4 py-2.5 text-slate-100 placeholder-white/40 shadow-sm outline-none ring-0 transition focus:border-amber-300 focus:ring-2 focus:ring-amber-400" placeholder="Optional" />
+          <label for="organization" class="mb-2 block text-sm font-medium text-brand-100">School/Organization</label>
+          <input type="text" id="organization" name="organization" class="block w-full rounded-lg border border-sageDark/30 bg-sageDark/10 px-4 py-2.5 text-slate-100 placeholder-white/40 shadow-sm outline-none ring-0 transition focus:border-celestial focus:ring-2 focus:ring-yellow-300/60" placeholder="Optional" />
         </div>
         <div>
-          <label for="project-type" class="mb-2 block text-sm font-medium text-slate-200">Type of Project *</label>
-          <select id="project-type" name="project-type" required class="block w-full rounded-lg border border-white/10 bg-white/5 px-4 py-2.5 text-slate-100 shadow-sm outline-none ring-0 transition focus:border-amber-300 focus:ring-2 focus:ring-amber-400">
+          <label for="project-type" class="mb-2 block text-sm font-medium text-brand-100">Type of Project *</label>
+          <select id="project-type" name="project-type" required class="block w-full rounded-lg border border-sageDark/30 bg-sageDark/10 px-4 py-2.5 text-slate-100 shadow-sm outline-none ring-0 transition focus:border-celestial focus:ring-2 focus:ring-yellow-300/60">
             <option value="">Select a project type</option>
             <option value="concert-piece">Concert Piece</option>
             <option value="marching-band">Marching Band Arrangement</option>
@@ -455,8 +175,8 @@
           </select>
         </div>
         <div>
-          <label for="ensemble-size" class="mb-2 block text-sm font-medium text-slate-200">Ensemble Size</label>
-          <select id="ensemble-size" name="ensemble-size" class="block w-full rounded-lg border border-white/10 bg-white/5 px-4 py-2.5 text-slate-100 shadow-sm outline-none ring-0 transition focus:border-amber-300 focus:ring-2 focus:ring-amber-400">
+          <label for="ensemble-size" class="mb-2 block text-sm font-medium text-brand-100">Ensemble Size</label>
+          <select id="ensemble-size" name="ensemble-size" class="block w-full rounded-lg border border-sageDark/30 bg-sageDark/10 px-4 py-2.5 text-slate-100 shadow-sm outline-none ring-0 transition focus:border-celestial focus:ring-2 focus:ring-yellow-300/60">
             <option value="">Select ensemble size</option>
             <option value="small-10-20">Small (10-20 musicians)</option>
             <option value="medium-20-50">Medium (20-50 musicians)</option>
@@ -465,8 +185,8 @@
           </select>
         </div>
         <div>
-          <label for="difficulty" class="mb-2 block text-sm font-medium text-slate-200">Difficulty Level</label>
-          <select id="difficulty" name="difficulty" class="block w-full rounded-lg border border-white/10 bg-white/5 px-4 py-2.5 text-slate-100 shadow-sm outline-none ring-0 transition focus:border-amber-300 focus:ring-2 focus:ring-amber-400">
+          <label for="difficulty" class="mb-2 block text-sm font-medium text-brand-100">Difficulty Level</label>
+          <select id="difficulty" name="difficulty" class="block w-full rounded-lg border border-sageDark/30 bg-sageDark/10 px-4 py-2.5 text-slate-100 shadow-sm outline-none ring-0 transition focus:border-celestial focus:ring-2 focus:ring-yellow-300/60">
             <option value="">Select difficulty level</option>
             <option value="beginner">Beginner</option>
             <option value="intermediate">Intermediate</option>
@@ -475,8 +195,8 @@
           </select>
         </div>
         <div>
-          <label for="timeline" class="mb-2 block text-sm font-medium text-slate-200">Desired Timeline</label>
-          <select id="timeline" name="timeline" class="block w-full rounded-lg border border-white/10 bg-white/5 px-4 py-2.5 text-slate-100 shadow-sm outline-none ring-0 transition focus:border-amber-300 focus:ring-2 focus:ring-amber-400">
+          <label for="timeline" class="mb-2 block text-sm font-medium text-brand-100">Desired Timeline</label>
+          <select id="timeline" name="timeline" class="block w-full rounded-lg border border-sageDark/30 bg-sageDark/10 px-4 py-2.5 text-slate-100 shadow-sm outline-none ring-0 transition focus:border-celestial focus:ring-2 focus:ring-yellow-300/60">
             <option value="">Select timeline</option>
             <option value="urgent-1-2-weeks">Urgent (1-2 weeks)</option>
             <option value="standard-1-month">Standard (1 month)</option>
@@ -485,12 +205,12 @@
           </select>
         </div>
         <div>
-          <label for="description" class="mb-2 block text-sm font-medium text-slate-200">Project Description *</label>
-          <textarea id="description" name="description" required placeholder="Please describe your project in detail. Include any specific requirements, themes, or inspiration you have in mind..." class="block min-h-[120px] w-full resize-y rounded-lg border border-white/10 bg-white/5 px-4 py-2.5 text-slate-100 placeholder-white/40 shadow-sm outline-none ring-0 transition focus:border-amber-300 focus:ring-2 focus:ring-amber-400"></textarea>
+          <label for="description" class="mb-2 block text-sm font-medium text-brand-100">Project Description *</label>
+          <textarea id="description" name="description" required placeholder="Please describe your project in detail. Include any specific requirements, themes, or inspiration you have in mind..." class="block min-h-[120px] w-full resize-y rounded-lg border border-sageDark/30 bg-sageDark/10 px-4 py-2.5 text-slate-100 placeholder-white/40 shadow-sm outline-none ring-0 transition focus:border-celestial focus:ring-2 focus:ring-yellow-300/60"></textarea>
         </div>
         <div>
-          <label for="budget" class="mb-2 block text-sm font-medium text-slate-200">Budget Range</label>
-          <select id="budget" name="budget" class="block w-full rounded-lg border border-white/10 bg-white/5 px-4 py-2.5 text-slate-100 shadow-sm outline-none ring-0 transition focus:border-amber-300 focus:ring-2 focus:ring-amber-400">
+          <label for="budget" class="mb-2 block text-sm font-medium text-brand-100">Budget Range</label>
+          <select id="budget" name="budget" class="block w-full rounded-lg border border-sageDark/30 bg-sageDark/10 px-4 py-2.5 text-slate-100 shadow-sm outline-none ring-0 transition focus:border-celestial focus:ring-2 focus:ring-yellow-300/60">
             <option value="">Select budget range</option>
             <option value="under-500">Under $500</option>
             <option value="500-1000">$500 - $1,000</option>
@@ -501,7 +221,7 @@
           </select>
         </div>
         <div>
-          <button type="submit" class="inline-flex w-full items-center justify-center rounded-lg bg-amber-400 px-5 py-3 font-semibold text-slate-900 shadow-sm ring-1 ring-inset ring-amber-200 transition hover:bg-amber-300">Send Commission Request</button>
+          <button type="submit" class="inline-flex w-full items-center justify-center rounded-lg bg-celestial px-5 py-3 font-semibold text-slate-900 shadow-sm ring-1 ring-inset ring-yellow-200/60 transition hover:bg-yellow-300">Send Commission Request</button>
         </div>
       </form>
     </div>
