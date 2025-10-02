@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Commissions — Compositions by Callie Madson</title>
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cpath fill='%23FFD700' d='M16 2c-1 0-2 1-2 2v2c0 1 1 2 2 2s2-1 2-2V4c0-1-1-2-2-2zm-4 6c-1 0-2 1-2 2v12c0 1 1 2 2 2s2-1 2-2V10c0-1-1-2-2-2zm8 0c-1 0-2 1-2 2v12c0 1 1 2 2 2s2-1 2-2V10c0-1-1-2-2-2zm-6 2h4v12h-4V10zm-2 4c-1 0-2 1-2 2v4c0 1 1 2 2 2s2-1 2-2v-4c0-1-1-2-2-2zm12 0c-1 0-2 1-2 2v4c0 1 1 2 2 2s2-1 2-2v-4c0-1-1-2-2-2zm-8 2h4v4h-4v-4zm-2 6c-1 0-2 1-2 2v2c0 1 1 2 2 2s2-1 2-2v-2c0-1-1-2-2-2zm12 0c-1 0-2 1-2 2v2c0 1 1 2 2 2s2-1 2-2v-2c0-1-1-2-2-2zm-8 2h4v2h-4v-2z'/%3E%3C/svg%3E">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: { sans: ["Poppins", "ui-sans-serif", "system-ui", "-apple-system", "Segoe UI", "Roboto", "Ubuntu", "Cantarell", "Noto Sans", "Helvetica Neue", "Arial", "sans-serif"] },
+          colors: {
+            brand: {
+              50: "#f5f7f2",
+              100: "#e7ecd9",
+              200: "#cfd9b8",
+              300: "#b5c596",
+              400: "#9cb279",
+              500: "#87a96b",
+              600: "#6b8e4e",
+              700: "#4e6e3a",
+              800: "#364f2a",
+              900: "#293e21"
+            },
+            celestial: "#FFD700",
+            sage: "#87A96B",
+            sageDark: "#6B8E4E"
+          }
+        }
+      }
+    }
+  </script>
+</head>
+<body class="font-sans bg-slate-950 text-slate-100 antialiased">
+  <nav class="fixed inset-x-0 top-0 z-50 border-b border-sageDark/20 bg-sageDark/70 backdrop-blur">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div class="flex h-16 items-center justify-between">
+        <a href="index.html" class="flex items-center gap-2 font-semibold text-white">
+          <span class="h-2.5 w-2.5 rounded-full bg-celestial"></span>
+          <span>Callie Madson</span>
+        </a>
+        <div class="flex items-center gap-4 sm:gap-6 text-sm">
+          <a href="examples.html" class="text-brand-100 hover:text-white transition">Examples</a>
+          <a href="shop.html" class="text-brand-100 hover:text-white transition">Shop</a>
+          <a href="about.html" class="text-brand-100 hover:text-white transition">About</a>
+          <a href="projects.html" class="text-brand-100 hover:text-white transition">Projects</a>
+          <a href="contact.html" class="text-brand-100 hover:text-white transition">Contact</a>
+          <a href="commissions.html" class="text-white">Commissions</a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <main class="pt-24 pb-20">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <h1 class="text-center text-3xl font-bold tracking-tight">Request a Commission</h1>
+      <p class="mt-4 text-center text-brand-100">I'll create something that your students will remember forever! Fill out the form below to get started.</p>
+      <form action="mailto:jonasjistheman@gmail.com" method="post" enctype="text/plain" class="mx-auto mt-10 max-w-2xl space-y-6 rounded-2xl border border-sageDark/30 bg-sageDark/10 p-6 shadow-sm">
+        <div>
+          <label for="name" class="mb-2 block text-sm font-medium text-brand-100">Full Name *</label>
+          <input type="text" id="name" name="name" required class="block w-full rounded-lg border border-sageDark/30 bg-sageDark/10 px-4 py-2.5 text-slate-100 placeholder-white/40 shadow-sm outline-none ring-0 transition focus:border-celestial focus:ring-2 focus:ring-yellow-300/60" placeholder="Your full name" />
+        </div>
+        <div>
+          <label for="email" class="mb-2 block text-sm font-medium text-brand-100">Email Address *</label>
+          <input type="email" id="email" name="email" required class="block w-full rounded-lg border border-sageDark/30 bg-sageDark/10 px-4 py-2.5 text-slate-100 placeholder-white/40 shadow-sm outline-none ring-0 transition focus:border-celestial focus:ring-2 focus:ring-yellow-300/60" placeholder="you@example.com" />
+        </div>
+        <div>
+          <label for="organization" class="mb-2 block text-sm font-medium text-brand-100">School/Organization</label>
+          <input type="text" id="organization" name="organization" class="block w-full rounded-lg border border-sageDark/30 bg-sageDark/10 px-4 py-2.5 text-slate-100 placeholder-white/40 shadow-sm outline-none ring-0 transition focus:border-celestial focus:ring-2 focus:ring-yellow-300/60" placeholder="Optional" />
+        </div>
+        <div>
+          <label for="project-type" class="mb-2 block text-sm font-medium text-brand-100">Type of Project *</label>
+          <select id="project-type" name="project-type" required class="block w-full rounded-lg border border-sageDark/30 bg-sageDark/10 px-4 py-2.5 text-slate-100 shadow-sm outline-none ring-0 transition focus:border-celestial focus:ring-2 focus:ring-yellow-300/60">
+            <option value="">Select a project type</option>
+            <option value="concert-piece">Concert Piece</option>
+            <option value="marching-band">Marching Band Arrangement</option>
+            <option value="choir-arrangement">Choir Arrangement</option>
+            <option value="orchestra">Orchestra Composition</option>
+            <option value="film-score">Film Score</option>
+            <option value="custom">Custom Project</option>
+          </select>
+        </div>
+        <div>
+          <label for="ensemble-size" class="mb-2 block text-sm font-medium text-brand-100">Ensemble Size</label>
+          <select id="ensemble-size" name="ensemble-size" class="block w-full rounded-lg border border-sageDark/30 bg-sageDark/10 px-4 py-2.5 text-slate-100 shadow-sm outline-none ring-0 transition focus:border-celestial focus:ring-2 focus:ring-yellow-300/60">
+            <option value="">Select ensemble size</option>
+            <option value="small-10-20">Small (10-20 musicians)</option>
+            <option value="medium-20-50">Medium (20-50 musicians)</option>
+            <option value="large-50-100">Large (50-100 musicians)</option>
+            <option value="very-large-100+">Very Large (100+ musicians)</option>
+          </select>
+        </div>
+        <div>
+          <label for="difficulty" class="mb-2 block text-sm font-medium text-brand-100">Difficulty Level</label>
+          <select id="difficulty" name="difficulty" class="block w-full rounded-lg border border-sageDark/30 bg-sageDark/10 px-4 py-2.5 text-slate-100 shadow-sm outline-none ring-0 transition focus:border-celestial focus:ring-2 focus:ring-yellow-300/60">
+            <option value="">Select difficulty level</option>
+            <option value="beginner">Beginner</option>
+            <option value="intermediate">Intermediate</option>
+            <option value="advanced">Advanced</option>
+            <option value="professional">Professional</option>
+          </select>
+        </div>
+        <div>
+          <label for="timeline" class="mb-2 block text-sm font-medium text-brand-100">Desired Timeline</label>
+          <select id="timeline" name="timeline" class="block w-full rounded-lg border border-sageDark/30 bg-sageDark/10 px-4 py-2.5 text-slate-100 shadow-sm outline-none ring-0 transition focus:border-celestial focus:ring-2 focus:ring-yellow-300/60">
+            <option value="">Select timeline</option>
+            <option value="urgent-1-2-weeks">Urgent (1-2 weeks)</option>
+            <option value="standard-1-month">Standard (1 month)</option>
+            <option value="flexible-2-3-months">Flexible (2-3 months)</option>
+            <option value="no-rush-3+months">No Rush (3+ months)</option>
+          </select>
+        </div>
+        <div>
+          <label for="description" class="mb-2 block text-sm font-medium text-brand-100">Project Description *</label>
+          <textarea id="description" name="description" required placeholder="Please describe your project in detail. Include any specific requirements, themes, or inspiration you have in mind..." class="block min-h-[120px] w-full resize-y rounded-lg border border-sageDark/30 bg-sageDark/10 px-4 py-2.5 text-slate-100 placeholder-white/40 shadow-sm outline-none ring-0 transition focus:border-celestial focus:ring-2 focus:ring-yellow-300/60"></textarea>
+        </div>
+        <div>
+          <label for="budget" class="mb-2 block text-sm font-medium text-brand-100">Budget Range</label>
+          <select id="budget" name="budget" class="block w-full rounded-lg border border-sageDark/30 bg-sageDark/10 px-4 py-2.5 text-slate-100 shadow-sm outline-none ring-0 transition focus:border-celestial focus:ring-2 focus:ring-yellow-300/60">
+            <option value="">Select budget range</option>
+            <option value="under-500">Under $500</option>
+            <option value="500-1000">$500 - $1,000</option>
+            <option value="1000-2500">$1,000 - $2,500</option>
+            <option value="2500-5000">$2,500 - $5,000</option>
+            <option value="5000+">$5,000+</option>
+            <option value="discuss">Let's discuss</option>
+          </select>
+        </div>
+        <div>
+          <button type="submit" class="inline-flex w-full items-center justify-center rounded-lg bg-celestial px-5 py-3 font-semibold text-slate-900 shadow-sm ring-1 ring-inset ring-yellow-200/60 transition hover:bg-yellow-300">Send Commission Request</button>
+        </div>
+      </form>
+    </div>
+  </main>
+
+  <footer class="border-t border-white/10 py-10 text-center text-sm text-slate-400">
+    <p>© 2025 Compositions By Callie · All Rights Reserved</p>
+  </footer>
+</body>
+</html>
+
+
