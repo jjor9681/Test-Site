@@ -197,7 +197,7 @@
   <section class="relative isolate overflow-hidden pt-44 pb-24 md:pt-52 md:pb-32">
     <div id="hero-gradient" class="absolute inset-0 -z-10 gradient-flow"></div>
     <div id="hero-glint" class="absolute inset-0 z-10 glint-overlay opacity-0 pointer-events-none"></div>
-    <div id="cta-overlay" class="absolute inset-0 z-30 pointer-events-none opacity-0"></div>
+    <div id="cta-overlay" class="absolute z-30 pointer-events-none opacity-0"></div>
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 relative z-20">
       <div id="hero-content" class="mx-auto max-w-3xl text-center opacity-0 translate-y-4 transition-all duration-700">
         <h1 class="text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight">Compositions by Callie Madson</h1>
@@ -206,7 +206,7 @@
           <button id="get-started" class="inline-flex items-center justify-center rounded-xl bg-blue-500 px-8 py-4 text-lg sm:text-xl font-semibold text-white shadow-sm ring-1 ring-inset ring-blue-300/60 transition hover:bg-blue-400 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-300">
             Get started
           </button>
-          <div class="mt-2 text-xs text-blue-200/80">or press Enter</div>
+          
         </div>
         <div id="hero-menu" class="mt-8 grid grid-cols-1 gap-3 sm:grid-cols-2 md:grid-cols-3 hidden">
           <a href="examples.html" class="inline-flex items-center justify-center rounded-lg bg-white/5 px-5 py-3 font-semibold text-white shadow-sm ring-1 ring-inset ring-white/10 hover:bg-white/10 transition">Examples</a>
@@ -256,28 +256,45 @@
       if (ctaBtn) {
         ctaBtn.addEventListener('click', () => {
           const secondary = document.getElementById('secondary-bar');
-          // 1) Sweep glint to hide hero
-          if (ctaOverlay) {
-            const overlay = ctaOverlay;
-            overlay.style.opacity = '1';
-            overlay.style.pointerEvents = 'auto';
-            overlay.animate([
+          // Prepare a local mask sized to the hero content only
+          if (ctaOverlay && content) {
+            const rect = content.getBoundingClientRect();
+            const top = rect.top + window.scrollY - 24; // a little padding
+            const left = rect.left + window.scrollX - 24;
+            const width = rect.width + 48;
+            const height = rect.height + 48;
+            ctaOverlay.style.top = top + 'px';
+            ctaOverlay.style.left = left + 'px';
+            ctaOverlay.style.width = width + 'px';
+            ctaOverlay.style.height = height + 'px';
+            ctaOverlay.style.borderRadius = '24px';
+            ctaOverlay.style.opacity = '1';
+            ctaOverlay.style.pointerEvents = 'auto';
+
+            // 1) Sweep to hide just the hero content
+            ctaOverlay.animate([
               { backgroundPosition: '-150% -150%, center' },
               { backgroundPosition: '150% 150%, center' }
             ], { duration: 600, easing: 'cubic-bezier(.2,.8,.2,1)', fill: 'forwards' });
-            // hide hero text while covered
             content.style.opacity = '0';
+
             setTimeout(() => {
-              // 2) Sweep back to reveal menu
+              // Show menu before revealing
               if (heroMenu) heroMenu.classList.remove('hidden');
-              overlay.animate([
+              // Resize mask to new content bounds (menu replaces CTA area)
+              const newRect = content.getBoundingClientRect();
+              const newTop = newRect.top + window.scrollY - 24;
+              const newLeft = newRect.left + window.scrollX - 24;
+              ctaOverlay.style.top = newTop + 'px';
+              ctaOverlay.style.left = newLeft + 'px';
+
+              // 2) Sweep back to reveal
+              ctaOverlay.animate([
                 { backgroundPosition: '-150% -150%, center' },
                 { backgroundPosition: '150% 150%, center' }
               ], { duration: 600, direction: 'reverse', easing: 'cubic-bezier(.2,.8,.2,1)', fill: 'forwards' });
-              // swap headings visibility
-              content.style.opacity = '1';
-              // finish by clearing overlay
-              setTimeout(() => { overlay.style.opacity = '0'; overlay.style.pointerEvents = 'none'; }, 620);
+
+              setTimeout(() => { ctaOverlay.style.opacity = '0'; ctaOverlay.style.pointerEvents = 'none'; }, 620);
             }, 640);
           }
           // remove CTA button itself
