@@ -45,6 +45,7 @@
     @keyframes glintSweep { 0%{transform:translateY(-120%)} 100%{transform:translateY(120%)} }
     .animate-wave-1 { animation: waveSlide 18s linear infinite; }
     .animate-wave-2 { animation: waveSlide 12s linear infinite reverse; }
+    .animate-wave-3 { animation: waveSlide 24s linear infinite; opacity:.7 }
     @keyframes waveSlide { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
   </style>
 </head>
@@ -68,17 +69,23 @@
     </div>
     <div id="nav-wave" class="pointer-events-none absolute left-0 right-0 top-full h-7 sm:h-9">
       <svg class="absolute top-0 left-0 w-[200%] min-w-[200%] h-full animate-wave-1" viewBox="0 0 1440 120" preserveAspectRatio="none">
-        <path d="M0 60 Q 120 0 240 60 T 480 60 T 720 60 T 960 60 T 1200 60 T 1440 60 V120 H0 Z" fill="rgba(96,165,250,0.25)"/>
+        <defs><linearGradient id="wave1-a" x1="0%" y1="0%" x2="100%" y2="0%"><stop offset="0%" stop-color="#60a5fa" stop-opacity="0.35"/><stop offset="50%" stop-color="#22d3ee" stop-opacity="0.30"/><stop offset="100%" stop-color="#818cf8" stop-opacity="0.35"/></linearGradient></defs>
+        <path d="M0 60 Q 120 0 240 60 T 480 60 T 720 60 T 960 60 T 1200 60 T 1440 60 V120 H0 Z" fill="url(#wave1-a)"/>
       </svg>
       <svg class="absolute top-0 left-0 w-[200%] min-w-[200%] h-full animate-wave-2" viewBox="0 0 1440 120" preserveAspectRatio="none">
-        <path d="M0 65 Q 160 20 320 65 T 640 65 T 960 65 T 1280 65 T 1600 65 V120 H0 Z" fill="rgba(59,130,246,0.35)"/>
+        <defs><linearGradient id="wave2-a" x1="0%" y1="0%" x2="100%" y2="0%"><stop offset="0%" stop-color="#3b82f6" stop-opacity="0.45"/><stop offset="50%" stop-color="#0ea5e9" stop-opacity="0.35"/><stop offset="100%" stop-color="#6366f1" stop-opacity="0.45"/></linearGradient></defs>
+        <path d="M0 65 Q 160 20 320 65 T 640 65 T 960 65 T 1280 65 T 1600 65 V120 H0 Z" fill="url(#wave2-a)"/>
+      </svg>
+      <svg class="absolute top-0 left-0 w-[200%] min-w-[200%] h-full animate-wave-3" viewBox="0 0 1440 120" preserveAspectRatio="none">
+        <defs><linearGradient id="wave3-a" x1="0%" y1="0%" x2="100%" y2="0%"><stop offset="0%" stop-color="#22c55e" stop-opacity="0.18"/><stop offset="50%" stop-color="#06b6d4" stop-opacity="0.18"/><stop offset="100%" stop-color="#8b5cf6" stop-opacity="0.18"/></linearGradient></defs>
+        <path d="M0 70 Q 120 35 240 70 T 480 70 T 720 70 T 960 70 T 1200 70 T 1440 70 V120 H0 Z" fill="url(#wave3-a)"/>
       </svg>
     </div>
   </nav>
 
   <div id="hero-gradient" class="absolute inset-0 -z-10 gradient-flow"></div>
   <div id="hero-glint" class="absolute inset-0 z-10 glint-overlay opacity-0 pointer-events-none"></div>
-  <main class="relative pt-24 pb-20 z-20">
+  <main class="relative pt-40 pb-20 z-20">
     <div id="page-content" class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 opacity-0 translate-y-4 transition-all duration-700">
       <h1 class="text-center text-3xl font-bold tracking-tight">Example Work</h1>
       <p class="mt-2 text-center text-brand-100">Video, audio, and score preview</p>
