@@ -46,22 +46,30 @@
   </style>
 </head>
 <body class="font-sans bg-slate-950 text-slate-100 antialiased">
-  <nav class="fixed inset-x-0 top-0 z-50 border-b border-blue-400/20 bg-blue-900/60 backdrop-blur">
+  <nav class="fixed inset-x-0 top-0 z-50 border-b border-blue-400/20 bg-blue-900/60 backdrop-blur relative overflow-visible">
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-      <div class="flex h-16 items-center justify-between">
+      <div class="flex items-center justify-between py-2">
         <a href="index.html" class="flex items-center gap-2 font-semibold text-white">
           <span class="h-2.5 w-2.5 rounded-full bg-blue-400"></span>
           <span>Callie Madson</span>
         </a>
-        <div class="flex items-center gap-2 sm:gap-3 text-sm">
+        <div class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 flex items-center gap-3 sm:gap-4 text-sm">
           <a href="examples.html" class="text-blue-100/80 hover:text-white hover:bg-white/10 rounded-full px-3 py-1.5 transition">Examples</a>
           <a href="shop.html" class="text-blue-100/80 hover:text-white hover:bg-white/10 rounded-full px-3 py-1.5 transition">Shop</a>
           <a href="about.html" class="text-blue-100/80 hover:text-white hover:bg-white/10 rounded-full px-3 py-1.5 transition">About</a>
-          <a href="projects.html" class="text-blue-100/80 hover:text-white hover:bg:white/10 rounded-full px-3 py-1.5 transition">Projects</a>
+          <a href="projects.html" class="text-blue-100/80 hover:text-white hover:bg-white/10 rounded-full px-3 py-1.5 transition">Projects</a>
           <a href="contact.html" class="text-blue-100/80 hover:text-white hover:bg-white/10 rounded-full px-3 py-1.5 transition">Contact</a>
           <a href="commissions.html" class="text-white hover:bg-white/10 rounded-full px-3 py-1.5 transition">Commissions</a>
         </div>
       </div>
+    </div>
+    <div id="nav-wave" class="pointer-events-none absolute left-0 right-0 top-full h-7 sm:h-9">
+      <svg class="absolute top-0 left-0 w-[200%] min-w-[200%] h-full animate-wave-1" viewBox="0 0 1440 120" preserveAspectRatio="none">
+        <path d="M0 60 Q 120 0 240 60 T 480 60 T 720 60 T 960 60 T 1200 60 T 1440 60 V120 H0 Z" fill="rgba(96,165,250,0.25)"/>
+      </svg>
+      <svg class="absolute top-0 left-0 w-[200%] min-w-[200%] h-full animate-wave-2" viewBox="0 0 1440 120" preserveAspectRatio="none">
+        <path d="M0 65 Q 160 20 320 65 T 640 65 T 960 65 T 1280 65 T 1600 65 V120 H0 Z" fill="rgba(59,130,246,0.35)"/>
+      </svg>
     </div>
   </nav>
 
