@@ -97,7 +97,7 @@
     .animate-wave-3 { animation: waveSlide 24s linear infinite; opacity:.7 }
     @keyframes waveSlide { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
     .invert-y { transform: scaleY(-1); transform-origin: top; }
-    #cta-overlay { background: linear-gradient(45deg, rgba(255,255,255,0) 45%, rgba(255,255,255,.75) 50%, rgba(255,255,255,0) 55%), rgba(2,6,23,0.96); background-size: 200% 200%, auto; background-position: -150% -150%, center; transition: opacity .2s ease; }
+    #cta-overlay { position:absolute; inset:0; background: radial-gradient(420px 420px at 50% 50%, rgba(99,102,241,0.45) 0%, rgba(34,211,238,0.35) 35%, rgba(14,165,233,0.25) 55%, rgba(2,6,23,0) 75%); opacity:0; transform: scale(0.35); transform-origin: 50% 50%; pointer-events:none; }
   </style>
 </head>
 <body class="font-sans bg-slate-950 text-slate-100 antialiased">
@@ -194,10 +194,11 @@
     </div>
   </nav>
 
-  <section class="relative isolate overflow-hidden pt-44 pb-24 md:pt-52 md:pb-32">
+  <section id="hero-section" class="relative isolate overflow-hidden pt-44 pb-24 md:pt-52 md:pb-32">
     <div id="hero-gradient" class="absolute inset-0 -z-10 gradient-flow"></div>
     <div id="hero-glint" class="absolute inset-0 z-10 glint-overlay opacity-0 pointer-events-none"></div>
-    <div id="cta-overlay" class="absolute z-30 pointer-events-none opacity-0"></div>
+    <div id="cta-overlay" class="absolute inset-0 z-30 pointer-events-none opacity-0"></div>
+    <div id="fx-layer" class="pointer-events-none absolute inset-0 z-[35]"></div>
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 relative z-20">
       <div id="hero-content" class="mx-auto max-w-3xl text-center opacity-0 translate-y-4 transition-all duration-700">
         <h1 class="text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight">Compositions by Callie Madson</h1>
@@ -256,47 +257,53 @@
       if (ctaBtn) {
         ctaBtn.addEventListener('click', () => {
           const secondary = document.getElementById('secondary-bar');
-          // Prepare a local mask sized to the hero content only
-          if (ctaOverlay && content) {
-            const rect = content.getBoundingClientRect();
-            const top = rect.top + window.scrollY - 24; // a little padding
-            const left = rect.left + window.scrollX - 24;
-            const width = rect.width + 48;
-            const height = rect.height + 48;
-            ctaOverlay.style.top = top + 'px';
-            ctaOverlay.style.left = left + 'px';
-            ctaOverlay.style.width = width + 'px';
-            ctaOverlay.style.height = height + 'px';
-            ctaOverlay.style.borderRadius = '24px';
+          const fx = document.getElementById('fx-layer');
+          const hero = document.getElementById('hero-section');
+
+          // 1) Particle burst + ripple zoom
+          if (fx && hero) {
+            const centerX = window.innerWidth / 2;
+            const centerY = hero.getBoundingClientRect().top + window.scrollY + 160;
+            const count = 36;
+            for (let i = 0; i < count; i++) {
+              const dot = document.createElement('span');
+              dot.style.position = 'absolute';
+              dot.style.left = centerX + 'px';
+              dot.style.top = centerY + 'px';
+              dot.style.width = '6px';
+              dot.style.height = '6px';
+              dot.style.borderRadius = '999px';
+              dot.style.background = ['#60a5fa','#22d3ee','#6366f1','#06b6d4'][i % 4];
+              fx.appendChild(dot);
+              const angle = (i / count) * Math.PI * 2;
+              const distance = 140 + Math.random()*100;
+              const tx = Math.cos(angle) * distance;
+              const ty = Math.sin(angle) * distance;
+              dot.animate([
+                { transform: 'translate(-50%,-50%) scale(0.6)', opacity: 1 },
+                { transform: `translate(${tx}px, ${ty}px) scale(0)`, opacity: 0 }
+              ], { duration: 700 + Math.random()*150, easing: 'cubic-bezier(.2,.8,.2,1)', fill: 'forwards' })
+              .finished.then(() => dot.remove());
+            }
+
             ctaOverlay.style.opacity = '1';
-            ctaOverlay.style.pointerEvents = 'auto';
-
-            // 1) Sweep to hide just the hero content
+            ctaOverlay.style.transform = 'scale(0.35)';
             ctaOverlay.animate([
-              { backgroundPosition: '-150% -150%, center' },
-              { backgroundPosition: '150% 150%, center' }
-            ], { duration: 600, easing: 'cubic-bezier(.2,.8,.2,1)', fill: 'forwards' });
-            content.style.opacity = '0';
-
-            setTimeout(() => {
-              // Show menu before revealing
-              if (heroMenu) heroMenu.classList.remove('hidden');
-              // Resize mask to new content bounds (menu replaces CTA area)
-              const newRect = content.getBoundingClientRect();
-              const newTop = newRect.top + window.scrollY - 24;
-              const newLeft = newRect.left + window.scrollX - 24;
-              ctaOverlay.style.top = newTop + 'px';
-              ctaOverlay.style.left = newLeft + 'px';
-
-              // 2) Sweep back to reveal
-              ctaOverlay.animate([
-                { backgroundPosition: '-150% -150%, center' },
-                { backgroundPosition: '150% 150%, center' }
-              ], { duration: 600, direction: 'reverse', easing: 'cubic-bezier(.2,.8,.2,1)', fill: 'forwards' });
-
-              setTimeout(() => { ctaOverlay.style.opacity = '0'; ctaOverlay.style.pointerEvents = 'none'; }, 620);
-            }, 640);
+              { transform: 'scale(0.35)', opacity: 0 },
+              { transform: 'scale(1.2)', opacity: 0.6 },
+              { transform: 'scale(1.6)', opacity: 0 }
+            ], { duration: 600, easing: 'ease-out', fill: 'forwards' });
           }
+
+          // 2) Morph CTA into menu with springy reveal
+          if (heroMenu) {
+            heroMenu.classList.remove('hidden');
+            heroMenu.animate([
+              { opacity: 0, transform: 'scale(.96) translateY(10px)' },
+              { opacity: 1, transform: 'scale(1) translateY(0)' }
+            ], { duration: 320, easing: 'cubic-bezier(.2,1,.2,1)', fill: 'forwards' });
+          }
+
           // remove CTA button itself
           ctaBtn.style.pointerEvents = 'none';
           ctaBtn.animate([{ opacity: 1 }, { opacity: 0 }], { duration: 250, easing: 'ease-in', fill: 'forwards' });
