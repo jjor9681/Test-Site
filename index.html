@@ -96,6 +96,8 @@
     .animate-wave-2 { animation: waveSlide 12s linear infinite reverse; }
     .animate-wave-3 { animation: waveSlide 24s linear infinite; opacity:.7 }
     @keyframes waveSlide { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
+    .invert-y { transform: scaleY(-1); transform-origin: top; }
+    #cta-overlay { background: linear-gradient(45deg, rgba(255,255,255,0) 45%, rgba(255,255,255,.75) 50%, rgba(255,255,255,0) 55%), rgba(2,6,23,0.96); background-size: 200% 200%, auto; background-position: -150% -150%, center; transition: opacity .2s ease; }
   </style>
 </head>
 <body class="font-sans bg-slate-950 text-slate-100 antialiased">
@@ -159,7 +161,7 @@
       </div>
     </div>
     <div id="nav-wave" class="pointer-events-none absolute left-0 right-0 top-full h-7 sm:h-9">
-      <svg class="absolute top-0 left-0 w-[200%] min-w-[200%] h-full animate-wave-1" viewBox="0 0 1440 120" preserveAspectRatio="none">
+      <svg class="absolute top-0 left-0 w-[200%] min-w-[200%] h-full animate-wave-1 invert-y" viewBox="0 0 1440 120" preserveAspectRatio="none">
         <defs>
           <linearGradient id="waveGrad1" x1="0%" y1="0%" x2="100%" y2="0%">
             <stop offset="0%" stop-color="#60a5fa" stop-opacity="0.35"/>
@@ -169,7 +171,7 @@
         </defs>
         <path d="M0 60 Q 120 0 240 60 T 480 60 T 720 60 T 960 60 T 1200 60 T 1440 60 V120 H0 Z" fill="url(#waveGrad1)"/>
       </svg>
-      <svg class="absolute top-0 left-0 w-[200%] min-w-[200%] h-full animate-wave-2" viewBox="0 0 1440 120" preserveAspectRatio="none">
+      <svg class="absolute top-0 left-0 w-[200%] min-w-[200%] h-full animate-wave-2 invert-y" viewBox="0 0 1440 120" preserveAspectRatio="none">
         <defs>
           <linearGradient id="waveGrad2" x1="0%" y1="0%" x2="100%" y2="0%">
             <stop offset="0%" stop-color="#3b82f6" stop-opacity="0.45"/>
@@ -179,7 +181,7 @@
         </defs>
         <path d="M0 65 Q 160 20 320 65 T 640 65 T 960 65 T 1280 65 T 1600 65 V120 H0 Z" fill="url(#waveGrad2)"/>
       </svg>
-      <svg class="absolute top-0 left-0 w-[200%] min-w-[200%] h-full animate-wave-3" viewBox="0 0 1440 120" preserveAspectRatio="none">
+      <svg class="absolute top-0 left-0 w-[200%] min-w-[200%] h-full animate-wave-3 invert-y" viewBox="0 0 1440 120" preserveAspectRatio="none">
         <defs>
           <linearGradient id="waveGrad3" x1="0%" y1="0%" x2="100%" y2="0%">
             <stop offset="0%" stop-color="#22c55e" stop-opacity="0.18"/>
@@ -254,73 +256,34 @@
       if (ctaBtn) {
         ctaBtn.addEventListener('click', () => {
           const secondary = document.getElementById('secondary-bar');
-          // colorful radial burst using overlay
+          // 1) Sweep glint to hide hero
           if (ctaOverlay) {
             const overlay = ctaOverlay;
+            overlay.style.opacity = '1';
             overlay.style.pointerEvents = 'auto';
             overlay.animate([
-              { background: 'radial-gradient(circle at 50% 50%, rgba(34,211,238,0.0) 0%, rgba(34,211,238,0.0) 1%)', opacity: 0 },
-              { background: 'radial-gradient(circle at 50% 50%, rgba(34,211,238,0.45) 0%, rgba(59,130,246,0.35) 30%, rgba(99,102,241,0.35) 55%, rgba(6,182,212,0.35) 75%, rgba(2,6,23,0) 100%)', opacity: 1 },
-            ], { duration: 350, easing: 'ease-out', fill: 'forwards' });
+              { backgroundPosition: '-150% -150%, center' },
+              { backgroundPosition: '150% 150%, center' }
+            ], { duration: 600, easing: 'cubic-bezier(.2,.8,.2,1)', fill: 'forwards' });
+            // hide hero text while covered
+            content.style.opacity = '0';
             setTimeout(() => {
-              overlay.animate([{ opacity: 1 }, { opacity: 0 }], { duration: 300, easing: 'ease-in', fill: 'forwards' });
-            }, 350);
+              // 2) Sweep back to reveal menu
+              if (heroMenu) heroMenu.classList.remove('hidden');
+              overlay.animate([
+                { backgroundPosition: '-150% -150%, center' },
+                { backgroundPosition: '150% 150%, center' }
+              ], { duration: 600, direction: 'reverse', easing: 'cubic-bezier(.2,.8,.2,1)', fill: 'forwards' });
+              // swap headings visibility
+              content.style.opacity = '1';
+              // finish by clearing overlay
+              setTimeout(() => { overlay.style.opacity = '0'; overlay.style.pointerEvents = 'none'; }, 620);
+            }, 640);
           }
-          // button glint
-          ctaBtn.animate([
-            { boxShadow: '0 0 0 rgba(255,255,255,0)' },
-            { boxShadow: '0 0 0 6px rgba(255,255,255,0.25)' },
-            { boxShadow: '0 0 0 rgba(255,255,255,0)' }
-          ], { duration: 500, easing: 'ease-out' });
-          // reveal full menu
-          if (heroMenu) {
-            heroMenu.classList.remove('hidden');
-            heroMenu.animate([
-              { opacity: 0, transform: 'translateY(8px)' },
-              { opacity: 1, transform: 'translateY(0px)' }
-            ], { duration: 300, easing: 'ease-out', fill: 'forwards' });
-          }
-          // fade out CTA
+          // remove CTA button itself
+          ctaBtn.style.pointerEvents = 'none';
           ctaBtn.animate([{ opacity: 1 }, { opacity: 0 }], { duration: 250, easing: 'ease-in', fill: 'forwards' });
           setTimeout(() => { ctaBtn.style.display = 'none'; }, 260);
-
-          // lively scroll to the secondary bar
-          if (secondary) {
-            const targetY = secondary.getBoundingClientRect().top + window.scrollY - 4; // slight offset
-            const startY = window.scrollY;
-            const dist = targetY - startY;
-            const duration = 700;
-            const start = performance.now();
-            const overshoot = 1.05;
-
-            function easeOutBack(t) {
-              const c1 = 1.70158;
-              const c3 = c1 + 1;
-              return 1 + c3 * Math.pow(t - 1, 3) + c1 * Math.pow(t - 1, 2);
-            }
-
-            function step(now) {
-              const t = Math.min(1, (now - start) / duration);
-              const y = startY + dist * easeOutBack(t) * overshoot;
-              window.scrollTo(0, y);
-              if (t < 1) requestAnimationFrame(step); else {
-                // gentle settle-back bounce
-                window.scrollTo({ top: targetY, behavior: 'smooth' });
-                // quick highlight shimmer on the bar
-                secondary.animate([
-                  { boxShadow: 'inset 0 0 0 0 rgba(255,255,255,0)' },
-                  { boxShadow: 'inset 0 -6px 0 0 rgba(255,255,255,0.2)' },
-                  { boxShadow: 'inset 0 0 0 0 rgba(255,255,255,0)' }
-                ], { duration: 450, easing: 'ease-out' });
-              }
-            }
-            requestAnimationFrame(step);
-          }
-        });
-
-        // Enter key also triggers
-        window.addEventListener('keydown', (e) => {
-          if (e.key === 'Enter') ctaBtn.click();
         });
       }
     });
