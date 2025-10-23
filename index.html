@@ -97,7 +97,7 @@
     .animate-wave-3 { animation: waveSlide 24s linear infinite; opacity:.7 }
     @keyframes waveSlide { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
     .invert-y { transform: scaleY(-1); transform-origin: top; }
-    #cta-overlay { position:absolute; inset:0; background: radial-gradient(420px 420px at 50% 50%, rgba(99,102,241,0.45) 0%, rgba(34,211,238,0.35) 35%, rgba(14,165,233,0.25) 55%, rgba(2,6,23,0) 75%); opacity:0; transform: scale(0.35); transform-origin: 50% 50%; pointer-events:none; }
+    #cta-overlay { position:absolute; inset:0; background: radial-gradient(640px 640px at 50% 50%, rgba(255,255,255,0.55) 0%, rgba(99,102,241,0.65) 18%, rgba(34,211,238,0.55) 38%, rgba(14,165,233,0.45) 58%, rgba(2,6,23,0) 78%); opacity:0; transform: scale(0.30); transform-origin: 50% 50%; pointer-events:none; }
   </style>
 </head>
 <body class="font-sans bg-slate-950 text-slate-100 antialiased">
@@ -264,7 +264,7 @@
           if (fx && hero) {
             const centerX = window.innerWidth / 2;
             const centerY = hero.getBoundingClientRect().top + window.scrollY + 160;
-            const count = 36;
+            const count = 44;
             for (let i = 0; i < count; i++) {
               const dot = document.createElement('span');
               dot.style.position = 'absolute';
@@ -276,23 +276,23 @@
               dot.style.background = ['#60a5fa','#22d3ee','#6366f1','#06b6d4'][i % 4];
               fx.appendChild(dot);
               const angle = (i / count) * Math.PI * 2;
-              const distance = 140 + Math.random()*100;
+              const distance = 220 + Math.random()*140;
               const tx = Math.cos(angle) * distance;
               const ty = Math.sin(angle) * distance;
               dot.animate([
                 { transform: 'translate(-50%,-50%) scale(0.6)', opacity: 1 },
                 { transform: `translate(${tx}px, ${ty}px) scale(0)`, opacity: 0 }
-              ], { duration: 700 + Math.random()*150, easing: 'cubic-bezier(.2,.8,.2,1)', fill: 'forwards' })
+              ], { duration: 950 + Math.random()*180, easing: 'cubic-bezier(.2,.8,.2,1)', fill: 'forwards' })
               .finished.then(() => dot.remove());
             }
 
             ctaOverlay.style.opacity = '1';
-            ctaOverlay.style.transform = 'scale(0.35)';
+            ctaOverlay.style.transform = 'scale(0.30)';
             ctaOverlay.animate([
-              { transform: 'scale(0.35)', opacity: 0 },
-              { transform: 'scale(1.2)', opacity: 0.6 },
-              { transform: 'scale(1.6)', opacity: 0 }
-            ], { duration: 600, easing: 'ease-out', fill: 'forwards' });
+              { transform: 'scale(0.30)', opacity: 0 },
+              { transform: 'scale(1.8)', opacity: 0.85 },
+              { transform: 'scale(2.2)', opacity: 0 }
+            ], { duration: 850, easing: 'ease-out', fill: 'forwards' });
           }
 
           // 2) Morph CTA into menu with springy reveal
