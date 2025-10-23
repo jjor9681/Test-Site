@@ -101,7 +101,7 @@
 <body class="font-sans bg-slate-950 text-slate-100 antialiased">
   <nav class="fixed inset-x-0 top-0 z-50 border-b border-blue-400/20 bg-blue-900/60 backdrop-blur relative overflow-visible">
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-      <div class="flex items-center justify-between py-2">
+      <div class="relative flex items-center justify-between py-2">
         <a href="#" class="flex items-center gap-2 font-semibold text-white">
           <span class="h-2.5 w-2.5 rounded-full bg-blue-400"></span>
           <span>Callie Madson</span>
@@ -116,7 +116,7 @@
         </div>
       </div>
     </div>
-    <div class="border-t border-white/5">
+    <div id="secondary-bar" class="border-t border-white/5 relative overflow-hidden">
       <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <ul class="flex items-stretch justify-center gap-6 sm:gap-10 py-3 overflow-x-auto">
           <li>
@@ -195,11 +195,18 @@
   <section class="relative isolate overflow-hidden pt-44 pb-24 md:pt-52 md:pb-32">
     <div id="hero-gradient" class="absolute inset-0 -z-10 gradient-flow"></div>
     <div id="hero-glint" class="absolute inset-0 z-10 glint-overlay opacity-0 pointer-events-none"></div>
+    <div id="cta-overlay" class="absolute inset-0 z-30 pointer-events-none opacity-0"></div>
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 relative z-20">
       <div id="hero-content" class="mx-auto max-w-3xl text-center opacity-0 translate-y-4 transition-all duration-700">
         <h1 class="text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight">Compositions by Callie Madson</h1>
         <p class="mt-4 text-base sm:text-lg text-blue-100/90">Welcome! I compose original works, create custom arrangements for choirs and instrumental ensembles, and offer commissions and rehearsal resources. Explore examples, shop scores, or reach out to start a project.</p>
-        <div class="mt-8 grid grid-cols-1 gap-3 sm:grid-cols-2 md:grid-cols-3">
+        <div class="mt-10">
+          <button id="get-started" class="inline-flex items-center justify-center rounded-xl bg-blue-500 px-8 py-4 text-lg sm:text-xl font-semibold text-white shadow-sm ring-1 ring-inset ring-blue-300/60 transition hover:bg-blue-400 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-300">
+            Get started
+          </button>
+          <div class="mt-2 text-xs text-blue-200/80">or press Enter</div>
+        </div>
+        <div id="hero-menu" class="mt-8 grid grid-cols-1 gap-3 sm:grid-cols-2 md:grid-cols-3 hidden">
           <a href="examples.html" class="inline-flex items-center justify-center rounded-lg bg-white/5 px-5 py-3 font-semibold text-white shadow-sm ring-1 ring-inset ring-white/10 hover:bg-white/10 transition">Examples</a>
           <a href="shop.html" class="inline-flex items-center justify-center rounded-lg bg-blue-500 px-5 py-3 font-semibold text-white shadow-sm ring-1 ring-inset ring-blue-300/60 hover:bg-blue-400 transition">Shop</a>
           <a href="about.html" class="inline-flex items-center justify-center rounded-lg bg-white/5 px-5 py-3 font-semibold text-white shadow-sm ring-1 ring-inset ring-white/10 hover:bg-white/10 transition">About</a>
@@ -219,6 +226,9 @@
       const gradient = document.getElementById('hero-gradient');
       const content = document.getElementById('hero-content');
       const glint = document.getElementById('hero-glint');
+      const ctaBtn = document.getElementById('get-started');
+      const heroMenu = document.getElementById('hero-menu');
+      const ctaOverlay = document.getElementById('cta-overlay');
 
       const reveal = () => {
         // Pause flowing gradient
@@ -239,6 +249,80 @@
 
       // Let the gradient flow briefly, then freeze and reveal
       setTimeout(reveal, 1200);
+
+      // CTA animation then show full menu
+      if (ctaBtn) {
+        ctaBtn.addEventListener('click', () => {
+          const secondary = document.getElementById('secondary-bar');
+          // colorful radial burst using overlay
+          if (ctaOverlay) {
+            const overlay = ctaOverlay;
+            overlay.style.pointerEvents = 'auto';
+            overlay.animate([
+              { background: 'radial-gradient(circle at 50% 50%, rgba(34,211,238,0.0) 0%, rgba(34,211,238,0.0) 1%)', opacity: 0 },
+              { background: 'radial-gradient(circle at 50% 50%, rgba(34,211,238,0.45) 0%, rgba(59,130,246,0.35) 30%, rgba(99,102,241,0.35) 55%, rgba(6,182,212,0.35) 75%, rgba(2,6,23,0) 100%)', opacity: 1 },
+            ], { duration: 350, easing: 'ease-out', fill: 'forwards' });
+            setTimeout(() => {
+              overlay.animate([{ opacity: 1 }, { opacity: 0 }], { duration: 300, easing: 'ease-in', fill: 'forwards' });
+            }, 350);
+          }
+          // button glint
+          ctaBtn.animate([
+            { boxShadow: '0 0 0 rgba(255,255,255,0)' },
+            { boxShadow: '0 0 0 6px rgba(255,255,255,0.25)' },
+            { boxShadow: '0 0 0 rgba(255,255,255,0)' }
+          ], { duration: 500, easing: 'ease-out' });
+          // reveal full menu
+          if (heroMenu) {
+            heroMenu.classList.remove('hidden');
+            heroMenu.animate([
+              { opacity: 0, transform: 'translateY(8px)' },
+              { opacity: 1, transform: 'translateY(0px)' }
+            ], { duration: 300, easing: 'ease-out', fill: 'forwards' });
+          }
+          // fade out CTA
+          ctaBtn.animate([{ opacity: 1 }, { opacity: 0 }], { duration: 250, easing: 'ease-in', fill: 'forwards' });
+          setTimeout(() => { ctaBtn.style.display = 'none'; }, 260);
+
+          // lively scroll to the secondary bar
+          if (secondary) {
+            const targetY = secondary.getBoundingClientRect().top + window.scrollY - 4; // slight offset
+            const startY = window.scrollY;
+            const dist = targetY - startY;
+            const duration = 700;
+            const start = performance.now();
+            const overshoot = 1.05;
+
+            function easeOutBack(t) {
+              const c1 = 1.70158;
+              const c3 = c1 + 1;
+              return 1 + c3 * Math.pow(t - 1, 3) + c1 * Math.pow(t - 1, 2);
+            }
+
+            function step(now) {
+              const t = Math.min(1, (now - start) / duration);
+              const y = startY + dist * easeOutBack(t) * overshoot;
+              window.scrollTo(0, y);
+              if (t < 1) requestAnimationFrame(step); else {
+                // gentle settle-back bounce
+                window.scrollTo({ top: targetY, behavior: 'smooth' });
+                // quick highlight shimmer on the bar
+                secondary.animate([
+                  { boxShadow: 'inset 0 0 0 0 rgba(255,255,255,0)' },
+                  { boxShadow: 'inset 0 -6px 0 0 rgba(255,255,255,0.2)' },
+                  { boxShadow: 'inset 0 0 0 0 rgba(255,255,255,0)' }
+                ], { duration: 450, easing: 'ease-out' });
+              }
+            }
+            requestAnimationFrame(step);
+          }
+        });
+
+        // Enter key also triggers
+        window.addEventListener('keydown', (e) => {
+          if (e.key === 'Enter') ctaBtn.click();
+        });
+      }
     });
   </script>
 </body>
