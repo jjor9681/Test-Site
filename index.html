@@ -36,15 +36,46 @@
   <script async src="https://js.stripe.com/v3/buy-button.js"></script>
   <style>
     .gradient-flow {
+      position: absolute;
       background: linear-gradient(120deg, #0ea5e9, #6366f1, #1e3a8a, #22d3ee, #0ea5e9);
       background-size: 300% 300%;
-      animation: gradientFlow 3s ease-in-out infinite;
+      animation: gradientFlow 8s ease-in-out infinite;
+      overflow: hidden;
+    }
+    .gradient-flow::before,
+    .gradient-flow::after {
+      content: "";
+      position: absolute;
+      inset: -20% -10% -10% -20%;
+      pointer-events: none;
+      background: radial-gradient(60% 40% at 20% 10%, rgba(34,211,238,.18) 0%, rgba(34,211,238,0) 60%),
+                  radial-gradient(50% 35% at 80% 30%, rgba(96,165,250,.16) 0%, rgba(96,165,250,0) 60%),
+                  radial-gradient(55% 40% at 30% 80%, rgba(129,140,248,.14) 0%, rgba(129,140,248,0) 60%);
+      filter: blur(12px);
+      animation: floatA 9s ease-in-out infinite alternate;
+    }
+    .gradient-flow::after {
+      inset: -10% -20% -20% -10%;
+      background: radial-gradient(45% 30% at 70% 70%, rgba(56,189,248,.14) 0%, rgba(56,189,248,0) 60%),
+                  radial-gradient(40% 30% at 25% 55%, rgba(59,130,246,.12) 0%, rgba(59,130,246,0) 60%);
+      filter: blur(22px);
+      animation: floatB 10s ease-in-out infinite alternate-reverse;
     }
 
     @keyframes gradientFlow {
       0% { background-position: 0% 50%; }
       50% { background-position: 100% 50%; }
       100% { background-position: 0% 50%; }
+    }
+    @keyframes floatA {
+      0% { transform: translate3d(-2%, -2%, 0) scale(1); }
+      50% { transform: translate3d(2%, 1%, 0) scale(1.02); }
+      100% { transform: translate3d(3%, 3%, 0) scale(1.04); }
+    }
+    @keyframes floatB {
+      0% { transform: translate3d(2%, 1%, 0) scale(1); }
+      50% { transform: translate3d(-1%, -2%, 0) scale(1.03); }
+      100% { transform: translate3d(-3%, -3%, 0) scale(1.05); }
     }
 
     .glint-overlay::before {
@@ -129,7 +160,7 @@
       };
 
       // Let the gradient flow briefly, then freeze and reveal
-      setTimeout(reveal, 2600);
+      setTimeout(reveal, 1200);
     });
   </script>
 </body>
