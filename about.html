@@ -6,6 +6,7 @@
   <title>About — Compositions by Callie Madson</title>
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cpath fill='%23FFD700' d='M16 2c-1 0-2 1-2 2v2c0 1 1 2 2 2s2-1 2-2V4c0-1-1-2-2-2zm-4 6c-1 0-2 1-2 2v12c0 1 1 2 2 2s2-1 2-2V10c0-1-1-2-2-2zm8 0c-1 0-2 1-2 2v12c0 1 1 2 2 2s2-1 2-2V10c0-1-1-2-2-2zm-6 2h4v12h-4V10zm-2 4c-1 0-2 1-2 2v4c0 1 1 2 2 2s2-1 2-2v-4c0-1-1-2-2-2zm12 0c-1 0-2 1-2 2v4c0 1 1 2 2 2s2-1 2-2v-4c0-1-1-2-2-2zm-8 2h4v4h-4v-4zm-2 6c-1 0-2 1-2 2v2c0 1 1 2 2 2s2-1 2-2v-2c0-1-1-2-2-2zm12 0c-1 0-2 1-2 2v2c0 1 1 2 2 2s2-1 2-2v-2c0-1-1-2-2-2zm-8 2h4v2h-4v-2z'/%3E%3C/svg%3E">
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
     tailwind.config = {
@@ -33,54 +34,84 @@
       }
     }
   </script>
+  <script src="main.js" defer></script>
 </head>
-<body class="font-sans bg-slate-950 text-slate-100 antialiased">
-  <nav class="fixed inset-x-0 top-0 z-50 border-b border-blue-400/20 bg-blue-900/60 backdrop-blur relative overflow-visible">
+<body class="font-sans bg-slate-950 text-slate-100 antialiased" data-page="about">
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  <nav class="site-nav relative overflow-visible">
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
       <div class="flex items-center justify-between py-2">
         <a href="index.html" class="flex items-center gap-2 font-semibold text-white">
           <span class="h-2.5 w-2.5 rounded-full bg-blue-400"></span>
           <span>Callie Madson</span>
         </a>
-        <div class="hidden sm:flex absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 items-center gap-3 sm:gap-4 text-sm">
-          <a href="examples.html" class="text-blue-100/80 hover:text-white hover:bg-white/10 rounded-full px-3 py-1.5 transition">Examples</a>
-          <a href="shop.html" class="text-blue-100/80 hover:text-white hover:bg-white/10 rounded-full px-3 py-1.5 transition">Shop</a>
-          <a href="about.html" class="text-white hover:bg-white/10 rounded-full px-3 py-1.5 transition">About</a>
-          <a href="projects.html" class="text-blue-100/80 hover:text-white hover:bg-white/10 rounded-full px-3 py-1.5 transition">Projects</a>
-          <a href="contact.html" class="text-blue-100/80 hover:text-white hover:bg-white/10 rounded-full px-3 py-1.5 transition">Contact</a>
-          <a href="commissions.html" class="text-blue-100/80 hover:text-white hover:bg-white/10 rounded-full px-3 py-1.5 transition">Commissions</a>
+        <div class="hidden sm:flex items-center gap-3 sm:gap-4 text-sm">
+          <a href="examples.html" data-nav-link="examples" class="text-blue-100/80 hover:text-white hover:bg-white/10 rounded-full px-3 py-1.5 transition">Examples</a>
+          <a href="shop.html" data-nav-link="shop" class="text-blue-100/80 hover:text-white hover:bg-white/10 rounded-full px-3 py-1.5 transition">Shop</a>
+          <a href="about.html" data-nav-link="about" class="text-blue-100/80 hover:text-white hover:bg-white/10 rounded-full px-3 py-1.5 transition">About</a>
+          <a href="projects.html" data-nav-link="projects" class="text-blue-100/80 hover:text-white hover:bg-white/10 rounded-full px-3 py-1.5 transition">Projects</a>
+          <a href="contact.html" data-nav-link="contact" class="text-blue-100/80 hover:text-white hover:bg-white/10 rounded-full px-3 py-1.5 transition">Contact</a>
+          <a href="commissions.html" data-nav-link="commissions" class="text-blue-100/80 hover:text-white hover:bg-white/10 rounded-full px-3 py-1.5 transition">Commissions</a>
         </div>
+        <button type="button" class="nav-toggle sm:hidden" data-nav-toggle aria-expanded="false" aria-controls="mobile-nav" aria-label="Toggle navigation">
+          <span class="sr-only">Toggle navigation</span>
+          <svg data-icon="open" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="3" y1="6" x2="21" y2="6" />
+            <line x1="3" y1="12" x2="21" y2="12" />
+            <line x1="3" y1="18" x2="21" y2="18" />
+          </svg>
+          <svg data-icon="close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="18" y1="6" x2="6" y2="18" />
+            <line x1="6" y1="6" x2="18" y2="18" />
+          </svg>
+        </button>
       </div>
+    </div>
+    <div class="mobile-nav-panel sm:hidden" data-nav-panel id="mobile-nav" hidden>
+      <a href="examples.html" data-nav-link="examples">Examples</a>
+      <a href="shop.html" data-nav-link="shop">Shop</a>
+      <a href="about.html" data-nav-link="about">About</a>
+      <a href="projects.html" data-nav-link="projects">Projects</a>
+      <a href="contact.html" data-nav-link="contact">Contact</a>
+      <a href="commissions.html" data-nav-link="commissions">Commissions</a>
     </div>
     <div id="nav-wave" class="pointer-events-none absolute left-0 right-0 top-full h-7 sm:h-9 overflow-hidden">
       <svg class="absolute top-0 left-0 w-[200%] min-w-[200%] h-full animate-wave-1" viewBox="0 0 1440 120" preserveAspectRatio="none">
-        <defs><linearGradient id="wave1-b" x1="0%" y1="0%" x2="100%" y2="0%"><stop offset="0%" stop-color="#60a5fa" stop-opacity="0.35"/><stop offset="50%" stop-color="#22d3ee" stop-opacity="0.30"/><stop offset="100%" stop-color="#818cf8" stop-opacity="0.35"/></linearGradient></defs>
-        <path d="M0 60 Q 120 0 240 60 T 480 60 T 720 60 T 960 60 T 1200 60 T 1440 60 V120 H0 Z" fill="url(#wave1-b)"/>
+        <defs>
+          <linearGradient id="waveGrad1" x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset="0%" stop-color="#60a5fa" stop-opacity="0.35"/>
+            <stop offset="50%" stop-color="#22d3ee" stop-opacity="0.30"/>
+            <stop offset="100%" stop-color="#818cf8" stop-opacity="0.35"/>
+          </linearGradient>
+        </defs>
+        <path d="M0 60 Q 120 0 240 60 T 480 60 T 720 60 T 960 60 T 1200 60 T 1440 60 V120 H0 Z" fill="url(#waveGrad1)"/>
       </svg>
       <svg class="absolute top-0 left-0 w-[200%] min-w-[200%] h-full animate-wave-2" viewBox="0 0 1440 120" preserveAspectRatio="none">
-        <defs><linearGradient id="wave2-b" x1="0%" y1="0%" x2="100%" y2="0%"><stop offset="0%" stop-color="#3b82f6" stop-opacity="0.45"/><stop offset="50%" stop-color="#0ea5e9" stop-opacity="0.35"/><stop offset="100%" stop-color="#6366f1" stop-opacity="0.45"/></linearGradient></defs>
-        <path d="M0 65 Q 160 20 320 65 T 640 65 T 960 65 T 1280 65 T 1600 65 V120 H0 Z" fill="url(#wave2-b)"/>
+        <defs>
+          <linearGradient id="waveGrad2" x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset="0%" stop-color="#3b82f6" stop-opacity="0.45"/>
+            <stop offset="50%" stop-color="#0ea5e9" stop-opacity="0.35"/>
+            <stop offset="100%" stop-color="#6366f1" stop-opacity="0.45"/>
+          </linearGradient>
+        </defs>
+        <path d="M0 65 Q 160 20 320 65 T 640 65 T 960 65 T 1280 65 T 1600 65 V120 H0 Z" fill="url(#waveGrad2)"/>
       </svg>
       <svg class="absolute top-0 left-0 w-[200%] min-w-[200%] h-full animate-wave-3" viewBox="0 0 1440 120" preserveAspectRatio="none">
-        <defs><linearGradient id="wave3-b" x1="0%" y1="0%" x2="100%" y2="0%"><stop offset="0%" stop-color="#22c55e" stop-opacity="0.18"/><stop offset="50%" stop-color="#06b6d4" stop-opacity="0.18"/><stop offset="100%" stop-color="#8b5cf6" stop-opacity="0.18"/></linearGradient></defs>
-        <path d="M0 70 Q 120 35 240 70 T 480 70 T 720 70 T 960 70 T 1200 70 T 1440 70 V120 H0 Z" fill="url(#wave3-b)"/>
+        <defs>
+          <linearGradient id="waveGrad3" x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset="0%" stop-color="#22c55e" stop-opacity="0.18"/>
+            <stop offset="50%" stop-color="#06b6d4" stop-opacity="0.18"/>
+            <stop offset="100%" stop-color="#8b5cf6" stop-opacity="0.18"/>
+          </linearGradient>
+        </defs>
+        <path d="M0 70 Q 120 35 240 70 T 480 70 T 720 70 T 960 70 T 1200 70 T 1440 70 V120 H0 Z" fill="url(#waveGrad3)"/>
       </svg>
     </div>
   </nav>
-  <style>
-    .animate-wave-1 { animation: waveSlide 18s linear infinite; }
-    .animate-wave-2 { animation: waveSlide 12s linear infinite reverse; }
-    .animate-wave-3 { animation: waveSlide 24s linear infinite; opacity:.7 }
-    @keyframes waveSlide { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
-  </style>
-  <style>
-    html, body { overflow-x: hidden; }
-    @media (prefers-reduced-motion: reduce) {
-      .animate-wave-1, .animate-wave-2, .animate-wave-3 { animation: none !important; }
-    }
-  </style>
+  
+  
 
-  <main class="pt-40 pb-20">
+  <main id="main-content" class="pt-40 pb-20">
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
       <h1 class="text-center text-3xl font-bold tracking-tight">About Me</h1>
       <div class="mt-10 grid items-center gap-10 md:grid-cols-2">

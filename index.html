@@ -6,6 +6,7 @@
   <title>Compositions by Callie Madson — Composer & Arranger</title>
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cpath fill='%23FFD700' d='M16 2c-1 0-2 1-2 2v2c0 1 1 2 2 2s2-1 2-2V4c0-1-1-2-2-2zm-4 6c-1 0-2 1-2 2v12c0 1 1 2 2 2s2-1 2-2V10c0-1-1-2-2-2zm8 0c-1 0-2 1-2 2v12c0 1 1 2 2 2s2-1 2-2V10c0-1-1-2-2-2zm-6 2h4v12h-4V10zm-2 4c-1 0-2 1-2 2v4c0 1 1 2 2 2s2-1 2-2v-4c0-1-1-2-2-2zm12 0c-1 0-2 1-2 2v4c0 1 1 2 2 2s2-1 2-2v-4c0-1-1-2-2-2zm-8 2h4v4h-4v-4zm-2 6c-1 0-2 1-2 2v2c0 1 1 2 2 2s2-1 2-2v-2c0-1-1-2-2-2zm12 0c-1 0-2 1-2 2v2c0 1 1 2 2 2s2-1 2-2v-2c0-1-1-2-2-2zm-8 2h4v2h-4v-2z'/%3E%3C/svg%3E">
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
     tailwind.config = {
@@ -34,90 +35,47 @@
     }
   </script>
   <script async src="https://js.stripe.com/v3/buy-button.js"></script>
-  <style>
-    .gradient-flow {
-      position: absolute;
-      background: linear-gradient(120deg, #0ea5e9, #6366f1, #1e3a8a, #22d3ee, #0ea5e9);
-      background-size: 300% 300%;
-      animation: gradientFlow 8s ease-in-out infinite;
-      overflow: hidden;
-    }
-    .gradient-flow::before,
-    .gradient-flow::after {
-      content: "";
-      position: absolute;
-      inset: -20% -10% -10% -20%;
-      pointer-events: none;
-      background: radial-gradient(60% 40% at 20% 10%, rgba(34,211,238,.18) 0%, rgba(34,211,238,0) 60%),
-                  radial-gradient(50% 35% at 80% 30%, rgba(96,165,250,.16) 0%, rgba(96,165,250,0) 60%),
-                  radial-gradient(55% 40% at 30% 80%, rgba(129,140,248,.14) 0%, rgba(129,140,248,0) 60%);
-      filter: blur(12px);
-      animation: floatA 9s ease-in-out infinite alternate;
-    }
-    .gradient-flow::after {
-      inset: -10% -20% -20% -10%;
-      background: radial-gradient(45% 30% at 70% 70%, rgba(56,189,248,.14) 0%, rgba(56,189,248,0) 60%),
-                  radial-gradient(40% 30% at 25% 55%, rgba(59,130,246,.12) 0%, rgba(59,130,246,0) 60%);
-      filter: blur(22px);
-      animation: floatB 10s ease-in-out infinite alternate-reverse;
-    }
-
-    @keyframes gradientFlow {
-      0% { background-position: 0% 50%; }
-      50% { background-position: 100% 50%; }
-      100% { background-position: 0% 50%; }
-    }
-    @keyframes floatA {
-      0% { transform: translate3d(-2%, -2%, 0) scale(1); }
-      50% { transform: translate3d(2%, 1%, 0) scale(1.02); }
-      100% { transform: translate3d(3%, 3%, 0) scale(1.04); }
-    }
-    @keyframes floatB {
-      0% { transform: translate3d(2%, 1%, 0) scale(1); }
-      50% { transform: translate3d(-1%, -2%, 0) scale(1.03); }
-      100% { transform: translate3d(-3%, -3%, 0) scale(1.05); }
-    }
-
-    .glint-overlay::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(180deg, rgba(255,255,255,0) 0%, rgba(255,255,255,0.35) 50%, rgba(255,255,255,0) 100%);
-      transform: translateY(-120%);
-    }
-    .animate-glint.glint-overlay::before {
-      animation: glintSweep 1.1s ease-out forwards;
-    }
-    @keyframes glintSweep {
-      0% { transform: translateY(-120%); }
-      100% { transform: translateY(120%); }
-    }
-    .animate-wave-1 { animation: waveSlide 18s linear infinite; }
-    .animate-wave-2 { animation: waveSlide 12s linear infinite reverse; }
-    .animate-wave-3 { animation: waveSlide 24s linear infinite; opacity:.7 }
-    @keyframes waveSlide { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
-    .invert-y { transform: scaleY(-1); transform-origin: top; }
-    #cta-overlay { position:absolute; inset:0; background: radial-gradient(640px 640px at 50% 50%, rgba(255,255,255,0.55) 0%, rgba(99,102,241,0.65) 18%, rgba(34,211,238,0.55) 38%, rgba(14,165,233,0.45) 58%, rgba(2,6,23,0) 78%); opacity:0; transform: scale(0.30); transform-origin: 50% 50%; pointer-events:none; }
-    html, body { overflow-x: hidden; }
-  </style>
+  <script src="main.js" defer></script>
+  
 </head>
-<body class="font-sans bg-slate-950 text-slate-100 antialiased">
-  <nav class="fixed inset-x-0 top-0 z-50 border-b border-blue-400/20 bg-blue-900/60 backdrop-blur relative overflow-visible">
+<body class="font-sans bg-slate-950 text-slate-100 antialiased" data-page="home">
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  <nav class="site-nav relative overflow-visible">
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
       <div class="relative flex items-center justify-between py-2">
-        <a href="#" class="flex items-center gap-2 font-semibold text-white">
+        <a href="index.html" class="flex items-center gap-2 font-semibold text-white">
           <span class="h-2.5 w-2.5 rounded-full bg-blue-400"></span>
           <span>Callie Madson</span>
         </a>
-        <div class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 flex items-center gap-3 sm:gap-4 text-sm">
-          <a href="examples.html" class="text-blue-100/80 hover:text-white hover:bg-white/10 rounded-full px-3 py-1.5 transition">Examples</a>
-          <a href="shop.html" class="text-blue-100/80 hover:text-white hover:bg-white/10 rounded-full px-3 py-1.5 transition">Shop</a>
-          <a href="about.html" class="text-blue-100/80 hover:text-white hover:bg-white/10 rounded-full px-3 py-1.5 transition">About</a>
-          <a href="projects.html" class="text-blue-100/80 hover:text-white hover:bg-white/10 rounded-full px-3 py-1.5 transition">Projects</a>
-          <a href="contact.html" class="text-blue-100/80 hover:text-white hover:bg-white/10 rounded-full px-3 py-1.5 transition">Contact</a>
-          <a href="commissions.html" class="text-blue-100/80 hover:text-white hover:bg-white/10 rounded-full px-3 py-1.5 transition">Commissions</a>
+        <div class="hidden sm:flex items-center gap-3 sm:gap-4 text-sm">
+          <a href="examples.html" data-nav-link="examples" class="text-blue-100/80 hover:text-white hover:bg-white/10 rounded-full px-3 py-1.5 transition">Examples</a>
+          <a href="shop.html" data-nav-link="shop" class="text-blue-100/80 hover:text-white hover:bg-white/10 rounded-full px-3 py-1.5 transition">Shop</a>
+          <a href="about.html" data-nav-link="about" class="text-blue-100/80 hover:text-white hover:bg-white/10 rounded-full px-3 py-1.5 transition">About</a>
+          <a href="projects.html" data-nav-link="projects" class="text-blue-100/80 hover:text-white hover:bg-white/10 rounded-full px-3 py-1.5 transition">Projects</a>
+          <a href="contact.html" data-nav-link="contact" class="text-blue-100/80 hover:text-white hover:bg-white/10 rounded-full px-3 py-1.5 transition">Contact</a>
+          <a href="commissions.html" data-nav-link="commissions" class="text-blue-100/80 hover:text-white hover:bg-white/10 rounded-full px-3 py-1.5 transition">Commissions</a>
         </div>
+        <button type="button" class="nav-toggle sm:hidden" data-nav-toggle aria-expanded="false" aria-controls="mobile-nav" aria-label="Toggle navigation">
+          <span class="sr-only">Toggle navigation</span>
+          <svg data-icon="open" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="3" y1="6" x2="21" y2="6" />
+            <line x1="3" y1="12" x2="21" y2="12" />
+            <line x1="3" y1="18" x2="21" y2="18" />
+          </svg>
+          <svg data-icon="close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="18" y1="6" x2="6" y2="18" />
+            <line x1="6" y1="6" x2="18" y2="18" />
+          </svg>
+        </button>
       </div>
+    </div>
+    <div class="mobile-nav-panel sm:hidden" data-nav-panel id="mobile-nav" hidden>
+      <a href="examples.html" data-nav-link="examples">Examples</a>
+      <a href="shop.html" data-nav-link="shop">Shop</a>
+      <a href="about.html" data-nav-link="about">About</a>
+      <a href="projects.html" data-nav-link="projects">Projects</a>
+      <a href="contact.html" data-nav-link="contact">Contact</a>
+      <a href="commissions.html" data-nav-link="commissions">Commissions</a>
     </div>
     <div id="secondary-bar" class="border-t border-white/5 relative overflow-hidden">
       <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
@@ -189,6 +147,7 @@
     </div>
   </nav>
 
+  <main id="main-content">
   <section id="hero-section" class="relative isolate overflow-hidden pt-44 pb-24 md:pt-52 md:pb-32">
     <div id="hero-gradient" class="absolute inset-0 -z-10 gradient-flow"></div>
     <div id="hero-glint" class="absolute inset-0 z-10 glint-overlay opacity-0 pointer-events-none"></div>
@@ -198,18 +157,49 @@
       <div id="hero-content" class="mx-auto max-w-3xl text-center opacity-0 translate-y-4 transition-all duration-700">
         <h1 class="text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight">Compositions by Callie Madson</h1>
         <p class="mt-4 text-base sm:text-lg text-blue-100/90">Welcome! I compose original works, create custom arrangements for choirs and instrumental ensembles, and offer commissions and rehearsal resources. Explore examples, shop scores, or reach out to start a project.</p>
-        <div class="mt-10">
-          <button id="get-started" class="inline-flex items-center justify-center rounded-xl bg-blue-500 px-8 py-4 text-lg sm:text-xl font-semibold text-white shadow-sm ring-1 ring-inset ring-blue-300/60 transition hover:bg-blue-400 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-300">
-            Get started
+        <div class="mt-10 flex flex-col items-center gap-3">
+          <button id="get-started" class="inline-flex items-center justify-center gap-3 rounded-2xl bg-blue-500/90 px-8 py-4 text-lg sm:text-xl font-semibold text-white shadow-lg shadow-blue-900/40 ring-1 ring-inset ring-blue-300/60 transition hover:bg-blue-400 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-300" aria-expanded="false" aria-controls="hero-menu">
+            <span>Plan my next step</span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" class="h-5 w-5">
+              <path d="M12 5v14" />
+              <path d="M5 12h14" />
+            </svg>
           </button>
-          
+          <p class="text-sm text-blue-100/80">Open the quick-start panel to pick the right resource.</p>
         </div>
-        <div id="hero-menu" class="mt-8 grid grid-cols-1 gap-3 sm:grid-cols-2 md:grid-cols-3 hidden">
-          <a href="examples.html" class="inline-flex items-center justify-center rounded-lg bg-white/5 px-5 py-3 font-semibold text-white shadow-sm ring-1 ring-inset ring-white/10 hover:bg-white/10 transition">Examples</a>
-          <a href="shop.html" class="inline-flex items-center justify-center rounded-lg bg-blue-500 px-5 py-3 font-semibold text-white shadow-sm ring-1 ring-inset ring-blue-300/60 hover:bg-blue-400 transition">Shop</a>
-          <a href="projects.html" class="inline-flex items-center justify-center rounded-lg bg-white/5 px-5 py-3 font-semibold text-white shadow-sm ring-1 ring-inset ring-white/10 hover:bg-white/10 transition">Projects</a>
-          <a href="contact.html" class="inline-flex items-center justify-center rounded-lg bg-white/5 px-5 py-3 font-semibold text-white shadow-sm ring-1 ring-inset ring-white/10 hover:bg-white/10 transition">Contact</a>
-          <a href="commissions.html" class="inline-flex items-center justify-center rounded-lg bg-white/5 px-5 py-3 font-semibold text-white shadow-sm ring-1 ring-inset ring-white/10 hover:bg-white/10 transition">Commissions</a>
+        <div id="hero-menu" data-hero-menu data-visible="false" aria-hidden="true" class="mt-10 grid grid-cols-1 gap-4 sm:grid-cols-2">
+          <article class="hero-cta-card">
+            <div>
+              <p class="hero-card-kicker">Library</p>
+              <h3>Listen & explore</h3>
+              <p>Preview recordings, scores, and rehearsal tracks spanning choral, orchestral, and film projects.</p>
+            </div>
+            <a href="examples.html" class="hero-card-link">Browse examples</a>
+          </article>
+          <article class="hero-cta-card">
+            <div>
+              <p class="hero-card-kicker">Instant access</p>
+              <h3>Shop ready-to-sing scores</h3>
+              <p>Purchase SATB, treble, and instrumental charts with immediate digital delivery.</p>
+            </div>
+            <a href="shop.html" class="hero-card-link">Shop the catalog</a>
+          </article>
+          <article class="hero-cta-card">
+            <div>
+              <p class="hero-card-kicker">Custom work</p>
+              <h3>Start a commission</h3>
+              <p>Share your ensemble goals and timeline to receive a tailored writing proposal.</p>
+            </div>
+            <a href="commissions.html" class="hero-card-link">Request a quote</a>
+          </article>
+          <article class="hero-cta-card">
+            <div>
+              <p class="hero-card-kicker">Connection</p>
+              <h3>Talk with Callie</h3>
+              <p>Schedule a quick call or send a message to review ideas, logistics, or licensing.</p>
+            </div>
+            <a href="contact.html" class="hero-card-link">Contact Callie</a>
+          </article>
         </div>
       </div>
     </div>
@@ -227,6 +217,194 @@
     </div>
   </section>
 
+  <section id="stats" class="border-t border-white/5 bg-slate-900/30 py-16">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <dl class="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+        <div class="rounded-2xl border border-white/10 bg-white/5 p-6 text-center">
+          <dt class="text-sm uppercase tracking-widest text-slate-400">Premieres</dt>
+          <dd class="mt-2 text-4xl font-semibold text-white">45+</dd>
+          <dd class="mt-1 text-sm text-slate-400">Original works debuted across the U.S. and Europe.</dd>
+        </div>
+        <div class="rounded-2xl border border-white/10 bg-white/5 p-6 text-center">
+          <dt class="text-sm uppercase tracking-widest text-slate-400">Commissions</dt>
+          <dd class="mt-2 text-4xl font-semibold text-white">120</dd>
+          <dd class="mt-1 text-sm text-slate-400">Custom arrangements delivered for choirs and full orchestra.</dd>
+        </div>
+        <div class="rounded-2xl border border-white/10 bg-white/5 p-6 text-center">
+          <dt class="text-sm uppercase tracking-widest text-slate-400">Turnaround</dt>
+          <dd class="mt-2 text-4xl font-semibold text-white">2 wks</dd>
+          <dd class="mt-1 text-sm text-slate-400">Average timeline for rehearsal-ready scores and parts.</dd>
+        </div>
+        <div class="rounded-2xl border border-white/10 bg-white/5 p-6 text-center">
+          <dt class="text-sm uppercase tracking-widest text-slate-400">Collaborators</dt>
+          <dd class="mt-2 text-4xl font-semibold text-white">65</dd>
+          <dd class="mt-1 text-sm text-slate-400">Directors, choreographers, and media teams partnered annually.</dd>
+        </div>
+      </dl>
+    </div>
+  </section>
+
+  <section id="services" class="border-t border-white/10 py-16">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div class="grid gap-8 lg:grid-cols-3">
+        <article class="rounded-3xl border border-white/10 bg-white/5 p-6 shadow-2xl ring-1 ring-white/10">
+          <div class="flex items-center gap-3">
+            <span class="inline-flex h-12 w-12 items-center justify-center rounded-2xl bg-blue-500/20 text-blue-200">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" class="h-6 w-6">
+                <path d="M4 4h16v12H4z" />
+                <path d="M8 20h8" />
+              </svg>
+            </span>
+            <h3 class="text-xl font-semibold">Commissioned works</h3>
+          </div>
+          <p class="mt-4 text-sm text-slate-300">From concert band to SATB choir, I write bespoke repertoire tailored to your ensemble&apos;s strengths, range, and storytelling goals.</p>
+          <ul class="mt-4 space-y-2 text-sm text-slate-300">
+            <li>• Collaborative briefs &amp; annotated drafts</li>
+            <li>• Engraved scores + extracted parts</li>
+            <li>• Optional rehearsal tracks</li>
+          </ul>
+          <a href="commissions.html" class="mt-6 inline-flex items-center text-sm font-semibold text-blue-200 hover:text-white">Start a commission →</a>
+        </article>
+        <article class="rounded-3xl border border-white/10 bg-white/5 p-6 shadow-2xl ring-1 ring-white/10">
+          <div class="flex items-center gap-3">
+            <span class="inline-flex h-12 w-12 items-center justify-center rounded-2xl bg-emerald-500/20 text-emerald-200">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" class="h-6 w-6">
+                <path d="M5 4h14v16H5z" />
+                <path d="M9 2v4" />
+                <path d="M15 2v4" />
+              </svg>
+            </span>
+            <h3 class="text-xl font-semibold">Arranging &amp; licensing</h3>
+          </div>
+          <p class="mt-4 text-sm text-slate-300">Refresh favorite catalog works or adapt them for new voicings with clean, licensable charts ready for stage or studio.</p>
+          <ul class="mt-4 space-y-2 text-sm text-slate-300">
+            <li>• Quick-turn string &amp; brass reductions</li>
+            <li>• Vocal jazz reharmonizations</li>
+            <li>• Copyright + licensing guidance</li>
+          </ul>
+          <a href="examples.html" class="mt-6 inline-flex items-center text-sm font-semibold text-emerald-200 hover:text-white">Hear examples →</a>
+        </article>
+        <article class="rounded-3xl border border-white/10 bg-white/5 p-6 shadow-2xl ring-1 ring-white/10">
+          <div class="flex items-center gap-3">
+            <span class="inline-flex h-12 w-12 items-center justify-center rounded-2xl bg-amber-500/20 text-amber-200">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" class="h-6 w-6">
+                <path d="M12 3v18" />
+                <path d="M5 12h14" />
+                <circle cx="12" cy="12" r="9" />
+              </svg>
+            </span>
+            <h3 class="text-xl font-semibold">Production support</h3>
+          </div>
+          <p class="mt-4 text-sm text-slate-300">Need a rehearsal track, click stems, or orchestrations for film? I partner with directors to build the sonic toolkit you need.</p>
+          <ul class="mt-4 space-y-2 text-sm text-slate-300">
+            <li>• Hybrid orchestration mockups</li>
+            <li>• Cue-to-picture scoring</li>
+            <li>• Remote session coordination</li>
+          </ul>
+          <a href="projects.html" class="mt-6 inline-flex items-center text-sm font-semibold text-amber-200 hover:text-white">View collaborations →</a>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="featured-work" class="border-t border-white/5 bg-slate-900/40 py-16">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div class="flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
+        <div>
+          <p class="text-sm uppercase tracking-[0.2em] text-slate-400">Recent highlights</p>
+          <h2 class="mt-3 text-3xl font-semibold text-white">Scores that moved audiences</h2>
+          <p class="mt-2 text-blue-100/80 max-w-2xl">Preview cues and scores currently featured in festivals, liturgical series, and indie films. Each card links to a full PDF preview or listening room.</p>
+        </div>
+        <a href="examples.html" class="inline-flex items-center justify-center rounded-full border border-white/20 px-5 py-2 text-sm font-semibold text-white hover:bg-white/10">Browse all examples</a>
+      </div>
+      <div class="mt-10 grid gap-6 md:grid-cols-2">
+        <article class="rounded-2xl border border-white/10 bg-white/5 p-6">
+          <div class="flex items-center justify-between">
+            <div>
+              <p class="text-xs uppercase tracking-wider text-slate-400">SATB + Strings</p>
+              <h3 class="text-xl font-semibold">Aurora Hymn</h3>
+            </div>
+            <span class="rounded-full bg-emerald-500/20 px-3 py-1 text-xs font-semibold text-emerald-200">Festival pick</span>
+          </div>
+          <p class="mt-3 text-sm text-slate-300">Commissioned for the North Shore Choral Collective, blending minimalist pulses with lyrical string passages.</p>
+          <div class="mt-4 flex flex-wrap gap-3">
+            <a href="PDF_Example.pdf" class="inline-flex items-center rounded-full bg-white/10 px-4 py-2 text-sm font-semibold text-white hover:bg-white/20">Preview score</a>
+            <a href="Song.wav" class="inline-flex items-center rounded-full border border-white/20 px-4 py-2 text-sm font-semibold text-white hover:bg-white/10">Listen</a>
+          </div>
+        </article>
+        <article class="rounded-2xl border border-white/10 bg-white/5 p-6">
+          <div class="flex items-center justify-between">
+            <div>
+              <p class="text-xs uppercase tracking-wider text-slate-400">Film cue</p>
+              <h3 class="text-xl font-semibold">Gilded Hour</h3>
+            </div>
+            <span class="rounded-full bg-blue-500/20 px-3 py-1 text-xs font-semibold text-blue-200">New</span>
+          </div>
+          <p class="mt-3 text-sm text-slate-300">A hybrid orchestra + synth palette supporting director Ana Ruiz&apos;s short film premiere at Sundance Midwest.</p>
+          <div class="mt-4 flex flex-wrap gap-3">
+            <a href="projects.html" class="inline-flex items-center rounded-full bg-white/10 px-4 py-2 text-sm font-semibold text-white hover:bg-white/20">Project notes</a>
+            <a href="contact.html" class="inline-flex items-center rounded-full border border-white/20 px-4 py-2 text-sm font-semibold text-white hover:bg-white/10">Request stems</a>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="cta" class="relative isolate overflow-hidden border-t border-white/10 py-16">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div class="grid gap-10 lg:grid-cols-[1.1fr,0.9fr]">
+        <div class="rounded-3xl border border-white/10 bg-gradient-to-br from-blue-600/30 via-indigo-600/30 to-cyan-500/20 p-8 shadow-2xl">
+          <p class="text-sm uppercase tracking-[0.25em] text-white/70">Let&apos;s collaborate</p>
+          <h3 class="mt-3 text-3xl font-semibold text-white">Ready for a new commission or arrangement?</h3>
+          <p class="mt-4 text-base text-blue-100/90">Share your story, instrumentation, and timeline. I&apos;ll reply with a tailored proposal, scheduling options, and transparent pricing.</p>
+          <div class="mt-8 flex flex-wrap gap-3">
+            <a href="contact.html" class="inline-flex items-center justify-center rounded-full bg-white px-6 py-3 text-base font-semibold text-slate-900 shadow-lg shadow-white/30">Send a brief</a>
+            <a href="commissions.html" class="inline-flex items-center justify-center rounded-full border border-white/40 px-6 py-3 text-base font-semibold text-white hover:bg-white/10">View commission form</a>
+          </div>
+          <dl class="mt-8 grid gap-4 text-sm text-white/80 sm:grid-cols-2">
+            <div>
+              <dt class="text-white/60">Average project budget</dt>
+              <dd class="text-lg font-semibold">$1,200 – $4,800</dd>
+            </div>
+            <div>
+              <dt class="text-white/60">Booking lead time</dt>
+              <dd class="text-lg font-semibold">Currently 6 weeks out</dd>
+            </div>
+          </dl>
+        </div>
+        <div class="rounded-3xl border border-white/10 bg-white/5 p-8">
+          <h4 class="text-xl font-semibold text-white">Quick contact</h4>
+          <p class="mt-2 text-sm text-slate-300">Prefer a direct line? Reach out using any channel below.</p>
+          <ul class="mt-6 space-y-4 text-sm">
+            <li class="flex items-center justify-between">
+              <div>
+                <p class="text-slate-400">Studio email</p>
+                <p class="font-semibold text-white">hello@calliemadson.com</p>
+              </div>
+              <a href="mailto:hello@calliemadson.com" class="text-blue-200 hover:text-white">Email →</a>
+            </li>
+            <li class="flex items-center justify-between">
+              <div>
+                <p class="text-slate-400">Phone</p>
+                <p class="font-semibold text-white">(555) 555-1234</p>
+              </div>
+              <a href="tel:+15555551234" class="text-blue-200 hover:text-white">Call →</a>
+            </li>
+            <li class="flex items-center justify-between">
+              <div>
+                <p class="text-slate-400">Office hours</p>
+                <p class="font-semibold text-white">Mon–Fri · 9a–4p CST</p>
+              </div>
+              <a href="contact.html#page-content" class="text-blue-200 hover:text-white">Schedule →</a>
+            </li>
+          </ul>
+          <p class="mt-8 text-xs text-slate-400">Need documents for procurement? I can share W-9s, insurance certificates, and project references on request.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  </main>
   <footer class="border-t border-white/10 py-10 text-center text-sm text-slate-400">
     <p>© 2025 Compositions By Callie · All Rights Reserved</p>
   </footer>

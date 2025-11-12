@@ -6,6 +6,7 @@
   <title>Contact — Compositions by Callie Madson</title>
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cpath fill='%23FFD700' d='M16 2c-1 0-2 1-2 2v2c0 1 1 2 2 2s2-1 2-2V4c0-1-1-2-2-2zm-4 6c-1 0-2 1-2 2v12c0 1 1 2 2 2s2-1 2-2V10c0-1-1-2-2-2zm8 0c-1 0-2 1-2 2v12c0 1 1 2 2 2s2-1 2-2V10c0-1-1-2-2-2zm-6 2h4v12h-4V10zm-2 4c-1 0-2 1-2 2v4c0 1 1 2 2 2s2-1 2-2v-4c0-1-1-2-2-2zm12 0c-1 0-2 1-2 2v4c0 1 1 2 2 2s2-1 2-2v-4c0-1-1-2-2-2zm-8 2h4v4h-4v-4zm-2 6c-1 0-2 1-2 2v2c0 1 1 2 2 2s2-1 2-2v-2c0-1-1-2-2-2zm12 0c-1 0-2 1-2 2v2c0 1 1 2 2 2s2-1 2-2v-2c0-1-1-2-2-2zm-8 2h4v2h-4v-2z'/%3E%3C/svg%3E">
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
     tailwind.config = {
@@ -33,68 +34,154 @@
       }
     }
   </script>
-  <style>
-    .gradient-flow { position:absolute; background: linear-gradient(120deg, #0ea5e9, #6366f1, #1e3a8a, #22d3ee, #0ea5e9); background-size:300% 300%; animation: gradientFlow 8s ease-in-out infinite; overflow:hidden; }
-    .gradient-flow::before, .gradient-flow::after { content:""; position:absolute; inset:-20% -10% -10% -20%; pointer-events:none; background: radial-gradient(60% 40% at 20% 10%, rgba(34,211,238,.18) 0%, rgba(34,211,238,0) 60%), radial-gradient(50% 35% at 80% 30%, rgba(96,165,250,.16) 0%, rgba(96,165,250,0) 60%), radial-gradient(55% 40% at 30% 80%, rgba(129,140,248,.14) 0%, rgba(129,140,248,0) 60%); filter: blur(12px); animation: floatA 9s ease-in-out infinite alternate; }
-    .gradient-flow::after { inset:-10% -20% -20% -10%; background: radial-gradient(45% 30% at 70% 70%, rgba(56,189,248,.14) 0%, rgba(56,189,248,0) 60%), radial-gradient(40% 30% at 25% 55%, rgba(59,130,246,.12) 0%, rgba(59,130,246,0) 60%); filter: blur(22px); animation: floatB 10s ease-in-out infinite alternate-reverse; }
-    @keyframes gradientFlow { 0%{background-position:0% 50%} 50%{background-position:100% 50%} 100%{background-position:0% 50%} }
-    @keyframes floatA { 0%{transform:translate3d(-2%,-2%,0) scale(1)} 50%{transform:translate3d(2%,1%,0) scale(1.02)} 100%{transform:translate3d(3%,3%,0) scale(1.04)} }
-    @keyframes floatB { 0%{transform:translate3d(2%,1%,0) scale(1)} 50%{transform:translate3d(-1%,-2%,0) scale(1.03)} 100%{transform:translate3d(-3%,-3%,0) scale(1.05)} }
-    .glint-overlay::before { content:""; position:absolute; inset:0; background:linear-gradient(180deg, rgba(255,255,255,0) 0%, rgba(255,255,255,.35) 50%, rgba(255,255,255,0) 100%); transform:translateY(-120%); }
-    .animate-glint.glint-overlay::before { animation: glintSweep 1.1s ease-out forwards; }
-    @keyframes glintSweep { 0%{transform:translateY(-120%)} 100%{transform:translateY(120%)} }
-    .animate-wave-1 { animation: waveSlide 18s linear infinite; }
-    .animate-wave-2 { animation: waveSlide 12s linear infinite reverse; }
-    .animate-wave-3 { animation: waveSlide 24s linear infinite; opacity:.7 }
-    @keyframes waveSlide { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
-    html, body { overflow-x: hidden; }
-    @media (prefers-reduced-motion: reduce) {
-      .animate-wave-1, .animate-wave-2, .animate-wave-3, .gradient-flow { animation: none !important; }
-    }
-  </style>
+  <script src="main.js" defer></script>
+  
 </head>
-<body class="font-sans bg-slate-950 text-slate-100 antialiased">
-  <nav class="fixed inset-x-0 top-0 z-50 border-b border-blue-400/20 bg-blue-900/60 backdrop-blur relative overflow-visible">
+<body class="font-sans bg-slate-950 text-slate-100 antialiased" data-page="contact">
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  <nav class="site-nav relative overflow-visible">
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
       <div class="flex items-center justify-between py-2">
         <a href="index.html" class="flex items-center gap-2 font-semibold text-white">
           <span class="h-2.5 w-2.5 rounded-full bg-blue-400"></span>
           <span>Callie Madson</span>
         </a>
-        <div class="hidden sm:flex absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 items-center gap-3 sm:gap-4 text-sm">
-          <a href="examples.html" class="text-blue-100/80 hover:text-white hover:bg-white/10 rounded-full px-3 py-1.5 transition">Examples</a>
-          <a href="shop.html" class="text-blue-100/80 hover:text-white hover:bg-white/10 rounded-full px-3 py-1.5 transition">Shop</a>
-          <a href="about.html" class="text-blue-100/80 hover:text-white hover:bg-white/10 rounded-full px-3 py-1.5 transition">About</a>
-          <a href="projects.html" class="text-blue-100/80 hover:text-white hover:bg-white/10 rounded-full px-3 py-1.5 transition">Projects</a>
-          <a href="contact.html" class="text-white hover:bg-white/10 rounded-full px-3 py-1.5 transition">Contact</a>
-          <a href="commissions.html" class="text-blue-100/80 hover:text-white hover:bg-white/10 rounded-full px-3 py-1.5 transition">Commissions</a>
+        <div class="hidden sm:flex items-center gap-3 sm:gap-4 text-sm">
+          <a href="examples.html" data-nav-link="examples" class="text-blue-100/80 hover:text-white hover:bg-white/10 rounded-full px-3 py-1.5 transition">Examples</a>
+          <a href="shop.html" data-nav-link="shop" class="text-blue-100/80 hover:text-white hover:bg-white/10 rounded-full px-3 py-1.5 transition">Shop</a>
+          <a href="about.html" data-nav-link="about" class="text-blue-100/80 hover:text-white hover:bg-white/10 rounded-full px-3 py-1.5 transition">About</a>
+          <a href="projects.html" data-nav-link="projects" class="text-blue-100/80 hover:text-white hover:bg-white/10 rounded-full px-3 py-1.5 transition">Projects</a>
+          <a href="contact.html" data-nav-link="contact" class="text-blue-100/80 hover:text-white hover:bg-white/10 rounded-full px-3 py-1.5 transition">Contact</a>
+          <a href="commissions.html" data-nav-link="commissions" class="text-blue-100/80 hover:text-white hover:bg-white/10 rounded-full px-3 py-1.5 transition">Commissions</a>
         </div>
+        <button type="button" class="nav-toggle sm:hidden" data-nav-toggle aria-expanded="false" aria-controls="mobile-nav" aria-label="Toggle navigation">
+          <span class="sr-only">Toggle navigation</span>
+          <svg data-icon="open" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="3" y1="6" x2="21" y2="6" />
+            <line x1="3" y1="12" x2="21" y2="12" />
+            <line x1="3" y1="18" x2="21" y2="18" />
+          </svg>
+          <svg data-icon="close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="18" y1="6" x2="6" y2="18" />
+            <line x1="6" y1="6" x2="18" y2="18" />
+          </svg>
+        </button>
       </div>
+    </div>
+    <div class="mobile-nav-panel sm:hidden" data-nav-panel id="mobile-nav" hidden>
+      <a href="examples.html" data-nav-link="examples">Examples</a>
+      <a href="shop.html" data-nav-link="shop">Shop</a>
+      <a href="about.html" data-nav-link="about">About</a>
+      <a href="projects.html" data-nav-link="projects">Projects</a>
+      <a href="contact.html" data-nav-link="contact">Contact</a>
+      <a href="commissions.html" data-nav-link="commissions">Commissions</a>
     </div>
     <div id="nav-wave" class="pointer-events-none absolute left-0 right-0 top-full h-7 sm:h-9 overflow-hidden">
       <svg class="absolute top-0 left-0 w-[200%] min-w-[200%] h-full animate-wave-1" viewBox="0 0 1440 120" preserveAspectRatio="none">
-        <defs><linearGradient id="wave1-c" x1="0%" y1="0%" x2="100%" y2="0%"><stop offset="0%" stop-color="#60a5fa" stop-opacity="0.35"/><stop offset="50%" stop-color="#22d3ee" stop-opacity="0.30"/><stop offset="100%" stop-color="#818cf8" stop-opacity="0.35"/></linearGradient></defs>
-        <path d="M0 60 Q 120 0 240 60 T 480 60 T 720 60 T 960 60 T 1200 60 T 1440 60 V120 H0 Z" fill="url(#wave1-c)"/>
+        <defs>
+          <linearGradient id="waveGrad1" x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset="0%" stop-color="#60a5fa" stop-opacity="0.35"/>
+            <stop offset="50%" stop-color="#22d3ee" stop-opacity="0.30"/>
+            <stop offset="100%" stop-color="#818cf8" stop-opacity="0.35"/>
+          </linearGradient>
+        </defs>
+        <path d="M0 60 Q 120 0 240 60 T 480 60 T 720 60 T 960 60 T 1200 60 T 1440 60 V120 H0 Z" fill="url(#waveGrad1)"/>
       </svg>
       <svg class="absolute top-0 left-0 w-[200%] min-w-[200%] h-full animate-wave-2" viewBox="0 0 1440 120" preserveAspectRatio="none">
-        <defs><linearGradient id="wave2-c" x1="0%" y1="0%" x2="100%" y2="0%"><stop offset="0%" stop-color="#3b82f6" stop-opacity="0.45"/><stop offset="50%" stop-color="#0ea5e9" stop-opacity="0.35"/><stop offset="100%" stop-color="#6366f1" stop-opacity="0.45"/></linearGradient></defs>
-        <path d="M0 65 Q 160 20 320 65 T 640 65 T 960 65 T 1280 65 T 1600 65 V120 H0 Z" fill="url(#wave2-c)"/>
+        <defs>
+          <linearGradient id="waveGrad2" x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset="0%" stop-color="#3b82f6" stop-opacity="0.45"/>
+            <stop offset="50%" stop-color="#0ea5e9" stop-opacity="0.35"/>
+            <stop offset="100%" stop-color="#6366f1" stop-opacity="0.45"/>
+          </linearGradient>
+        </defs>
+        <path d="M0 65 Q 160 20 320 65 T 640 65 T 960 65 T 1280 65 T 1600 65 V120 H0 Z" fill="url(#waveGrad2)"/>
       </svg>
       <svg class="absolute top-0 left-0 w-[200%] min-w-[200%] h-full animate-wave-3" viewBox="0 0 1440 120" preserveAspectRatio="none">
-        <defs><linearGradient id="wave3-c" x1="0%" y1="0%" x2="100%" y2="0%"><stop offset="0%" stop-color="#22c55e" stop-opacity="0.18"/><stop offset="50%" stop-color="#06b6d4" stop-opacity="0.18"/><stop offset="100%" stop-color="#8b5cf6" stop-opacity="0.18"/></linearGradient></defs>
-        <path d="M0 70 Q 120 35 240 70 T 480 70 T 720 70 T 960 70 T 1200 70 T 1440 70 V120 H0 Z" fill="url(#wave3-c)"/>
+        <defs>
+          <linearGradient id="waveGrad3" x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset="0%" stop-color="#22c55e" stop-opacity="0.18"/>
+            <stop offset="50%" stop-color="#06b6d4" stop-opacity="0.18"/>
+            <stop offset="100%" stop-color="#8b5cf6" stop-opacity="0.18"/>
+          </linearGradient>
+        </defs>
+        <path d="M0 70 Q 120 35 240 70 T 480 70 T 720 70 T 960 70 T 1200 70 T 1440 70 V120 H0 Z" fill="url(#waveGrad3)"/>
       </svg>
     </div>
   </nav>
 
   <div id="hero-gradient" class="absolute inset-0 -z-10 gradient-flow"></div>
   <div id="hero-glint" class="absolute inset-0 z-10 glint-overlay opacity-0 pointer-events-none"></div>
-  <main class="relative pt-40 pb-20 z-20">
+  <main id="main-content" class="relative pt-40 pb-20 z-20">
     <div id="page-content" class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 opacity-0 translate-y-4 transition-all duration-700">
       <h1 class="text-center text-3xl font-bold tracking-tight">Contact</h1>
-      <div class="mt-6 text-center">
-        <p class="text-slate-300">Let’s work together!</p>
-        <a href="mailto:jonasjistheman@gmail.com" class="mt-6 inline-flex items-center justify-center rounded-lg bg-celestial px-5 py-3 font-semibold text-slate-900 shadow-sm ring-1 ring-inset ring-yellow-200/60 hover:bg-yellow-300 transition">Email me: jonasjistheman@gmail.com</a>
+      <p class="mt-4 text-center text-slate-300 max-w-3xl mx-auto">Share a bit about your ensemble, the story you want the music to tell, and the timeline you’re working with. I’ll reply within two business days with next steps and an initial quote.</p>
+      <div class="mt-10 grid gap-10 lg:grid-cols-[0.95fr,1.05fr]">
+        <div class="space-y-6">
+          <div class="rounded-2xl bg-white/5 px-6 py-6 ring-1 ring-white/10">
+            <h2 class="text-lg font-semibold">Prefer a quick note?</h2>
+            <p class="mt-2 text-sm text-slate-300">Send a message directly and include your best contact info so I can follow up with questions.</p>
+            <dl class="mt-6 space-y-4 text-sm">
+              <div class="flex flex-col gap-1">
+                <dt class="text-slate-400">Direct email</dt>
+                <dd><a class="font-semibold text-white hover:text-cyan-200" href="mailto:hello@calliemadson.com">hello@calliemadson.com</a></dd>
+              </div>
+              <div class="flex flex-col gap-1">
+                <dt class="text-slate-400">Studio phone</dt>
+                <dd><a class="font-semibold text-white hover:text-cyan-200" href="tel:+15555551234">(555) 555-1234</a></dd>
+              </div>
+              <div class="flex flex-col gap-1">
+                <dt class="text-slate-400">Office hours</dt>
+                <dd class="font-semibold text-white">Mon–Fri · 9a–4p CST</dd>
+              </div>
+            </dl>
+          </div>
+          <div class="rounded-2xl border border-white/10 px-6 py-6">
+            <h2 class="text-lg font-semibold">What to include</h2>
+            <ul class="mt-4 list-disc space-y-2 pl-5 text-sm text-slate-300">
+              <li>Desired instrumentation, voicing, or ensemble size</li>
+              <li>Performance context (festival, commission, licensing, film, etc.)</li>
+              <li>Deadlines, budget ranges, or existing references you love</li>
+            </ul>
+          </div>
+        </div>
+        <form action="https://formspree.io/f/xwkgoqgv" method="POST" class="space-y-6 rounded-2xl bg-slate-950/70 p-6 shadow-2xl ring-1 ring-white/10">
+          <div class="grid gap-4 sm:grid-cols-2">
+            <label class="text-sm font-semibold text-slate-200">
+              Full name
+              <input type="text" name="name" autocomplete="name" required class="mt-2 w-full rounded-xl border border-white/10 bg-white/5 px-4 py-2.5 text-base text-white placeholder-slate-400 focus:border-cyan-300 focus:outline-none focus:ring-2 focus:ring-cyan-300/40" placeholder="Alex Director">
+            </label>
+            <label class="text-sm font-semibold text-slate-200">
+              Email
+              <input type="email" name="email" autocomplete="email" required class="mt-2 w-full rounded-xl border border-white/10 bg-white/5 px-4 py-2.5 text-base text-white placeholder-slate-400 focus:border-cyan-300 focus:outline-none focus:ring-2 focus:ring-cyan-300/40" placeholder="you@example.com">
+            </label>
+          </div>
+          <div class="grid gap-4 sm:grid-cols-2">
+            <label class="text-sm font-semibold text-slate-200">
+              Organization or ensemble
+              <input type="text" name="organization" autocomplete="organization" class="mt-2 w-full rounded-xl border border-white/10 bg-white/5 px-4 py-2.5 text-base text-white placeholder-slate-400 focus:border-cyan-300 focus:outline-none focus:ring-2 focus:ring-cyan-300/40" placeholder="River City Chorale">
+            </label>
+            <label class="text-sm font-semibold text-slate-200">
+              Project type
+              <select name="projectType" class="mt-2 w-full rounded-xl border border-white/10 bg-white/5 px-4 py-2.5 text-base text-white focus:border-cyan-300 focus:outline-none focus:ring-2 focus:ring-cyan-300/40">
+                <option value="Original composition">Original composition</option>
+                <option value="Custom arrangement">Custom arrangement</option>
+                <option value="Film / media scoring">Film / media scoring</option>
+                <option value="Rehearsal resources">Rehearsal resources</option>
+                <option value="Other">Other</option>
+              </select>
+            </label>
+          </div>
+          <label class="text-sm font-semibold text-slate-200 block">
+            Project goals &amp; timeline
+            <textarea name="message" rows="5" required class="mt-2 w-full rounded-xl border border-white/10 bg-white/5 px-4 py-3 text-base text-white placeholder-slate-400 focus:border-cyan-300 focus:outline-none focus:ring-2 focus:ring-cyan-300/40" placeholder="Tell me about the story, deadlines, and any reference pieces you'd like me to hear."></textarea>
+          </label>
+          <input type="text" name="_gotcha" class="hidden" tabindex="-1" autocomplete="off">
+          <button type="submit" class="inline-flex w-full items-center justify-center rounded-xl bg-celestial px-5 py-3 text-base font-semibold text-slate-900 shadow-lg shadow-yellow-200/20 transition hover:bg-amber-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-yellow-200">
+            Send request
+          </button>
+          <p class="text-center text-xs text-slate-400">You’ll receive a confirmation email immediately after submitting. Update the Formspree endpoint once your production inbox is ready.</p>
+        </form>
       </div>
     </div>
   </main>
