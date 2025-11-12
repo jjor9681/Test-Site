@@ -42,7 +42,7 @@
           <span class="h-2.5 w-2.5 rounded-full bg-blue-400"></span>
           <span>Callie Madson</span>
         </a>
-        <div class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 flex items-center gap-3 sm:gap-4 text-sm">
+        <div class="hidden sm:flex absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 items-center gap-3 sm:gap-4 text-sm">
           <a href="examples.html" class="text-blue-100/80 hover:text-white hover:bg-white/10 rounded-full px-3 py-1.5 transition">Examples</a>
           <a href="shop.html" class="text-white hover:bg-white/10 rounded-full px-3 py-1.5 transition">Shop</a>
           <a href="about.html" class="text-blue-100/80 hover:text-white hover:bg-white/10 rounded-full px-3 py-1.5 transition">About</a>
@@ -52,7 +52,7 @@
         </div>
       </div>
     </div>
-    <div id="nav-wave" class="pointer-events-none absolute left-0 right-0 top-full h-7 sm:h-9">
+    <div id="nav-wave" class="pointer-events-none absolute left-0 right-0 top-full h-7 sm:h-9 overflow-hidden">
       <svg class="absolute top-0 left-0 w-[200%] min-w-[200%] h-full animate-wave-1" viewBox="0 0 1440 120" preserveAspectRatio="none">
         <defs><linearGradient id="wave1-s" x1="0%" y1="0%" x2="100%" y2="0%"><stop offset="0%" stop-color="#60a5fa" stop-opacity="0.35"/><stop offset="50%" stop-color="#22d3ee" stop-opacity="0.30"/><stop offset="100%" stop-color="#818cf8" stop-opacity="0.35"/></linearGradient></defs>
         <path d="M0 60 Q 120 0 240 60 T 480 60 T 720 60 T 960 60 T 1200 60 T 1440 60 V120 H0 Z" fill="url(#wave1-s)"/>
@@ -72,6 +72,10 @@
     .animate-wave-2 { animation: waveSlide 12s linear infinite reverse; }
     .animate-wave-3 { animation: waveSlide 24s linear infinite; opacity:.7 }
     @keyframes waveSlide { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
+    html, body { overflow-x: hidden; }
+    @media (prefers-reduced-motion: reduce) {
+      .animate-wave-1, .animate-wave-2, .animate-wave-3 { animation: none !important; }
+    }
   </style>
 
   <main class="pt-40 pb-20">
