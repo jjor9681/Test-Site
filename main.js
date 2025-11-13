@@ -157,16 +157,6 @@ document.addEventListener('DOMContentLoaded', () => {
   const initFadeTransitions = () => {
     const body = document.body;
     if (!body) return;
-    if (body.classList.contains('fade-init')) {
-      window.requestAnimationFrame(() => {
-        body.classList.remove('fade-init');
-        body.classList.add('fade-enter');
-        window.requestAnimationFrame(() => {
-          body.classList.add('fade-in');
-          body.classList.remove('fade-enter');
-        });
-      });
-    }
     // show cards on load
     if (body.classList.contains('cards-init')) {
       window.requestAnimationFrame(() => {

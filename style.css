@@ -497,33 +497,6 @@ body.nav-open {
   border: 0;
 }
 
-/* Cross-page fade transitions */
-body.fade-init {
-  opacity: 0;
-}
-body.fade-in {
-  opacity: 1;
-  transform: none;
-  filter: none;
-  transition: opacity 220ms ease, transform 260ms ease, filter 260ms ease;
-}
-body.fade-out {
-  opacity: 0;
-  transition: opacity 220ms ease;
-}
-body.fade-enter {
-  transform: scale(1.02);
-  filter: blur(6px);
-}
-@media (prefers-reduced-motion: reduce) {
-  body.fade-in,
-  body.fade-out {
-    transition: none !important;
-  }
-}
-
-/* (Removed old route overlay and curtain transitions) */
-
 /* Animated color-shift for Stripe Buy Button (applies to host element) */
 stripe-buy-button.rainbow-shift {
   display: inline-block;
