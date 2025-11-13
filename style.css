@@ -503,11 +503,17 @@ body.fade-init {
 }
 body.fade-in {
   opacity: 1;
-  transition: opacity 220ms ease;
+  transform: none;
+  filter: none;
+  transition: opacity 220ms ease, transform 260ms ease, filter 260ms ease;
 }
 body.fade-out {
   opacity: 0;
   transition: opacity 220ms ease;
+}
+body.fade-enter {
+  transform: scale(1.02);
+  filter: blur(6px);
 }
 @media (prefers-reduced-motion: reduce) {
   body.fade-in,
@@ -539,4 +545,20 @@ body.fade-out {
 }
 @keyframes routeCircle {
   to { clip-path: circle(150% at var(--x) var(--y)); }
+}
+
+/* Curtain swipe transition */
+.route-curtain {
+  position: fixed;
+  inset: 0;
+  z-index: 90;
+  pointer-events: none;
+  background: linear-gradient(135deg, #ef4444 0%, #f97316 18%, #f59e0b 28%, #22c55e 45%, #06b6d4 60%, #3b82f6 72%, #6366f1 84%, #8b5cf6 100%);
+  transform: translateY(-100%);
+}
+.route-curtain.show {
+  animation: curtainDown 360ms ease forwards;
+}
+@keyframes curtainDown {
+  to { transform: translateY(0); }
 }

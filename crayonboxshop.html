@@ -8,6 +8,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
   <script src="https://cdn.tailwindcss.com"></script>
+  <script async src="https://js.stripe.com/v3/buy-button.js"></script>
   <script>
     tailwind.config = {
       theme: {
@@ -132,7 +133,11 @@
           </ul>
           <div class="mt-5 flex flex-wrap items-center gap-3">
             <span class="inline-flex items-center rounded-full bg-white/10 px-3 py-1 text-sm font-semibold text-white ring-1 ring-inset ring-white/15">$69.99</span>
-            <a href="contact.html" class="inline-flex items-center justify-center rounded-lg bg-celestial px-4 py-2 text-sm font-semibold text-slate-900 shadow-sm ring-1 ring-inset ring-yellow-200/60 transition hover:bg-yellow-300">Buy bundle</a>
+            <stripe-buy-button
+              buy-button-id="buy_btn_1SSsw2RQbY9LvsmLIbG04Uz5"
+              publishable-key="pk_test_51SDZfTRQbY9LvsmLVtvEOE8pYGoTPjwKSFh0aLCIVZ6eRz9ClIEy3FBz7DL1NMy0rU2hm8pXmJtb7NDSWsKQgiiz00QY7pQelT"
+            >
+            </stripe-buy-button>
           </div>
         </article>
 

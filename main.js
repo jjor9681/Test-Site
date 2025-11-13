@@ -160,7 +160,11 @@ document.addEventListener('DOMContentLoaded', () => {
     if (body.classList.contains('fade-init')) {
       window.requestAnimationFrame(() => {
         body.classList.remove('fade-init');
-        body.classList.add('fade-in');
+        body.classList.add('fade-enter');
+        window.requestAnimationFrame(() => {
+          body.classList.add('fade-in');
+          body.classList.remove('fade-enter');
+        });
       });
     }
     const fadeLinks = document.querySelectorAll('a[data-fade-nav]');
@@ -173,23 +177,16 @@ document.addEventListener('DOMContentLoaded', () => {
           return;
         }
         e.preventDefault();
-        // Create radial sweep overlay from click point
-        const overlay = document.createElement('div');
-        overlay.className = 'route-overlay';
-        const clickX = (e.clientX || window.innerWidth / 2) + 'px';
-        const clickY = (e.clientY || window.innerHeight / 2) + 'px';
-        overlay.style.setProperty('--x', clickX);
-        overlay.style.setProperty('--y', clickY);
-        document.body.appendChild(overlay);
-        // Trigger animation
-        // Small delay ensures styles apply before adding .show
+        // Create curtain swipe overlay
+        const curtain = document.createElement('div');
+        curtain.className = 'route-curtain';
+        document.body.appendChild(curtain);
         requestAnimationFrame(() => {
-          overlay.classList.add('show');
+          curtain.classList.add('show');
         });
-        // Navigate after animation completes
         setTimeout(() => {
           window.location.href = href;
-        }, 430);
+        }, 380);
       });
     });
   };
