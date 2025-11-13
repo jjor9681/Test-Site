@@ -218,7 +218,7 @@ body.nav-open {
   pointer-events: none;
   opacity: 0.65;
   transform: skewX(-12deg);
-  animation: buttonGlintScroll 5.5s linear infinite;
+  animation: buttonGlintScroll 12s linear infinite;
   mask-image: linear-gradient(120deg, transparent 5%, rgba(255, 255, 255, 0.85) 38%, rgba(255, 255, 255, 0.4) 52%, transparent 80%);
   -webkit-mask-image: linear-gradient(120deg, transparent 5%, rgba(255, 255, 255, 0.85) 38%, rgba(255, 255, 255, 0.4) 52%, transparent 80%);
   filter: brightness(1.25) saturate(1.15);
@@ -226,7 +226,7 @@ body.nav-open {
 
 #get-started:hover::after,
 #get-started:focus-visible::after {
-  animation-duration: 3.4s;
+  animation-duration: 8s;
 }
 
 @keyframes buttonGlintScroll {
