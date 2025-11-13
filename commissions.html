@@ -41,10 +41,13 @@
   <a class="skip-link" href="#main-content">Skip to main content</a>
   <nav class="site-nav relative overflow-visible">
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-      <div class="flex items-center justify-between py-2">
-        <a href="index.html" class="flex items-center gap-2 font-semibold text-white">
-          <span class="h-2.5 w-2.5 rounded-full bg-blue-400"></span>
-          <span>Callie Madson</span>
+      <div class="relative flex items-center justify-between py-2">
+        <a href="index.html" class="group flex items-center gap-2 rounded-full px-3 py-1 font-semibold text-white transition hover:bg-white/10">
+          <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" class="h-5 w-5 text-blue-200 transition group-hover:text-white">
+            <path d="M3 10.5 12 3l9 7.5" />
+            <path d="M5 9v12h5.5v-6h3v6H19V9" />
+          </svg>
+          <span>Home</span>
         </a>
         <div class="hidden sm:flex items-center gap-3 sm:gap-4 text-sm">
           <a href="examples.html" data-nav-link="examples" class="text-blue-100/80 hover:text-white hover:bg-white/10 rounded-full px-3 py-1.5 transition">Examples</a>
@@ -77,39 +80,9 @@
       <a href="commissions.html" data-nav-link="commissions">Commissions</a>
     </div>
     <div id="nav-wave" class="pointer-events-none absolute left-0 right-0 top-full h-7 sm:h-9 overflow-hidden">
-      <svg class="absolute top-0 left-0 w-[200%] min-w-[200%] h-full animate-wave-1" viewBox="0 0 1440 120" preserveAspectRatio="none">
-        <defs>
-          <linearGradient id="waveGrad1" x1="50%" y1="0%" x2="50%" y2="100%">
-            <stop offset="0%" stop-color="#f0f9ff" stop-opacity="0.6"/>
-            <stop offset="32%" stop-color="#bae6fd" stop-opacity="0.42"/>
-            <stop offset="68%" stop-color="#38bdf8" stop-opacity="0.3"/>
-            <stop offset="100%" stop-color="#1e3a8a" stop-opacity="0.42"/>
-          </linearGradient>
-        </defs>
-        <path d="M0 60 Q 120 10 240 60 T 480 60 T 720 60 T 960 60 T 1200 60 T 1440 60 Q 1380 95 1320 120 T 1080 120 T 840 120 T 600 120 T 360 120 T 120 120 Q -60 95 0 60 Z" fill="url(#waveGrad1)"/>
-      </svg>
-      <svg class="absolute top-0 left-0 w-[200%] min-w-[200%] h-full animate-wave-2" viewBox="0 0 1440 120" preserveAspectRatio="none">
-        <defs>
-          <linearGradient id="waveGrad2" x1="50%" y1="0%" x2="50%" y2="100%">
-            <stop offset="0%" stop-color="#e0f2fe" stop-opacity="0.58"/>
-            <stop offset="36%" stop-color="#60a5fa" stop-opacity="0.45"/>
-            <stop offset="76%" stop-color="#0ea5e9" stop-opacity="0.34"/>
-            <stop offset="100%" stop-color="#1d4ed8" stop-opacity="0.44"/>
-          </linearGradient>
-        </defs>
-        <path d="M0 65 Q 160 18 320 65 T 640 65 T 960 65 T 1280 65 T 1600 65 Q 1520 106 1440 120 T 1120 120 T 800 120 T 480 120 T 160 120 Q -40 106 0 65 Z" fill="url(#waveGrad2)"/>
-      </svg>
-      <svg class="absolute top-0 left-0 w-[200%] min-w-[200%] h-full animate-wave-3" viewBox="0 0 1440 120" preserveAspectRatio="none">
-        <defs>
-          <linearGradient id="waveGrad3" x1="50%" y1="0%" x2="50%" y2="100%">
-            <stop offset="0%" stop-color="#ecfeff" stop-opacity="0.32"/>
-            <stop offset="38%" stop-color="#67e8f9" stop-opacity="0.26"/>
-            <stop offset="78%" stop-color="#60a5fa" stop-opacity="0.24"/>
-            <stop offset="100%" stop-color="#312e81" stop-opacity="0.3"/>
-          </linearGradient>
-        </defs>
-        <path d="M0 70 Q 120 38 240 70 T 480 70 T 720 70 T 960 70 T 1200 70 T 1440 70 Q 1360 102 1280 120 T 960 120 T 640 120 T 320 120 Q -40 102 0 70 Z" fill="url(#waveGrad3)"/>
-      </svg>
+      <div class="wave-layer wave-layer-1"></div>
+      <div class="wave-layer wave-layer-2"></div>
+      <div class="wave-layer wave-layer-3"></div>
     </div>
   </nav>
 
@@ -119,7 +92,7 @@
     <div id="page-content" class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 opacity-0 translate-y-4 transition-all duration-700">
       <h1 class="text-center text-3xl font-bold tracking-tight">Request a Commission!!!!</h1>
       <p class="mt-4 text-center text-brand-100">I'll create something that your students will remember forever! Fill out the form below to get started.</p>
-      <form action="mailto:jonasjistheman@gmail.com" method="post" enctype="text/plain" class="mx-auto mt-10 max-w-2xl space-y-6 rounded-2xl border border-sageDark/30 bg-sageDark/10 p-6 shadow-sm">
+      <form id="inquiry" action="mailto:jonasjistheman@gmail.com" method="post" enctype="text/plain" class="mx-auto mt-10 max-w-2xl space-y-6 rounded-2xl border border-sageDark/30 bg-sageDark/10 p-6 shadow-sm">
         <div>
           <label for="name" class="mb-2 block text-sm font-medium text-brand-100">Full Name *</label>
           <input type="text" id="name" name="name" required class="block w-full rounded-lg border border-sageDark/30 bg-sageDark/10 px-4 py-2.5 text-slate-100 placeholder-white/40 shadow-sm outline-none ring-0 transition focus:border-celestial focus:ring-2 focus:ring-yellow-300/60" placeholder="Your full name" />
