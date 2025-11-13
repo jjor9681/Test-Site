@@ -167,6 +167,12 @@ document.addEventListener('DOMContentLoaded', () => {
         });
       });
     }
+    // show cards on load
+    if (body.classList.contains('cards-init')) {
+      window.requestAnimationFrame(() => {
+        body.classList.add('cards-show');
+      });
+    }
     const fadeLinks = document.querySelectorAll('a[data-fade-nav]');
     fadeLinks.forEach((link) => {
       link.addEventListener('click', (e) => {
@@ -177,16 +183,11 @@ document.addEventListener('DOMContentLoaded', () => {
           return;
         }
         e.preventDefault();
-        // Create curtain swipe overlay
-        const curtain = document.createElement('div');
-        curtain.className = 'route-curtain';
-        document.body.appendChild(curtain);
-        requestAnimationFrame(() => {
-          curtain.classList.add('show');
-        });
+        // Fade out all cards, then navigate
+        body.classList.remove('cards-show');
         setTimeout(() => {
           window.location.href = href;
-        }, 380);
+        }, 260);
       });
     });
   };

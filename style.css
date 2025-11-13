@@ -577,3 +577,12 @@ stripe-buy-button.rainbow-shift:hover {
   from { filter: hue-rotate(0deg) saturate(1.15); }
   to   { filter: hue-rotate(360deg) saturate(1.15); }
 }
+
+/* Simple cards fade transition on route change */
+body.cards-init article.item {
+  opacity: 0;
+  transition: opacity 240ms ease;
+}
+body.cards-init.cards-show article.item {
+  opacity: 1;
+}
