@@ -522,46 +522,7 @@ body.fade-enter {
   }
 }
 
-/* Route transition overlay (radial sweep) */
-.route-overlay {
-  position: fixed;
-  inset: 0;
-  z-index: 80;
-  pointer-events: none;
-  /* Start collapsed at click point */
-  --x: 50%;
-  --y: 50%;
-  background:
-    radial-gradient(600px 600px at var(--x) var(--y),
-      rgba(96, 165, 250, 0.16),
-      rgba(99, 102, 241, 0.16),
-      rgba(34, 211, 238, 0.16),
-      rgba(2, 6, 23, 0.92) 60%,
-      rgba(2, 6, 23, 1) 100%);
-  clip-path: circle(0% at var(--x) var(--y));
-}
-.route-overlay.show {
-  animation: routeCircle 420ms ease forwards;
-}
-@keyframes routeCircle {
-  to { clip-path: circle(150% at var(--x) var(--y)); }
-}
-
-/* Curtain swipe transition */
-.route-curtain {
-  position: fixed;
-  inset: 0;
-  z-index: 90;
-  pointer-events: none;
-  background: linear-gradient(135deg, #ef4444 0%, #f97316 18%, #f59e0b 28%, #22c55e 45%, #06b6d4 60%, #3b82f6 72%, #6366f1 84%, #8b5cf6 100%);
-  transform: translateY(-100%);
-}
-.route-curtain.show {
-  animation: curtainDown 360ms ease forwards;
-}
-@keyframes curtainDown {
-  to { transform: translateY(0); }
-}
+/* (Removed old route overlay and curtain transitions) */
 
 /* Animated color-shift for Stripe Buy Button (applies to host element) */
 stripe-buy-button.rainbow-shift {
