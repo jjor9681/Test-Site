@@ -166,14 +166,30 @@ document.addEventListener('DOMContentLoaded', () => {
     const fadeLinks = document.querySelectorAll('a[data-fade-nav]');
     fadeLinks.forEach((link) => {
       link.addEventListener('click', (e) => {
-        if (prefersReducedMotionQuery.matches) return;
         const href = link.getAttribute('href');
         if (!href) return;
+        if (prefersReducedMotionQuery.matches) {
+          // Reduced motion: simple navigation
+          return;
+        }
         e.preventDefault();
-        body.classList.add('fade-out');
+        // Create radial sweep overlay from click point
+        const overlay = document.createElement('div');
+        overlay.className = 'route-overlay';
+        const clickX = (e.clientX || window.innerWidth / 2) + 'px';
+        const clickY = (e.clientY || window.innerHeight / 2) + 'px';
+        overlay.style.setProperty('--x', clickX);
+        overlay.style.setProperty('--y', clickY);
+        document.body.appendChild(overlay);
+        // Trigger animation
+        // Small delay ensures styles apply before adding .show
+        requestAnimationFrame(() => {
+          overlay.classList.add('show');
+        });
+        // Navigate after animation completes
         setTimeout(() => {
           window.location.href = href;
-        }, 220);
+        }, 430);
       });
     });
   };

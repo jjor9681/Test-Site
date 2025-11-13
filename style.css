@@ -515,3 +515,28 @@ body.fade-out {
     transition: none !important;
   }
 }
+
+/* Route transition overlay (radial sweep) */
+.route-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 80;
+  pointer-events: none;
+  /* Start collapsed at click point */
+  --x: 50%;
+  --y: 50%;
+  background:
+    radial-gradient(600px 600px at var(--x) var(--y),
+      rgba(96, 165, 250, 0.16),
+      rgba(99, 102, 241, 0.16),
+      rgba(34, 211, 238, 0.16),
+      rgba(2, 6, 23, 0.92) 60%,
+      rgba(2, 6, 23, 1) 100%);
+  clip-path: circle(0% at var(--x) var(--y));
+}
+.route-overlay.show {
+  animation: routeCircle 420ms ease forwards;
+}
+@keyframes routeCircle {
+  to { clip-path: circle(150% at var(--x) var(--y)); }
+}
