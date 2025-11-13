@@ -562,3 +562,18 @@ body.fade-enter {
 @keyframes curtainDown {
   to { transform: translateY(0); }
 }
+
+/* Animated color-shift for Stripe Buy Button (applies to host element) */
+stripe-buy-button.rainbow-shift {
+  display: inline-block;
+  animation: hueShift 14s linear infinite;
+  filter: hue-rotate(0deg) saturate(1.15);
+  will-change: filter;
+}
+stripe-buy-button.rainbow-shift:hover {
+  animation-duration: 8s;
+}
+@keyframes hueShift {
+  from { filter: hue-rotate(0deg) saturate(1.15); }
+  to   { filter: hue-rotate(360deg) saturate(1.15); }
+}
