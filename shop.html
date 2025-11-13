@@ -128,199 +128,19 @@
       </section>
 
       <section class="mt-8 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3" id="shop-grid">
-        <!-- Crayon Box Recital (collapsible group toggle) -->
+        <!-- Crayon Box Recital (links to sub shop) -->
         <article class="item shop-card rainbow-glow rounded-xl border-2 border-yellow-300/40 bg-slate-950 p-6 shadow-lg ring-1 ring-white/10" data-categories="bundle">
-          <button id="crayonbox-toggle" class="w-full text-left">
+          <a href="crayonboxshop.html" class="block">
             <div class="flex items-start justify-between gap-4">
               <div>
                 <h2 class="text-xl font-semibold">Crayon Box Recital</h2>
                 <p class="mt-1 text-slate-300 text-sm">A ten-piece collection from Black to Violet</p>
               </div>
-              <span class="rounded-full bg-yellow-300/20 px-3 py-1 text-xs font-semibold text-yellow-200 ring-1 ring-inset ring-yellow-200/30">Open</span>
+              <span class="rounded-full bg-yellow-300/20 px-3 py-1 text-xs font-semibold text-yellow-200 ring-1 ring-inset ring-yellow-200/30">View</span>
             </div>
-            <p class="mt-4 text-sm text-slate-400">Click to view bundle and individual colors</p>
-          </button>
+            <p class="mt-4 text-sm text-slate-400">Opens bundle and individual colors</p>
+          </a>
         </article>
-
-        <!-- Collapsible group: bundle + color items -->
-        <div id="crayonbox-group" hidden>
-        <article class="item shop-card rainbow-glow rounded-xl border-2 border-yellow-300/40 bg-slate-950 p-6 shadow-lg ring-1 ring-white/10" data-categories="bundle">
-          <div class="flex items-start justify-between gap-4">
-            <div>
-              <h2 class="text-xl font-semibold">Crayon Box — Complete Bundle</h2>
-              <p class="mt-1 text-slate-300 text-sm">All 10 tracks (Black → Violet)</p>
-            </div>
-            <span class="rounded-full bg-yellow-300/20 px-3 py-1 text-xs font-semibold text-yellow-200 ring-1 ring-inset ring-yellow-200/30">Bundle</span>
-          </div>
-          <ul class="mt-4 grid grid-cols-2 gap-2 text-sm text-slate-400">
-            <li>Black</li><li>Gray</li><li>White</li><li>Red</li><li>Orange</li>
-            <li>Yellow</li><li>Green</li><li>Blue</li><li>Indigo</li><li>Violet</li>
-          </ul>
-          <div class="mt-5 flex flex-wrap items-center gap-3">
-            <span class="inline-flex items-center rounded-full bg-white/10 px-3 py-1 text-sm font-semibold text-white ring-1 ring-inset ring-white/15">$69.99</span>
-            <a href="contact.html" class="inline-flex items-center justify-center rounded-lg bg-celestial px-4 py-2 text-sm font-semibold text-slate-900 shadow-sm ring-1 ring-inset ring-yellow-200/60 transition hover:bg-yellow-300">Buy bundle</a>
-          </div>
-        </article>
-        <article class="item shop-card color-black rounded-xl border border-sageDark/30 bg-sageDark/10 p-5 shadow-sm" data-categories="orchestra">
-          <h2 class="text-lg font-semibold">Black</h2>
-          <p class="mt-1 text-slate-300 text-sm">Collection: Crayon Box</p>
-          <div class="mt-4">
-            <audio controls class="h-10 w-full">
-              <source src="assets/crayonbox/01%20Black.mp3" type="audio/mpeg">
-              <source src="assets/crayonbox/01%20Black.mp3" type="audio/mpeg">
-            </audio>
-          </div>
-          <div class="mt-3 flex flex-wrap items-center gap-3">
-            <span class="inline-flex items-center rounded-full bg-white/10 px-3 py-1 text-xs font-semibold text-white ring-1 ring-inset ring-white/15">$7.99</span>
-            <a href="PDF_Example.pdf" target="_blank" class="inline-flex items-center justify-center rounded-lg bg-white/10 px-4 py-2 text-sm font-semibold text-white ring-1 ring-inset ring-white/15 hover:bg-white/20 transition">View Score (PDF)</a>
-            <a href="contact.html" class="inline-flex items-center justify-center rounded-lg bg-celestial px-4 py-2 text-sm font-semibold text-slate-900 shadow-sm ring-1 ring-inset ring-yellow-200/60 transition hover:bg-yellow-300">Buy</a>
-          </div>
-        </article>
-
-        <article class="item shop-card color-gray rounded-xl border border-sageDark/30 bg-sageDark/10 p-5 shadow-sm" data-categories="strings">
-          <h2 class="text-lg font-semibold">Gray</h2>
-          <p class="mt-1 text-slate-300 text-sm">Collection: Crayon Box</p>
-          <div class="mt-4">
-            <audio controls class="h-10 w-full">
-              <source src="assets/crayonbox/02%20Gray.mp3" type="audio/mpeg">
-              <source src="assets/crayonbox/02%20Gray.mp3" type="audio/mpeg">
-            </audio>
-          </div>
-          <div class="mt-3 flex flex-wrap items-center gap-3">
-            <span class="inline-flex items-center rounded-full bg-white/10 px-3 py-1 text-xs font-semibold text-white ring-1 ring-inset ring-white/15">$7.99</span>
-            <a href="PDF_Example.pdf" target="_blank" class="inline-flex items-center justify-center rounded-lg bg-white/10 px-4 py-2 text-sm font-semibold text-white ring-1 ring-inset ring-white/15 hover:bg-white/20 transition">View Score (PDF)</a>
-            <a href="contact.html" class="inline-flex items-center justify-center rounded-lg bg-celestial px-4 py-2 text-sm font-semibold text-slate-900 shadow-sm ring-1 ring-inset ring-yellow-200/60 transition hover:bg-yellow-300">Buy</a>
-          </div>
-        </article>
-
-        <article class="item shop-card color-white rounded-xl border border-sageDark/30 bg-sageDark/10 p-5 shadow-sm" data-categories="piano">
-          <h2 class="text-lg font-semibold">White</h2>
-          <p class="mt-1 text-slate-300 text-sm">Collection: Crayon Box</p>
-          <div class="mt-4">
-            <audio controls class="h-10 w-full">
-              <source src="assets/crayonbox/03%20White.mp3" type="audio/mpeg">
-              <source src="assets/crayonbox/03%20White.mp3" type="audio/mpeg">
-            </audio>
-          </div>
-          <div class="mt-3 flex flex-wrap items-center gap-3">
-            <span class="inline-flex items-center rounded-full bg-white/10 px-3 py-1 text-xs font-semibold text-white ring-1 ring-inset ring-white/15">$7.99</span>
-            <a href="PDF_Example.pdf" target="_blank" class="inline-flex items-center justify-center rounded-lg bg-white/10 px-4 py-2 text-sm font-semibold text-white ring-1 ring-inset ring-white/15 hover:bg-white/20 transition">View Score (PDF)</a>
-            <a href="contact.html" class="inline-flex items-center justify-center rounded-lg bg-celestial px-4 py-2 text-sm font-semibold text-slate-900 shadow-sm ring-1 ring-inset ring-yellow-200/60 transition hover:bg-yellow-300">Buy</a>
-          </div>
-        </article>
-
-        <article class="item shop-card color-red rounded-xl border border-sageDark/30 bg-sageDark/10 p-5 shadow-sm" data-categories="choir">
-          <h2 class="text-lg font-semibold">Red</h2>
-          <p class="mt-1 text-slate-300 text-sm">Collection: Crayon Box</p>
-          <div class="mt-4">
-            <audio controls class="h-10 w-full">
-              <source src="assets/crayonbox/04%20Red.mp3" type="audio/mpeg">
-              <source src="assets/crayonbox/04%20Red.mp3" type="audio/mpeg">
-            </audio>
-          </div>
-          <div class="mt-3 flex flex-wrap items-center gap-3">
-            <span class="inline-flex items-center rounded-full bg-white/10 px-3 py-1 text-xs font-semibold text-white ring-1 ring-inset ring-white/15">$7.99</span>
-            <a href="PDF_Example.pdf" target="_blank" class="inline-flex items-center justify-center rounded-lg bg-white/10 px-4 py-2 text-sm font-semibold text-white ring-1 ring-inset ring-white/15 hover:bg-white/20 transition">View Score (PDF)</a>
-            <a href="contact.html" class="inline-flex items-center justify-center rounded-lg bg-celestial px-4 py-2 text-sm font-semibold text-slate-900 shadow-sm ring-1 ring-inset ring-yellow-200/60 transition hover:bg-yellow-300">Buy</a>
-          </div>
-        </article>
-
-        <article class="item shop-card color-orange rounded-xl border border-sageDark/30 bg-sageDark/10 p-5 shadow-sm" data-categories="orchestra">
-          <h2 class="text-lg font-semibold">Orange</h2>
-          <p class="mt-1 text-slate-300 text-sm">Collection: Crayon Box</p>
-          <div class="mt-4">
-            <audio controls class="h-10 w-full">
-              <source src="assets/crayonbox/05%20Orange.mp3" type="audio/mpeg">
-              <source src="assets/crayonbox/05%20Orange.mp3" type="audio/mpeg">
-            </audio>
-          </div>
-          <div class="mt-3 flex flex-wrap items-center gap-3">
-            <span class="inline-flex items-center rounded-full bg-white/10 px-3 py-1 text-xs font-semibold text-white ring-1 ring-inset ring-white/15">$7.99</span>
-            <a href="PDF_Example.pdf" target="_blank" class="inline-flex items-center justify-center rounded-lg bg-white/10 px-4 py-2 text-sm font-semibold text-white ring-1 ring-inset ring-white/15 hover:bg-white/20 transition">View Score (PDF)</a>
-            <a href="contact.html" class="inline-flex items-center justify-center rounded-lg bg-celestial px-4 py-2 text-sm font-semibold text-slate-900 shadow-sm ring-1 ring-inset ring-yellow-200/60 transition hover:bg-yellow-300">Buy</a>
-          </div>
-        </article>
-
-        <article class="item shop-card color-yellow rounded-xl border border-sageDark/30 bg-sageDark/10 p-5 shadow-sm" data-categories="symphony">
-          <h2 class="text-lg font-semibold">Yellow</h2>
-          <p class="mt-1 text-slate-300 text-sm">Collection: Crayon Box</p>
-          <div class="mt-4">
-            <audio controls class="h-10 w-full">
-              <source src="assets/crayonbox/06%20Yellow.mp3" type="audio/mpeg">
-              <source src="assets/crayonbox/06%20Yellow.mp3" type="audio/mpeg">
-            </audio>
-          </div>
-          <div class="mt-3 flex flex-wrap items-center gap-3">
-            <span class="inline-flex items-center rounded-full bg-white/10 px-3 py-1 text-xs font-semibold text-white ring-1 ring-inset ring-white/15">$7.99</span>
-            <a href="PDF_Example.pdf" target="_blank" class="inline-flex items-center justify-center rounded-lg bg-white/10 px-4 py-2 text-sm font-semibold text-white ring-1 ring-inset ring-white/15 hover:bg-white/20 transition">View Score (PDF)</a>
-            <a href="contact.html" class="inline-flex items-center justify-center rounded-lg bg-celestial px-4 py-2 text-sm font-semibold text-slate-900 shadow-sm ring-1 ring-inset ring-yellow-200/60 transition hover:bg-yellow-300">Buy</a>
-          </div>
-        </article>
-        
-        <article class="item shop-card color-green rounded-xl border border-sageDark/30 bg-sageDark/10 p-5 shadow-sm" data-categories="strings">
-          <h2 class="text-lg font-semibold">Green</h2>
-          <p class="mt-1 text-slate-300 text-sm">Collection: Crayon Box</p>
-          <div class="mt-4">
-            <audio controls class="h-10 w-full">
-              <source src="assets/crayonbox/07%20Green.mp3" type="audio/mpeg">
-              <source src="assets/crayonbox/07%20Green.mp3" type="audio/mpeg">
-            </audio>
-          </div>
-          <div class="mt-3 flex flex-wrap items-center gap-3">
-            <span class="inline-flex items-center rounded-full bg-white/10 px-3 py-1 text-xs font-semibold text-white ring-1 ring-inset ring-white/15">$7.99</span>
-            <a href="PDF_Example.pdf" target="_blank" class="inline-flex items-center justify-center rounded-lg bg-white/10 px-4 py-2 text-sm font-semibold text-white ring-1 ring-inset ring-white/15 hover:bg-white/20 transition">View Score (PDF)</a>
-            <a href="contact.html" class="inline-flex items-center justify-center rounded-lg bg-celestial px-4 py-2 text-sm font-semibold text-slate-900 shadow-sm ring-1 ring-inset ring-yellow-200/60 transition hover:bg-yellow-300">Buy</a>
-          </div>
-        </article>
-
-        <article class="item shop-card color-blue rounded-xl border border-sageDark/30 bg-sageDark/10 p-5 shadow-sm" data-categories="orchestra">
-          <h2 class="text-lg font-semibold">Blue</h2>
-          <p class="mt-1 text-slate-300 text-sm">Collection: Crayon Box</p>
-          <div class="mt-4">
-            <audio controls class="h-10 w-full">
-              <source src="assets/crayonbox/08%20Blue.mp3" type="audio/mpeg">
-              <source src="assets/crayonbox/08%20Blue.mp3" type="audio/mpeg">
-            </audio>
-          </div>
-          <div class="mt-3 flex flex-wrap items-center gap-3">
-            <span class="inline-flex items-center rounded-full bg-white/10 px-3 py-1 text-xs font-semibold text-white ring-1 ring-inset ring-white/15">$7.99</span>
-            <a href="PDF_Example.pdf" target="_blank" class="inline-flex items-center justify-center rounded-lg bg-white/10 px-4 py-2 text-sm font-semibold text-white ring-1 ring-inset ring-white/15 hover:bg-white/20 transition">View Score (PDF)</a>
-            <a href="contact.html" class="inline-flex items-center justify-center rounded-lg bg-celestial px-4 py-2 text-sm font-semibold text-slate-900 shadow-sm ring-1 ring-inset ring-yellow-200/60 transition hover:bg-yellow-300">Buy</a>
-          </div>
-        </article>
-
-        <article class="item shop-card color-indigo rounded-xl border border-sageDark/30 bg-sageDark/10 p-5 shadow-sm" data-categories="orchestra">
-          <h2 class="text-lg font-semibold">Indigo</h2>
-          <p class="mt-1 text-slate-300 text-sm">Collection: Crayon Box</p>
-          <div class="mt-4">
-            <audio controls class="h-10 w-full">
-              <source src="assets/crayonbox/09%20Indigo.mp3" type="audio/mpeg">
-              <source src="assets/crayonbox/09%20Indigo.mp3" type="audio/mpeg">
-            </audio>
-          </div>
-          <div class="mt-3 flex flex-wrap items-center gap-3">
-            <span class="inline-flex items-center rounded-full bg-white/10 px-3 py-1 text-xs font-semibold text-white ring-1 ring-inset ring-white/15">$7.99</span>
-            <a href="PDF_Example.pdf" target="_blank" class="inline-flex items-center justify-center rounded-lg bg-white/10 px-4 py-2 text-sm font-semibold text-white ring-1 ring-inset ring-white/15 hover:bg-white/20 transition">View Score (PDF)</a>
-            <a href="contact.html" class="inline-flex items-center justify-center rounded-lg bg-celestial px-4 py-2 text-sm font-semibold text-slate-900 shadow-sm ring-1 ring-inset ring-yellow-200/60 transition hover:bg-yellow-300">Buy</a>
-          </div>
-        </article>
-
-        <article class="item shop-card color-violet rounded-xl border border-sageDark/30 bg-sageDark/10 p-5 shadow-sm" data-categories="choir">
-          <h2 class="text-lg font-semibold">Violet</h2>
-          <p class="mt-1 text-slate-300 text-sm">Collection: Crayon Box</p>
-          <div class="mt-4">
-            <audio controls class="h-10 w-full">
-              <source src="assets/crayonbox/10%20Violet.mp3" type="audio/mpeg">
-              <source src="assets/crayonbox/10%20Violet.mp3" type="audio/mpeg">
-            </audio>
-          </div>
-          <div class="mt-3 flex flex-wrap items-center gap-3">
-            <span class="inline-flex items-center rounded-full bg-white/10 px-3 py-1 text-xs font-semibold text-white ring-1 ring-inset ring-white/15">$7.99</span>
-            <a href="PDF_Example.pdf" target="_blank" class="inline-flex items-center justify-center rounded-lg bg-white/10 px-4 py-2 text-sm font-semibold text-white ring-1 ring-inset ring-white/15 hover:bg-white/20 transition">View Score (PDF)</a>
-            <a href="contact.html" class="inline-flex items-center justify-center rounded-lg bg-celestial px-4 py-2 text-sm font-semibold text-slate-900 shadow-sm ring-1 ring-inset ring-yellow-200/60 transition hover:bg-yellow-300">Buy</a>
-          </div>
-        </article>
-        </div>
       </section>
     </div>
   </main>
@@ -335,8 +155,6 @@
       const clearBtn = document.getElementById('clear-filters');
       const items = Array.from(document.querySelectorAll('#shop-grid .item'));
       const selected = new Set();
-      const group = document.getElementById('crayonbox-group');
-      const toggleBtn = document.getElementById('crayonbox-toggle');
 
       function render() {
         if (selected.size === 0) {
@@ -378,21 +196,6 @@
           render();
         });
       });
-
-      if (toggleBtn && group) {
-        toggleBtn.addEventListener('click', () => {
-          const isHidden = group.hasAttribute('hidden');
-          if (isHidden) {
-            group.removeAttribute('hidden');
-            toggleBtn.setAttribute('aria-expanded', 'true');
-          } else {
-            group.setAttribute('hidden', '');
-            toggleBtn.setAttribute('aria-expanded', 'false');
-          }
-        });
-        toggleBtn.setAttribute('aria-controls', 'crayonbox-group');
-        toggleBtn.setAttribute('aria-expanded', 'false');
-      }
 
       clearBtn.addEventListener('click', () => {
         selected.clear();
