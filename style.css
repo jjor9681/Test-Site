@@ -496,3 +496,22 @@ body.nav-open {
   white-space: nowrap;
   border: 0;
 }
+
+/* Cross-page fade transitions */
+body.fade-init {
+  opacity: 0;
+}
+body.fade-in {
+  opacity: 1;
+  transition: opacity 220ms ease;
+}
+body.fade-out {
+  opacity: 0;
+  transition: opacity 220ms ease;
+}
+@media (prefers-reduced-motion: reduce) {
+  body.fade-in,
+  body.fade-out {
+    transition: none !important;
+  }
+}

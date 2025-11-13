@@ -152,4 +152,30 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     });
   }
+
+  // Cross-page fade transition between shop and sub-shop pages
+  const initFadeTransitions = () => {
+    const body = document.body;
+    if (!body) return;
+    if (body.classList.contains('fade-init')) {
+      window.requestAnimationFrame(() => {
+        body.classList.remove('fade-init');
+        body.classList.add('fade-in');
+      });
+    }
+    const fadeLinks = document.querySelectorAll('a[data-fade-nav]');
+    fadeLinks.forEach((link) => {
+      link.addEventListener('click', (e) => {
+        if (prefersReducedMotionQuery.matches) return;
+        const href = link.getAttribute('href');
+        if (!href) return;
+        e.preventDefault();
+        body.classList.add('fade-out');
+        setTimeout(() => {
+          window.location.href = href;
+        }, 220);
+      });
+    });
+  };
+  initFadeTransitions();
 });
