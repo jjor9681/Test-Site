@@ -327,6 +327,10 @@ body.nav-open {
   mix-blend-mode: screen;
 }
 
+#nav-wave svg {
+  filter: drop-shadow(0 -6px 14px rgba(56, 189, 248, 0.22));
+}
+
 .fx-orb {
   position: absolute;
   top: var(--start-y, 20%);
@@ -334,12 +338,32 @@ body.nav-open {
   width: var(--size, 28px);
   height: var(--size, 28px);
   border-radius: 50%;
-  border: 1px solid rgba(94, 234, 212, 0.65);
-  background: radial-gradient(circle, rgba(94, 234, 212, 0.55) 0%, rgba(59, 130, 246, 0.15) 60%, transparent 75%);
-  filter: blur(0.5px);
+  border: 1px solid rgba(191, 219, 254, 0.8);
+  background: radial-gradient(circle at 38% 28%, rgba(236, 254, 255, 0.95) 0%, rgba(96, 165, 250, 0.45) 42%, rgba(14, 165, 233, 0.18) 70%, transparent 86%);
+  box-shadow: 0 0 22px rgba(125, 211, 252, 0.35);
+  filter: blur(0.35px);
   animation: orbFloat var(--duration, 14s) ease-in-out infinite;
   animation-delay: var(--delay, 0s);
-  opacity: 0.8;
+  opacity: 0.88;
+}
+
+.fx-particle {
+  --scale: 0.82;
+  --dx: 0px;
+  --dy: -24px;
+  --duration: 600ms;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 5px;
+  height: 5px;
+  border-radius: 999px;
+  background: radial-gradient(circle, rgba(224, 242, 255, 0.95) 0%, rgba(125, 211, 252, 0.65) 45%, rgba(59, 130, 246, 0.18) 100%);
+  box-shadow: 0 0 12px rgba(56, 189, 248, 0.45);
+  transform: translate3d(-50%, -50%, 0) scale(var(--scale));
+  opacity: 0;
+  pointer-events: none;
+  animation: particleBurst var(--duration) ease-out forwards;
 }
 
 .animate-wave-1 {
@@ -405,6 +429,20 @@ body.nav-open {
   100% {
     transform: translate3d(-50%, -55px, 0) scale(0.9);
     opacity: 0;
+  }
+}
+
+@keyframes particleBurst {
+  0% {
+    opacity: 0.95;
+    transform: translate3d(-50%, -50%, 0) scale(var(--scale, 0.82));
+  }
+  55% {
+    opacity: 0.75;
+  }
+  100% {
+    opacity: 0;
+    transform: translate3d(calc(-50% + var(--dx, 0px)), calc(-50% + var(--dy, -24px)), 0) scale(0.25);
   }
 }
 

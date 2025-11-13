@@ -115,10 +115,44 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
+  const parsePercentValue = (value, fallback = 0) => {
+    const numeric = parseFloat(value);
+    return Number.isNaN(numeric) ? fallback : numeric;
+  };
+
+  const emitParticlesAtLayerPoint = (x, y, options = {}) => {
+    if (!fxLayer || prefersReducedMotionQuery.matches) return;
+    const { count = 8, radius = 44, drift = -24 } = options;
+    for (let i = 0; i < count; i += 1) {
+      const particle = document.createElement('span');
+      particle.className = 'fx-particle';
+      particle.style.left = `${x}px`;
+      particle.style.top = `${y}px`;
+      const angle = (Math.PI * 2 * (i / count)) + (Math.random() * 0.7 - 0.35);
+      const distance = radius * (0.6 + Math.random() * 0.5);
+      const dx = Math.cos(angle) * distance;
+      const dy = Math.sin(angle) * (radius * 0.32 + Math.random() * 10) + drift;
+      const duration = 520 + Math.random() * 300;
+      const scale = 0.65 + Math.random() * 0.35;
+      particle.style.setProperty('--dx', `${dx}px`);
+      particle.style.setProperty('--dy', `${dy}px`);
+      particle.style.setProperty('--duration', `${duration}ms`);
+      particle.style.setProperty('--scale', scale.toFixed(2));
+      fxLayer.appendChild(particle);
+      particle.addEventListener('animationend', () => particle.remove());
+    }
+  };
+
+  const emitParticlesAtViewportPoint = (x, y, options = {}) => {
+    if (!fxLayer) return;
+    const rect = fxLayer.getBoundingClientRect();
+    emitParticlesAtLayerPoint(x - rect.left, y - rect.top, options);
+  };
+
   const seedFxLayer = () => {
     if (!fxLayer || prefersReducedMotionQuery.matches) return;
     fxLayer.innerHTML = '';
-    const orbCount = 6;
+    const orbCount = 9;
     for (let i = 0; i < orbCount; i += 1) {
       const orb = document.createElement('span');
       orb.className = 'fx-orb';
@@ -133,10 +167,27 @@ document.addEventListener('DOMContentLoaded', () => {
       orb.style.setProperty('--duration', `${duration}s`);
       orb.style.setProperty('--delay', `${delay}s`);
       fxLayer.appendChild(orb);
+      orb.addEventListener('animationiteration', () => {
+        const rect = fxLayer.getBoundingClientRect();
+        const xPercent = parsePercentValue(orb.style.getPropertyValue('--x'), 50);
+        const startPercent = parsePercentValue(orb.style.getPropertyValue('--start-y'), 20);
+        const xPosition = (xPercent / 100) * rect.width;
+        const yPosition = (startPercent / 100) * rect.height - 55;
+        emitParticlesAtLayerPoint(xPosition, Math.max(yPosition, 12), {
+          count: 6,
+          radius: 30,
+          drift: -42,
+        });
+      });
     }
   };
 
   if (fxLayer) {
+    if (typeof window !== 'undefined') {
+      window.heroBubbleBurst = (clientX, clientY, options = {}) => {
+        emitParticlesAtViewportPoint(clientX, clientY, options);
+      };
+    }
     seedFxLayer();
     addMotionListener((event) => {
       if (event.matches) {
