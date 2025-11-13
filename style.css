@@ -210,7 +210,7 @@ body.nav-open {
   content: "";
   position: absolute;
   inset: -80% -40% -80% -120%;
-  background-image: url("assets/glint-texture.svg");
+  background-image: url("assets/Glint.png");
   background-size: 240px 240px;
   background-repeat: repeat;
   mix-blend-mode: screen;
