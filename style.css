@@ -424,20 +424,23 @@ body.nav-open {
   position: absolute;
   inset: -18px;
   border-radius: 1rem;
-  background: conic-gradient(
-    from 0deg,
-    #ef4444,
-    #f97316,
-    #f59e0b,
-    #22c55e,
-    #06b6d4,
-    #3b82f6,
-    #6366f1,
-    #8b5cf6,
-    #ef4444
+  background: conic-gradient(from -90deg,
+    /* Top-heavy red, wider band at top */
+    #ef4444 0deg 60deg,
+    /* Orange/Yellow narrower to give room to greens/blues */
+    #f97316 60deg 90deg,
+    #f59e0b 90deg 120deg,
+    /* Greens and cyans expanded for more visibility */
+    #22c55e 120deg 200deg,
+    #06b6d4 200deg 245deg,
+    /* Blues expanded */
+    #3b82f6 245deg 295deg,
+    /* Indigo/Violet slightly narrower so they don't dominate sides */
+    #6366f1 295deg 325deg,
+    #8b5cf6 325deg 360deg
   );
-  filter: blur(28px) saturate(1.1);
-  opacity: 0.6;
+  filter: blur(32px) saturate(1.1);
+  opacity: 0.62;
   z-index: -1;
   pointer-events: none;
 }
