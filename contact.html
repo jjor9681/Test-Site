@@ -90,29 +90,88 @@
   <div id="hero-glint" class="absolute inset-0 z-10 glint-overlay opacity-0 pointer-events-none"></div>
   <main id="main-content" class="relative pt-40 pb-20 z-20">
     <div id="page-content" class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 opacity-0 translate-y-4 transition-all duration-700">
-      <h1 class="text-center text-3xl font-bold tracking-tight">Contact</h1>
-      <p class="mt-4 text-center text-slate-300 max-w-3xl mx-auto">Share a bit about your ensemble, the story you want the music to tell, and the timeline you’re working with. I’ll reply within two business days with next steps and an initial quote.</p>
-      <div class="mt-10 grid gap-10 lg:grid-cols-[0.95fr,1.05fr]">
-        <div class="space-y-6">
-          <div class="rounded-2xl bg-white/5 px-6 py-6 ring-1 ring-white/10">
-            <h2 class="text-lg font-semibold">Prefer a quick note?</h2>
-            <p class="mt-2 text-sm text-slate-300">Send a message directly and include your best contact info so I can follow up with questions.</p>
-            <dl class="mt-6 space-y-4 text-sm">
-              <div class="flex flex-col gap-1">
-                <dt class="text-slate-400">Direct email</dt>
-                <dd><a class="font-semibold text-white hover:text-cyan-200" href="mailto:hello@calliemadson.com">hello@calliemadson.com</a></dd>
-              </div>
-              <div class="flex flex-col gap-1">
-                <dt class="text-slate-400">Studio phone</dt>
-                <dd><a class="font-semibold text-white hover:text-cyan-200" href="tel:+15555551234">(555) 555-1234</a></dd>
-              </div>
-              <div class="flex flex-col gap-1">
-                <dt class="text-slate-400">Office hours</dt>
-                <dd class="font-semibold text-white">Mon–Fri · 9a–4p CST</dd>
-              </div>
-            </dl>
+      <div class="contact-hero grid gap-6 lg:grid-cols-[1fr,0.9fr] lg:items-center mt-8">
+        <div class="contact-hero__card">
+          <div class="contact-hero__badge">Let’s plan your next performance</div>
+          <h1 class="text-3xl sm:text-4xl font-bold leading-tight">Compose something memorable together.</h1>
+          <p class="mt-4 text-slate-300 max-w-2xl">Share a bit about your ensemble, the story you want the music to tell, and the timeline you’re working with. I’ll reply within two business days with next steps and an initial quote.</p>
+          <div class="contact-hero__actions">
+            <a class="contact-cta" href="mailto:hello@calliemadson.com">
+              <span>Send an email</span>
+              <svg viewBox="0 0 24 24" aria-hidden="true" class="icon"><path d="M4 6l8 6 8-6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </a>
+            <a class="contact-cta contact-cta--ghost" href="tel:+15555551234">
+              <span>Call the studio</span>
+              <svg viewBox="0 0 24 24" aria-hidden="true" class="icon"><path d="M5 4h4l2 4-3 2a11 11 0 0 0 6 6l2.5-3L20 15v4c0 .6-.4 1-1 1A14 14 0 0 1 4 5c0-.6.4-1 1-1z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </a>
           </div>
-          <div class="rounded-2xl border border-white/10 px-6 py-6">
+          <dl class="contact-meta">
+            <div>
+              <dt>Office hours</dt>
+              <dd>Mon–Fri · 9a–4p CST</dd>
+            </div>
+            <div>
+              <dt>Avg. reply</dt>
+              <dd>Under 48 hours</dd>
+            </div>
+            <div>
+              <dt>Location</dt>
+              <dd>Minneapolis, MN</dd>
+            </div>
+          </dl>
+        </div>
+        <div class="contact-hero__portrait">
+          <div class="contact-hero__glow"></div>
+          <img src="assets/callie2.jpeg" alt="Callie Madson smiling in the studio" class="contact-portrait-image">
+          <div class="contact-hero__quote">
+            <div class="quote-mark">“</div>
+            <p>Music becomes unforgettable when the composer and ensemble dream together. Let’s make that happen.</p>
+            <span class="quote-name">— Callie Madson</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="mt-12 grid gap-10 lg:grid-cols-[0.95fr,1.05fr]">
+        <div class="space-y-6">
+          <div class="contact-card">
+            <div class="contact-card__header">
+              <h2 class="text-lg font-semibold">Prefer a quick note?</h2>
+              <span class="contact-chip">Direct lines open</span>
+            </div>
+            <p class="mt-2 text-sm text-slate-300">Send a message directly and include your best contact info so I can follow up with questions.</p>
+            <div class="contact-links">
+              <a class="contact-link" href="mailto:hello@calliemadson.com">
+                <div class="icon-circle">
+                  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6l8 6 8-6v12H4z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </div>
+                <div>
+                  <div class="label">Direct email</div>
+                  <div class="value">hello@calliemadson.com</div>
+                </div>
+                <span class="chevron">›</span>
+              </a>
+              <a class="contact-link" href="tel:+15555551234">
+                <div class="icon-circle">
+                  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 4h4l2 4-3 2a11 11 0 0 0 6 6l2.5-3L20 15v4c0 .6-.4 1-1 1A14 14 0 0 1 4 5c0-.6.4-1 1-1z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </div>
+                <div>
+                  <div class="label">Studio phone</div>
+                  <div class="value">(555) 555-1234</div>
+                </div>
+                <span class="chevron">›</span>
+              </a>
+              <div class="contact-inline">
+                <div class="icon-circle">
+                  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 8v5l3 3" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/><circle cx="12" cy="12" r="8" fill="none" stroke="currentColor" stroke-width="1.6"/></svg>
+                </div>
+                <div>
+                  <div class="label">Office hours</div>
+                  <div class="value">Mon–Fri · 9a–4p CST</div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="contact-card contact-card--outline">
             <h2 class="text-lg font-semibold">What to include</h2>
             <ul class="mt-4 list-disc space-y-2 pl-5 text-sm text-slate-300">
               <li>Desired instrumentation, voicing, or ensemble size</li>
@@ -121,25 +180,25 @@
             </ul>
           </div>
         </div>
-        <form action="https://formspree.io/f/xwkgoqgv" method="POST" class="space-y-6 rounded-2xl bg-slate-950/70 p-6 shadow-2xl ring-1 ring-white/10">
+        <form action="https://formspree.io/f/xwkgoqgv" method="POST" class="contact-form space-y-6 rounded-2xl bg-slate-950/70 p-6 shadow-2xl ring-1 ring-white/10">
           <div class="grid gap-4 sm:grid-cols-2">
             <label class="text-sm font-semibold text-slate-200">
               Full name
-              <input type="text" name="name" autocomplete="name" required class="mt-2 w-full rounded-xl border border-white/10 bg-white/5 px-4 py-2.5 text-base text-white placeholder-slate-400 focus:border-cyan-300 focus:outline-none focus:ring-2 focus:ring-cyan-300/40" placeholder="Alex Director">
+              <input type="text" name="name" autocomplete="name" required class="contact-input" placeholder="Alex Director">
             </label>
             <label class="text-sm font-semibold text-slate-200">
               Email
-              <input type="email" name="email" autocomplete="email" required class="mt-2 w-full rounded-xl border border-white/10 bg-white/5 px-4 py-2.5 text-base text-white placeholder-slate-400 focus:border-cyan-300 focus:outline-none focus:ring-2 focus:ring-cyan-300/40" placeholder="you@example.com">
+              <input type="email" name="email" autocomplete="email" required class="contact-input" placeholder="you@example.com">
             </label>
           </div>
           <div class="grid gap-4 sm:grid-cols-2">
             <label class="text-sm font-semibold text-slate-200">
               Organization or ensemble
-              <input type="text" name="organization" autocomplete="organization" class="mt-2 w-full rounded-xl border border-white/10 bg-white/5 px-4 py-2.5 text-base text-white placeholder-slate-400 focus:border-cyan-300 focus:outline-none focus:ring-2 focus:ring-cyan-300/40" placeholder="River City Chorale">
+              <input type="text" name="organization" autocomplete="organization" class="contact-input" placeholder="River City Chorale">
             </label>
             <label class="text-sm font-semibold text-slate-200">
               Project type
-              <select name="projectType" class="mt-2 w-full rounded-xl border border-white/10 bg-white/5 px-4 py-2.5 text-base text-white focus:border-cyan-300 focus:outline-none focus:ring-2 focus:ring-cyan-300/40">
+              <select name="projectType" class="contact-input">
                 <option value="Original composition">Original composition</option>
                 <option value="Custom arrangement">Custom arrangement</option>
                 <option value="Film / media scoring">Film / media scoring</option>
@@ -150,13 +209,16 @@
           </div>
           <label class="text-sm font-semibold text-slate-200 block">
             Project goals &amp; timeline
-            <textarea name="message" rows="5" required class="mt-2 w-full rounded-xl border border-white/10 bg-white/5 px-4 py-3 text-base text-white placeholder-slate-400 focus:border-cyan-300 focus:outline-none focus:ring-2 focus:ring-cyan-300/40" placeholder="Tell me about the story, deadlines, and any reference pieces you'd like me to hear."></textarea>
+            <textarea name="message" rows="5" required class="contact-input" placeholder="Tell me about the story, deadlines, and any reference pieces you'd like me to hear."></textarea>
           </label>
           <input type="text" name="_gotcha" class="hidden" tabindex="-1" autocomplete="off">
-          <button type="submit" class="inline-flex w-full items-center justify-center rounded-xl bg-celestial px-5 py-3 text-base font-semibold text-slate-900 shadow-lg shadow-yellow-200/20 transition hover:bg-amber-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-yellow-200">
-            Send request
-          </button>
-          <p class="text-center text-xs text-slate-400">You’ll receive a confirmation email immediately after submitting. Update the Formspree endpoint once your production inbox is ready.</p>
+          <div class="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+            <button type="submit" class="contact-submit">
+              <span>Send request</span>
+              <svg viewBox="0 0 24 24" aria-hidden="true" class="icon"><path d="M5 12h14m0 0-4 4m4-4-4-4" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </button>
+            <div class="contact-promise text-xs text-slate-400">You’ll receive a confirmation email immediately after submitting. Update the Formspree endpoint once your production inbox is ready.</div>
+          </div>
         </form>
       </div>
     </div>
