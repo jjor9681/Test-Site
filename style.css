@@ -375,28 +375,33 @@ body.nav-open {
   position: absolute;
   inset: 0;
   background-repeat: repeat-x;
-  background-size: 200% 100%;
+  background-size: 220% 100%;
   filter: drop-shadow(0 -6px 14px rgba(56, 189, 248, 0.22));
   animation: waveScroll var(--wave-duration, 22s) linear infinite;
   opacity: var(--wave-opacity, 1);
   mix-blend-mode: screen;
-  --wave-fade: clamp(24px, 6vw, 140px);
+  --wave-fade: clamp(96px, 18vw, 360px);
   -webkit-mask-image: linear-gradient(
     to right,
     transparent 0,
-    #000 var(--wave-fade),
-    #000 calc(100% - var(--wave-fade)),
+    rgba(0, 0, 0, 0.7) calc(var(--wave-fade) * 0.55),
+    #000 calc(var(--wave-fade) * 1.05),
+    #000 calc(100% - var(--wave-fade) * 1.05),
+    rgba(0, 0, 0, 0.7) calc(100% - var(--wave-fade) * 0.55),
     transparent 100%
   );
   mask-image: linear-gradient(
     to right,
     transparent 0,
-    #000 var(--wave-fade),
-    #000 calc(100% - var(--wave-fade)),
+    rgba(0, 0, 0, 0.7) calc(var(--wave-fade) * 0.55),
+    #000 calc(var(--wave-fade) * 1.05),
+    #000 calc(100% - var(--wave-fade) * 1.05),
+    rgba(0, 0, 0, 0.7) calc(100% - var(--wave-fade) * 0.55),
     transparent 100%
   );
   -webkit-mask-repeat: no-repeat;
   mask-repeat: no-repeat;
+  will-change: background-position;
 }
 
 .wave-layer-1 {
@@ -467,7 +472,7 @@ body.nav-open {
 
 @keyframes waveScroll {
   0% { background-position: 0 0; }
-  100% { background-position: -50% 0; }
+  100% { background-position: -70% 0; }
 }
 
 @keyframes orbFloat {
