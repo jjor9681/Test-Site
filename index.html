@@ -511,45 +511,7 @@
       // Let the gradient flow briefly, then freeze and reveal
       setTimeout(reveal, 1200);
 
-      // CTA animation then show full menu
-      if (ctaBtn) {
-        ctaBtn.addEventListener('click', () => {
-          const hero = document.getElementById('hero-section');
-
-          if (hero && typeof window.heroBubbleBurst === 'function') {
-            const buttonRect = ctaBtn.getBoundingClientRect();
-            window.heroBubbleBurst(
-              buttonRect.left + buttonRect.width / 2,
-              buttonRect.top + buttonRect.height / 2,
-              { count: 16, radius: 70, drift: -48 }
-            );
-          }
-
-          if (ctaOverlay) {
-            ctaOverlay.style.opacity = '1';
-            ctaOverlay.style.transform = 'scale(0.45)';
-            ctaOverlay.animate([
-              { transform: 'scale(0.45)', opacity: 0.2 },
-              { transform: 'scale(1.15)', opacity: 0.65 },
-              { transform: 'scale(1.85)', opacity: 0 }
-            ], { duration: 720, easing: 'cubic-bezier(0.18, 0.82, 0.25, 1)', fill: 'forwards' });
-          }
-
-          // 2) Morph CTA into menu with springy reveal
-          if (heroMenu) {
-            heroMenu.classList.remove('hidden');
-            heroMenu.animate([
-              { opacity: 0, transform: 'scale(.96) translateY(10px)' },
-              { opacity: 1, transform: 'scale(1) translateY(0)' }
-            ], { duration: 320, easing: 'cubic-bezier(.2,1,.2,1)', fill: 'forwards' });
-          }
-
-          // remove CTA button itself
-          ctaBtn.style.pointerEvents = 'none';
-          ctaBtn.animate([{ opacity: 1 }, { opacity: 0 }], { duration: 250, easing: 'ease-in', fill: 'forwards' });
-          setTimeout(() => { ctaBtn.style.display = 'none'; }, 260);
-        });
-      }
+      // CTA click handling is centralized in main.js for performance
     });
   </script>
 </body>

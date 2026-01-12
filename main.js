@@ -92,9 +92,28 @@ document.addEventListener('DOMContentLoaded', () => {
   };
 
   if (heroButton && heroMenu) {
-    heroButton.addEventListener('click', () => {
-      const isOpen = heroButton.getAttribute('aria-expanded') === 'true';
-      setHeroMenuState(!isOpen);
+    heroButton.addEventListener('click', (event) => {
+      // Compute ripple origin relative to button
+      const rect = heroButton.getBoundingClientRect();
+      const x = (event.clientX ?? (rect.left + rect.width / 2)) - rect.left;
+      const y = (event.clientY ?? (rect.top + rect.height / 2)) - rect.top;
+      heroButton.style.setProperty('--ripple-x', `${x}px`);
+      heroButton.style.setProperty('--ripple-y', `${y}px`);
+      // Trigger ripple
+      heroButton.classList.add('btn-rippling');
+      // Open menu (no toggle) for a snappier feel
+      setHeroMenuState(true);
+      // Fade out and remove button after short delay
+      heroButton.style.pointerEvents = 'none';
+      // Allow ripple to be visible briefly before fade
+      setTimeout(() => {
+        heroButton.classList.add('is-fading');
+      }, 80);
+      // Clean up: stop ripple class and remove element from layout
+      setTimeout(() => {
+        heroButton.classList.remove('btn-rippling');
+        heroButton.style.display = 'none';
+      }, 280);
     });
 
     document.addEventListener('keydown', (event) => {
