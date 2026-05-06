@@ -223,6 +223,82 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
+
+  const initShopCatalog = () => {
+    if (pageKey !== 'shop') return;
+    const featuredCatalog = document.getElementById('featured-catalog');
+    const catalog = document.getElementById('catalog');
+    if (!catalog || !featuredCatalog) return;
+
+    const sourceItems = Array.isArray(window.TEMPLATE_SHOP_ITEMS) ? window.TEMPLATE_SHOP_ITEMS : [];
+
+    const featuredItem = {
+      title: 'Crayon Box Recital',
+      category: 'bundle',
+      description: 'A ten-piece collection from Black to Violet.',
+      subtitle: 'Bundle + individual colors',
+      href: 'crayonboxshop.html',
+      cta: 'View',
+    };
+
+    const createCard = (item) => {
+      const article = document.createElement('article');
+      article.className = 'item shop-card rounded-xl border border-white/15 bg-slate-950 p-6 shadow-lg ring-1 ring-white/10';
+      article.dataset.categories = item.category || 'all';
+
+      if (item.href) {
+        article.classList.add('rainbow-glow', 'border-2', 'border-yellow-300/40');
+        article.innerHTML = `<a href="${item.href}" class="block" data-fade-nav><div class="flex items-start justify-between gap-4"><div><h2 class="text-xl font-semibold">${item.title}</h2><p class="mt-1 text-slate-300 text-sm">${item.subtitle || ''}</p></div><span class="rounded-full bg-yellow-300/20 px-3 py-1 text-xs font-semibold text-yellow-200 ring-1 ring-inset ring-yellow-200/30">${item.cta}</span></div><p class="mt-4 text-sm text-slate-400">${item.description || ''}</p></a>`;
+      } else {
+        article.innerHTML = `<div class="flex items-start justify-between gap-4"><div><h2 class="text-xl font-semibold">${item.title}</h2><p class="mt-1 text-slate-300 text-sm">${item.difficulty || 'All levels'} · ${(item.category || 'template').toUpperCase()}</p></div><span class="rounded-full bg-brand-400/20 px-3 py-1 text-xs font-semibold text-brand-100 ring-1 ring-inset ring-brand-200/40">Template</span></div><p class="mt-4 text-sm text-slate-400">${item.description || ''}</p><div class="mt-4 flex flex-wrap gap-2"><a class="rounded-full border border-white/20 px-3 py-1.5 text-xs hover:bg-white/10" href="${item.pdf}" target="_blank" rel="noopener">PDF</a><a class="rounded-full border border-white/20 px-3 py-1.5 text-xs hover:bg-white/10" href="${item.audio}" target="_blank" rel="noopener">Audio</a></div>`;
+      }
+      return article;
+    };
+
+    featuredCatalog.appendChild(createCard(featuredItem));
+    sourceItems.forEach((item) => catalog.appendChild(createCard(item)));
+
+    const buttons = Array.from(document.querySelectorAll('.filter-btn'));
+    const clearBtn = document.getElementById('clear-filters');
+    const cardNodes = Array.from(catalog.querySelectorAll('.item'));
+    const selected = new Set();
+
+    const renderFilters = () => {
+      if (selected.size === 0) {
+        cardNodes.forEach((el) => el.classList.remove('hidden'));
+      } else {
+        cardNodes.forEach((el) => {
+          const cats = (el.dataset.categories || '').split(',').map((v) => v.trim());
+          el.classList.toggle('hidden', !cats.some((cat) => selected.has(cat)));
+        });
+      }
+
+      buttons.forEach((button) => {
+        const filter = button.dataset.filter;
+        const active = filter === 'all' ? selected.size === 0 : selected.has(filter);
+        button.classList.toggle('bg-white/10', active);
+        button.setAttribute('aria-pressed', String(active));
+      });
+    };
+
+    buttons.forEach((button) => {
+      button.addEventListener('click', () => {
+        const filter = button.dataset.filter;
+        if (filter === 'all') selected.clear();
+        else if (selected.has(filter)) selected.delete(filter);
+        else selected.add(filter);
+        renderFilters();
+      });
+    });
+
+    clearBtn?.addEventListener('click', () => {
+      selected.clear();
+      renderFilters();
+    });
+
+    renderFilters();
+  };
+
   // Cross-page fade transition between shop and sub-shop pages
   const initFadeTransitions = () => {
     const body = document.body;
@@ -251,5 +327,6 @@ document.addEventListener('DOMContentLoaded', () => {
       });
     });
   };
+  initShopCatalog();
   initFadeTransitions();
 });
